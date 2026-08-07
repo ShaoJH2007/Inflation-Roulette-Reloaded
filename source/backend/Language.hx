@@ -18,7 +18,9 @@ class Language {
 	public static var phrasesCount:Map<String, Int> = [];
 
 	public static function initialize() {
-		phrases = fetchPhrases(Preferences.data.language);
+		var prefLang = Preferences.data.language.split('-');
+		prefLang[1] = prefLang[1].toUpperCase();
+		phrases = fetchPhrases(prefLang.join('-'));
 		fallbackPhrases = fetchPhrases(defaultLanguage);
 		fallbackKeys = fetchKeys(defaultLanguage);
 
