@@ -1,0 +1,799 @@
+{
+	// ! DO NOT DELETE THE COMMENTS        !
+	// ! COMMENTS WILL NOT BE READ BY GAME !
+	// *** Translation File ***
+	// Language: Português (Brasil)
+	
+	// Comments are prefixed with two slashes (//) before each LINE, and will not be recognized by the game.
+	// Comments are reserved for translation notes, either to clarify context or give instructions.
+	// There's no need to translate comments.
+	
+	// Empty lines will also be ignored as well.
+	
+	// For the majority of the text in the game UI, a technical tone is used.
+	// Unless specified otherwise, most lengthy prompts uses a witty/humorous tone.
+	// Some jokes may be regional and lose its punchline. In this case, try to come up with a similar joke
+	// that works in your country's region. If all else fails, just make an entirely different joke.
+	
+	// In all cases, try your best to capture the original tone of the locale strings.
+	// But if the language you're translating is inherently unserious (e.g. LOLCAT, Pirate Speak), ehh just get the message across.
+	// Ultimately, the message that came across should remain unchanged to avoid any confusion.
+	
+	// For names of fictional people and fictional places, they should remain untranslated.
+	// If your language uses another script other than Latin, make sure they phonetically
+	// sound similar to its English counterpart.
+	// In a nutshell, transliterate names.
+	
+	// For terms like "Inflation Roulette" and "Reloaded" used in a naming context,
+	// unless your language does not use the Latin script, it should be remain
+	// untranslated.
+
+	// The positions of escape sequence in-between sentences should be left AS IS.
+	
+	// Remember the "Transliterate Names" rule
+	"metadata.title": "Inflation Roulette: Reloaded",
+	"metadata.titleShort": "Inflation Roulette",
+	"metadata.acronym": "IRR",
+	
+	// Version Formatting
+	// For example, if the version is 2.3.1 in an Linux environment,
+	// it will be formatted in the following way in the bottom info text of the Main Menu:
+	
+	// Inflation Roulette: Reloaded
+	// Patch of Creativity (Pitstop 3 Amendment 1)
+	// Version 2.3.1
+	// Linux Build
+	
+	"metadata.version.numeral.format": "Versão %1",
+	"metadata.version.numeralModded.format": "Versão modificada %1",
+	"metadata.version.name.minor.format": "Pitstop %1",
+	"metadata.version.name.hotfix.format": "Hotfix %1",
+	// %1 is the platform in which the executable is dedicated.
+	// For example, if the game is on Windows, "Windows Build" will be displayed.
+	// Note that platform names will remain untranslated.
+	"game.build.format": "Build pra %1",
+	
+	"metadata.version.name.major.0": "Em desenvolvimento",
+	// Version 1: Initial Release
+	"metadata.version.name.major.1": "Lançamento inicial",
+	// Version 2: Added Achievements, Modding Tools, More Characters, Gallery & Jukebox and Results Screen
+	// The Version Name has two interpretations. One being it being a update that introduces creative-related content (e.g. Modding Tools, Extras).
+	// Another way to interpret this is the update being a piece of cloth, which is usually associated with creativity, suiting the update content.
+	// If applicable, try to come up with some clever word-play or multi-interpreting phrases.
+	"metadata.version.name.major.2": "Estouro de Criatividade",
+	// Version 3: Final update. Added Android support and quality of life features.
+	"metadata.version.name.major.3": "Edição Definitiva",
+	// Yes. I'm using Greek letters for stylistic purposes (even tho it looks kinda offensive lmao)
+	"metadata.version.name.state.a": "Alphα Pública %1",
+	"metadata.version.name.state.b": "βeta Pública %1",
+	"metadata.version.name.state.c": "Candidato à Lançamento %1",
+	
+	// These are the button texts in the Main Menu.
+	"mainMenu.windowDisplay": "Menu Principal",
+	"mainMenu.play": "Jogar",
+	"mainMenu.achievements": "Conquistas",
+	"mainMenu.options": "Opções",
+	"mainMenu.language": "Idioma",
+	"mainMenu.addons": "Adições",
+	// Utilities means Modding Utilities
+	"mainMenu.utilities": "Ferramentas",
+	"mainMenu.extras": "Extras",
+	"mainMenu.donate": "Doar",
+	
+	// Tooltips for buttons in the Main Menu.
+	"mainMenu.donate.tooltip": "Sua genorosa doação apoiará o desenvolvedor!",
+	
+	// When clicking on the Main Menu icon, a tally counter will be incremented. Get 10000 results in an achievement.
+	"mainMenu.dongs": "Você acumulou: \n%1 Dongs",
+	"mainMenu.dongs.comment.10": "ok você pode parar com isso",
+	"mainMenu.dongs.comment.20": "você não tem nada melhor pra fazer?",
+	"mainMenu.dongs.comment.50": "vaza daqui, joga a droga do jogo",
+	"mainMenu.dongs.comment.100": "cara você tá legal? você enlouqueceu?",
+	"mainMenu.dongs.comment.200": "duzentos cara. arruma um emprego ou algo do tipo",
+	"mainMenu.dongs.comment.300": "sabe, tem alguém que fez isso",
+	"mainMenu.dongs.comment.320": "digitou o código, depurou como doido",
+	"mainMenu.dongs.comment.340": "cuidadosamente desenhou todos os personagens",
+	"mainMenu.dongs.comment.360": "planejou a droga da interface de usuário",
+	"mainMenu.dongs.comment.380": "... você está me ouvindo?",
+	"mainMenu.dongs.comment.400": "pare de gastar sua energia",
+	"mainMenu.dongs.comment.500": "ok, chega, tipo, sério",
+	"mainMenu.dongs.comment.600": "mano é só clicar em \"jogar\" não é tão difícil",
+	"mainMenu.dongs.comment.700": "bota seu cursor ali, e jogue o bendito jogo",
+	"mainMenu.dongs.comment.800": "é tão difícil assim jogar a droga do jogo?",
+	"mainMenu.dongs.comment.900": "sabe de uma coisa? não vou mais falar contigo",
+	"mainMenu.dongs.comment.1000": "...ainda clicando nessa coisa?",
+	"mainMenu.dongs.comment.1100": "você sabe que isso não vai te dar nada, né",
+	"mainMenu.dongs.comment.1200": "pare de perder seu tempo, não é como se fosse recuperar ele mesmo",
+	"mainMenu.dongs.comment.1300": "você sabe que esse jogo identifica sua latitude e longitude exatas, né",
+	"mainMenu.dongs.comment.1400": "se você não parar, sua localização exata vai ser enviada aos nossos servidores",
+	"mainMenu.dongs.comment.1500": "sua localização agora é monitorada pelos desenvolvedores.",
+	"mainMenu.dongs.comment.2000": "ai meu Deus você não para",
+	"mainMenu.dongs.comment.3000": "você só tá entediado demais, não é?",
+	"mainMenu.dongs.comment.5000": "aos 10000 dongs, o seu progresso vai ser apagado, e o jogo vai se auto-deletar.",
+	"mainMenu.dongs.comment.10000": "ok tá legal, toma sua conquista. agora some da minha vista.",
+
+	"extrasMenu.windowDisplay": "Extras",
+	"extrasMenu.title": "CONTEÚDO EXTRA",
+	"extrasMenu.gallery": "Galeria",
+	"extrasMenu.jukebox": "Jukebox",
+	
+	"debugText.framerate": "FPS",
+	"debugText.memory": "GC RAM",
+	"debugText.memoryPeak": "GC RAM Peak",
+	"debugText.state": "State",
+	// %1: Debug Text
+	"debugText.format": "%1: %2",
+	
+	// Please make sure that this is written in a formal tone.
+	"warningMenu.windowDisplay": "Aviso",
+	"warningMenu.title": "AVISO",
+	"warningMenu.content": "Esse jogo é destinado a públicos adultos com 18 ANOS OU MAIS.\nEsse é um jogo de fetiche, contendo principalmente conteúdo de INFLAÇÃO FURRY. Adições externas de terceiros não são moderadas. Gravar e transmitir esse jogo ao vivo em plataformas de mídias sociais onde menores de idade são muito presentes é fortemente desencorajado.\nEsse jogo também contém imagens piscantes e tremores de tela que podem causar sintomas de fotossensibilidade e convulsões em algumas pessoas. Esses efeitos podem ser desativados pelo menu de Opções.\nAo selecionar 'Concordo', você assume ter lido estes avisos e que possui consciência por quaisquer consequências causadas por jogar este jogo.",
+	"menu.accept": "Concordo",
+
+	"optionsMenu.windowDisplay": "Opções",
+	"optionsMenu.heading.gameplay": "Gameplay",
+	"optionsMenu.heading.preferences": "Preferências",
+	"optionsMenu.heading.performance": "Performance",
+	"optionsMenu.heading.visuals": "Visuais",
+	"optionsMenu.heading.audio": "Áudio",
+	"optionsMenu.heading.accessibility": "Acessibilidade",
+	"optionsMenu.heading.cursor": "Cursor",
+	"optionsMenu.heading.technical": "Técnico",
+	"optionsMenu.heading.debugText": "Texto Padrão",
+
+	"option.skipEliminatedPlayers.name": "Pular Eliminado",
+	"option.skipEliminatedPlayers.description": "Jogadores eliminados não vão reproduzir uma animação quando for a vez deles.",
+	"option.enableBellyRubbing.name": "Acariciar",
+	"option.enableBellyRubbing.description": "Cursor capaz de acariciar a barriga dos jogadores quando parados. Desabilitar pode ajudar na performance em dispositivos mais fracos.",
+	// This option is a button.
+	"option.controls.name": "Controles",
+	"option.controls.description": "Configurar Teclas.",
+	
+	"option.controls.gameplay": "Gameplay",
+	"option.controls.keybind.shoot": "Disparar Arma",
+	"option.controls.keybind.exit": "Cancelar Ação",
+	"option.controls.keybind.camera": "Ativar Cinemática",
+	"option.controls.keybind.skill1": "Usar Habilidade 1",
+	"option.controls.keybind.skill2": "Usar Habilidade 2",
+	"option.controls.keybind.skill3": "Usar Habilidade 3",
+	"option.controls.keybind.pause": "Pausar Jogo",
+	"option.controls.ui": "Interface do Usuário",
+	"option.controls.keybind.up": "Cima",
+	"option.controls.keybind.left": "Esquerda",
+	"option.controls.keybind.down": "Baixo",
+	"option.controls.keybind.right": "Direita",
+	"option.controls.debug": "Depuração",
+	"option.controls.keybind.debug1": "Tecla de Depuração 1",
+	"option.controls.keybind.debug2": "Tecla de Depuração 2",
+	
+	// 1: Keybind Name, 2: Key Orientation (Primary/Secondary)
+	"option.controls.bindingKey.title": "Configurando %1\n%2 Tecla",
+	"option.controls.bindingKey.bindType.0": "Primária",
+	"option.controls.bindingKey.bindType.1": "Secundária",
+	"option.controls.bindingKey.subtitle": "Pressione Qualquer Tecla",
+	"option.controls.bindingKey.bind": "Vincular",
+	"option.controls.bindingKey.remove": "Remover",
+	
+	// These are not necessary to translate, but they may be helpful for regional keyboards.
+	"keybind.ALT": "Alt",
+	"keybind.BACKSLASH": "\\",
+	"keybind.BACKSPACE": "Back Space",
+	"keybind.BREAK": "Pause Break",
+	"keybind.CAPSLOCK": "Caps Lock",
+	"keybind.COMMA": ",",
+	"keybind.CONTROL": "Control",
+	"keybind.DELETE": "Delete",
+	"keybind.EIGHT": "8",
+	"keybind.END": "End",
+	"keybind.FIVE": "5",
+	"keybind.FOUR": "4",
+	"keybind.GRAVEACCENT": "`",
+	"keybind.HOME": "Home",
+	"keybind.INSERT": "Insert",
+	"keybind.LBRACKET": "[",
+	"keybind.NINE": "9",
+	"keybind.NONE": "[---]",
+	"keybind.NUMLOCK": "Num Lock",
+	"keybind.NUMPADEIGHT": "Numpad 8",
+	"keybind.NUMPADFIVE": "Numpad 5",
+	"keybind.NUMPADFOUR": "Numpad 4",
+	"keybind.NUMPADMINUS": "Numpad -",
+	"keybind.NUMPADMULTIPLY": "Numpad *",
+	"keybind.NUMPADNINE": "Numpad 9",
+	"keybind.NUMPADONE": "Numpad 1",
+	"keybind.NUMPADPERIOD": "Numpad .",
+	"keybind.NUMPADPLUS": "Numpad +",
+	"keybind.NUMPADSEVEN": "Numpad 7",
+	"keybind.NUMPADSIX": "Numpad 6",
+	"keybind.NUMPADSLASH": "Numpad /",
+	"keybind.NUMPADTHREE": "Numpad 3",
+	"keybind.NUMPADTWO": "Numpad 2",
+	"keybind.NUMPADZERO": "Numpad 0",
+	"keybind.ONE": "1",
+	"keybind.PAGEDOWN": "Page Down",
+	"keybind.PAGEUP": "Page Up",
+	"keybind.PERIOD": ".",
+	"keybind.PRINTSCREEN": "Print Screen",
+	"keybind.QUOTE": "'",
+	"keybind.RBRACKET": "]",
+	"keybind.SCROLL_LOCK": "Scroll Lock",
+	"keybind.SEMICOLON": ";",
+	"keybind.SEVEN": "7",
+	"keybind.SIX": "6",
+	"keybind.SLASH": "/",
+	"keybind.SPACE": "Space",
+	"keybind.THREE": "3",
+	"keybind.TWO": "2",
+	"keybind.ZERO": "0",
+	
+	"option.enablePopping.name": "Explosões",
+	"option.enablePopping.description": "Jogadores estouram não fatalmente ao serem eliminados.\nSe desativado, os personagens ficarão apenas super inflados.\nTerá efeito na próxima partida.",
+	"option.enableBellyGurgles.name": "Borbulhar",
+	"option.enableBellyGurgles.description": "Jogadores tocam sons de borbulhar internos quando inflados e estáticos.",
+	"option.enableBellyCreaks.name": "Rangidos",
+	"option.enableBellyCreaks.description": "Jogadores tocam sons de balões rangendo quando estáticos e inflados.",
+	"option.enableBelching.name": "Arrotos",
+	"option.enableBelching.description": "Jogadores arrotam quando inflados.",
+	"option.enableDiscoloration.name": "Tintura",
+	"option.enableDiscoloration.description": "A cor da pele dos jogadores muda quando inflados com certos meios. (GLSL Shaders devem estar ativados)",
+	"option.enableOralLeaking.name": "Vazamento (Oral)",
+	"option.enableOralLeaking.description": "Jogadores liberam fluídos pela boca quando inflados por certos meios.",
+	"option.enableNavelLeaking.name": "Vazamento (Umbigo)",
+	"option.enableNavelLeaking.description": "Jogadores liberam fluídos pelo umbigo quando inflados por certos meios.",
+	"option.enableFullscreen.name": "Tela Cheia",
+	"option.enableFullscreen.description": "Auto-explicativo, mas você tá tão carente assim?",
+	"option.hideHUD.name": "Esconder HUD",
+	"option.hideHUD.description": "Esconde a HUD do jogo durante a jogatina. Útil para capturar filmagens do jogo.",
+	"option.hideTooltip.name": "Esconder Dicas",
+	"option.hideTooltip.description": "Oculta as dicas dos botôes ao passar o cursor.",
+	"option.screenSafeArea.name": "Área Segura",
+	"option.screenSafeArea.description": "Ajuste o slider até que a área branca cubra todas as áreas não obstruídas da sua tela.\n(Mudanças na Interface de Usuário serão atualizadas após sair do jogo)",
+	// Yes. This DOES mean Forced Aliasing as in like forcing to turn off anti-aliasing
+	"option.decreaseDetail.name": "Detalhes Reduzidos",
+	"option.decreaseDetail.description": "Diminui efeitos de partícula não essenciais. Pode ajudar com dispositivos mais fracos.",
+	"option.decreaseSounds.name": "Sons Reduzidos",
+	"option.decreaseSounds.description": "Diminui efeitos sonoros não essenciais. Pode ajudar com dispositivos mais fracos.",
+	"option.enableForcedAliasing.name": "Pixelização Forçada",
+	"option.enableForcedAliasing.description": "Desativa antiserrilhamento de todas as sprites mesmo com ele ligado. Pode deixar alguns gráficos pixelados.",
+	"option.enableGLSL.name": "Shaders GLSL",
+	"option.enableGLSL.description": "Ativa Shaders GLSL para alguns elementos do menu. Desativar essa opção pode reduzir a carga em GPUs mais fracas.",
+	"option.alwaysPlayMainMenuAnims.name": "Animações no Menu Principal",
+	"option.alwaysPlayMainMenuAnims.description": "Sempre reproduzir animações de inicialização no Menu Principal.",
+	"option.showMusicToast.name": "Notificação Visual da Música",
+	"option.showMusicToast.description": "Uma notificação contendo o nome and e autor da música tocando no plano de fundo será exibida sempre que uma faixa começar a tocar.",
+	"option.enableLetterbox.name": "Letterboxing",
+	"option.enableLetterbox.description": "Mostra barras pretas nas extremidades superior e inferior da tela ao executar animações e cinemáticas.",
+	"option.musicVolume.name": "Volume da Música",
+	"option.musicVolume.description": "Percentual do volume da música de fundo.",
+	"option.gameSoundVolume.name": "Volume dos Efeitos Sonoros",
+	"option.gameSoundVolume.description": "Percentual do volume dos efeitos sonoros do jogo.",
+	"option.uiSoundVolume.name": "Volume da Interface de Usuário",
+	"option.uiSoundVolume.description": "Percentual do volume dos efeitos sonoros da interface de usuário",
+	"option.enablePhotosensitiveMode.name": "Modo Fotossensível",
+	"option.enablePhotosensitiveMode.description": "Reduz piscadas da tela e outros efeitos piscantes.\nFortemente recomendado para pessoas com epilepsia fotossensível.",
+	"option.cameraSpeed.name": "Velocidade da Câmera",
+	"option.cameraSpeed.description": "Quão rápida a velocidade de movimento da câmera deve ser.",
+	"option.cameraEffectIntensity.name": "Intensidade da Câmera",
+	"option.cameraEffectIntensity.description": "Quão forte o chacoalhar da câmera e outros efeitos desorientadores devem ser.",
+	"option.useBuiltInCursor.name": "Cursor Embutido",
+	"option.useBuiltInCursor.description": "Usa o cursor embutido curstomizado no lugar do cursor do mouse padrão do sistema.",
+	"option.playCursorSounds.name": "Sons do Cursor",
+	"option.playCursorSounds.description": "Toca um som de clique toda vez que o cursor do mouse clica em algo.",
+	"option.maxFramerate.name": "Framerate Máxima",
+	"option.maxFramerate.description": "Quantas atualizacões da tela e atualizações do jogo devem ser feitas por segundo.",
+	"option.pauseOnUnfocus.name": "Pausar Quando Desfocado",
+	"option.pauseOnUnfocus.description": "Automaticamente pausa o jogo quando o mesmo está fora de foco.",
+	"option.cacheOnGPU.name": "Caching de VRAM",
+	"option.cacheOnGPU.description": "Permite que a GPU seja usada para guardar texturas usando VRAM para um menor uso de RAM.\nPode não funcionar corretamente com placas de vídeo mais fracas.",
+	"option.checkForUpdates.name": "Procurar Atualizações",
+	"option.checkForUpdates.description": "Automaticamente buscar por atualizações do jogo durante a inicialização.",
+	"option.enableDebugKeybinds.name": "Teclas de Desenvolvedor",
+	"option.enableDebugKeybinds.description": "Ativar teclas de desenvolvedor no PC.",
+	"option.showDebugText.name": "Texto de Depuração",
+	"option.showDebugText.description": "Exibe informação de depuração no canto superior esquerdo da tela",
+	"option.showFramerateOnDebugText.name": "Framerate",
+	"option.showFramerateOnDebugText.description": "Mostra a framerate atual no Texto de Depuração.",
+	"option.showMemoryUsageOnDebugText.name": "Uso de memória do GC",
+	"option.showMemoryUsageOnDebugText.description": "Exibe a quantidade de memória atualmente usada pelo garbage collector no Texto de Depuração.",
+	"option.showCurrentStateOnDebugText.name": "Estado Atual",
+	"option.showCurrentStateOnDebugText.description": "Exibe o menu que está sendo atualmente navegado no Texto de Depuração.",
+
+	"addonsMenu.windowDisplay": "Adições",
+	"addonsMenu.authors": "Autores:",
+	"addonsMenu.noAddonsDetected.title": "Nenhuma Adição Detectada",
+	"addonsMenu.noAddonsDetected.content": "Nenhuma adição foi detectada dentro da pasta de adições. Por favor cheque se você incluiu metada.json na pasta metadata dentro de adições\nSe você acha que isso é um engano, por favor reporte o seu problema no nosso repositório GitHub.",
+
+	"languageMenu.windowDisplay": "Selecionar Idioma",
+	"languageMenu.title": "SELECIONAR IDIOMA",
+	"languageMenu.description": "Nota: Traduções podem não ser 100% exatas, e podem conter traduções incorretas ou texto não traduzido.",
+	"languageMenu.contributors": "Contribuidores",
+	"languageMenu.completion": "%1 Completo",
+	"languageMenu.deprecated": "[DEFASADO]",
+	"languageMenu.exportedUnmatchedKeys": "Indentificadores de localização faltantes e defasados exportados em:\n%1",
+
+	"gamemodeSelect.windowDisplay": "Selecionar Modo de Jogo",
+	"gamemodeSelect.title": "SELECIONAR MODO DE JOGO",
+	"gamemodeSelect.playerCount": "Jogadores",
+	"gamemodeSelect.setting.format": "%1: %2",
+	"gamemode.quickPlay.name": "Jogo Rápido",
+	"gamemode.quickPlay.description": "Personagens aleatórios.\nConfigurações ligeiras e sem frescura.",
+	// Reloaded should remain untranslated (transliterate if not Latin script)
+	"gamemode.reloaded.name": "Reloaded",
+	"gamemode.reloaded.description": "Uma nova forma de jogar Inflation Roulette.\nBalanceado como o desenvolvedor desejava.",
+	"gamemode.inequality.name": "Desigualdade",
+	"gamemode.inequality.description": "Jogadores recebem habilidades aleatórias a cada tiro dado com munição viva\n\"Todos os jogadores são iguais, mas alguns jogadores são mais iguais do que outros.\" - A Revolução dos Bichos, provavelmente",
+	"gamemode.classic.name": "Clássico",
+	"gamemode.classic.description": "Verdadeira aleatoriedade e sabotagem sem fim.\nApenas para fins arquivísticos.",
+	"gamemode.charge.name": "Carregado",
+	"gamemode.charge.description": "Dano aumenta a cada tiro de festim.\nGameplay arriscada e recompensadora.",
+
+	"characterSelect.windowDisplay": "Configuração de Gameplay",
+	// Select Character: This phrase is meant to be archaic. Try to make your translation mysterious/archaic.
+	"characterSelect.selectCharacter": "ESCOLHA SEUS RECEPTÁCULOS",
+	"characterSelect.holdCardsToSeeInfo": "Segure as Cartas Para Ver Informações",
+	// Select Filler: This however, does not need to be in the same tone as Select Character.
+	"characterSelect.selectFiller": "ESCOLHA O RECHEIO",
+	// Select Stage: This however, does not need to be in the same tone as Select Character.
+	"characterSelect.selectStage": "ESCOLHA O SEU PALCO",
+	
+	// Player Settings
+	"characterSelect.option.cpuControlled": "CPU",
+	"characterSelect.option.skillLevel": "Nível da CPU",
+	// Easy mode. Only shoots and does nothing else.
+	"characterSelect.option.skillLevel.1": "Sem Objetivo",
+	// Normal mode. Same as Easy mode. Can use Skills periodically... at random.
+	"characterSelect.option.skillLevel.2": "Competente",
+	// Hard mode. Estimate chances and acts accordingly.
+	"characterSelect.option.skillLevel.3": "Estratégico",
+	"characterSelect.option.skillLevel.format.inBounds": "%1",
+	"characterSelect.option.skillLevel.format.levelDown": "< %1 <",
+	"characterSelect.option.skillLevel.format.levelUp": "> %1 >",
+	// This text appears when more than 1 player-controlled characters are present.
+	// Prevents player from cheating
+	"characterSelect.cantEarnAchievements": "Você não pode desbloquear a maioria das conquistas com essas configurações.",
+	
+	// Goober: A character species present in the original Inflation Roulette.
+	// Looks like a feline, or a canine, or something, but doesn't exactly behave like one. IDK lmao
+	// Skills: Reload, Sabotage
+	"character.goober.name": "Goober",
+	"character.goober.name.short": "Goober",
+	"character.goober.description": "Uma espécie senciente e dominante encontrada em ambientes urbanos. Capaz de mexer com armas.",
+	// Shib: Character created by NicklySuffer. Non-binary, and designed to look like one of those simplistic white cat anons.
+	// Screams "city boy" vibes.
+	// Skills: Sabotage, Amnesia
+	"character.shib.name": "Shibanou",
+	"character.shib.name.short": "Shib",
+	"character.shib.description": "Extraterrestre, astute e adora chá de limão. Pode lançar um feitiço de perda de memória temporária.",
+	// Chester: Character created by NicklySuffer. Works in a coffee shop, and also looks like one of those simplistic white cat anons,
+	// but wears a cap too I guess. Screams "overworked minimum wagie" vibes.
+	// Designed with no offensive skills, but has one more pressure point lmao.
+	// Skills: Reveal, Reload
+	"character.chester.name": "Chester Damian",
+	"character.chester.name.short": "Chester",
+	"character.chester.description": "Um barista desafortunado forçado a jogar esse jogo pela empresa. Seu trabalho treina sua resistência.",
+	// Synda: Character created by NicklySuffer. Resembles one of those squid dogs from Changed.
+	// Her tentacles were amputated due to an accident, and desperately needs money for cybernetic tentacles.
+	// Designed as a high-risk character, with the ability to shoot others.
+	// Skills: Reload, Assault
+	"character.synda.name": "Synthia D'Arcy",
+	"character.synda.name.short": "Synda",
+	"character.synda.description": "Uma moça desesperada buscando recursos para melhoramentos corporais. Pode atirar em outros se tiver confiança o bastante.",
+	// Jacob: Guest character. A dorky fox tricked into playing the game.
+	// Designed as a low-risk character.
+	// Skills: Reload, Denial
+	"character.jacob.name": "Jacob Goatington",
+	"character.jacob.name.short": "Jacob",
+	"character.jacob.description": "Uma raposa tímida enganada a jogar. Apesar disso, ele pode rapidamente evitar confrontos.",
+	// Option to choose a random character.
+	"character.random.name": "Aleatório",
+	"character.random.name.short": "Aleatório",
+	"character.random.description": "Não tem certeza de quem escolher? Deixe o jogo decidir!",
+	
+	// Classic Room: The original stage from the original game redrawn.
+	"stage.classic.name": "Sala Clássica",
+	"stage.classic.description": "A sala que todos conhecemos muito bem.",
+	// Manager's Lounge: The context is that four people, either motivated by a better life or forced by their higher-ups, are
+	// offered a place as a game participant to satisfy the manager's desires.
+	"stage.reloaded.name": "Saguão do Gerente",
+	"stage.reloaded.description": "Essa cena parece um set de pornô. É porquê ela meio que é, e está sendo gravada.",
+	// Shitfucks Café: Named Shitfucks. The exact coffee shop that Chester works at.
+	// Sells coffee that inflates people, and agreed to host horrible shit like this. Disgusting.
+	// Again, transliterate Shitfucks.
+	"stage.shitfucks.name": "Café Shitfucks",
+	"stage.shitfucks.description": "Se especializa em vender bebidas. Definitivamente nada de errado rolando aqui.",
+	// Paprika Beachside: Beach themed background. Held in somewhere of a beach resort.
+	// You do not have to transliterate Paprika.
+	"stage.beach.name": "Praia da Páprica",
+	"stage.beach.description": "Um resort litorâneo popular. Conhecido por ser um destino de lua de mel e por suas baladas.",
+	// Paprika Beachside: Independent laboratory, this time they're testing the Pump Gun.
+	// They are doing... product testing. Certainly, no test subjects were harmed.
+	"stage.lab.name": "Laboratórios Orchid",
+	"stage.lab.description": "Um laboratório independente obscuro. Infame por testar produtos de clientes questionáveis.",
+	// White Void: Literally just a white void with a glass table.
+	"stage.void.name": "Fundo Branco",
+	"stage.void.description": "Bem conhecido como um lugar para todas as atividades, retratado em diferentes obras de arte e animações.",
+	"stage.random.name": "Aleatório",
+	"stage.random.description": "Não tem certeza de onde escolher? Deixe o jogo decidir!",
+	
+	// Splash text that is displayed
+	"gameOn.text": "BORA LÁ!",
+	
+	"skill.reload.name": "Recarregar",
+	"skill.reload.description": "Recarregue o cilindro para resetar sua chance de levar um tiro de bala viva",
+	"skill.sabotage.name": "Sabotar",
+	"skill.sabotage.description": "O próximo jogador vai ter uma chance garantida de levar um tiro de bala viva.",
+	"skill.pressurize.name": "Pressurizar",
+	"skill.pressurize.description": "A bala viva vai desferir 2x a Pressão.",
+	"skill.polarize.name": "Polarizar",
+	"skill.polarize.description": "Inverta o estado da bala atual.",
+	"skill.deflate.name": "Desinflar",
+	"skill.deflate.description": "Deplete uma barra de Pressão.",
+	"skill.reveal.name": "Revelar",
+	"skill.reveal.description": "Dê uma olhada nos conteúdos do cilindro.",
+	"skill.amnesia.name": "Amnésia",
+	"skill.amnesia.description": "Desative as habilidades de um oponente por um turno.",
+	"skill.assault.name": "Ataque",
+	"skill.assault.description": "Atire em um oponente. Dá a vítima 2 confiança caso seja festim.",
+	"skill.unload.name": "Descarregar",
+	"skill.unload.description": "Move 4 balas para o cilindro com uma delase sendo viva.",
+	"skill.denial.name": "Recusa",
+	"skill.denial.description": "Protege contra balas viva e nulifica pressurização.",
+	"skill.hosebound.name": "Compartilhamento",
+	"skill.hosebound.description": "Divide dano recebido com alvo por 1 turno.",
+
+	"pauseMenu.windowDisplay": "Pausado",
+	"pauseMenu.title": "JOGO PAUSADO",
+	"pauseMenu.resume": "Retomar",
+	"pauseMenu.restart": "Recomeçar",
+	"pauseMenu.options": "Opções",
+	"gameType.singleplayer": "Singleplayer",
+	"gameType.multiplayer": "Multiplayer",
+	"pauseMenu.details.players": "%1 Jogadores",
+
+	"stats.pressure": "Pressão",
+	"stats.pressure.Null": "Estourado",
+	"stats.pressure.Overinflated": "Superinflado",
+	"stats.confidence": "Confiança",
+	"stats.skill": "Habilidade",
+	"stats.skills": "Habilidades",
+
+	"creditsMenu.windowDisplay": "Créditos",
+
+	// Be the last player standing in a match.
+	"achievement.firstWin.name": "Primeira Vitória",
+	"achievement.firstWin.description": "Sua vida estará acorrentada de agora em diante.",
+	// Be the last player standing, and with your Pressure value at 0.
+	"achievement.noPressureWin.name": "Improbabilidade",
+	"achievement.noPressureWin.description": "Seguindo com sorte ao seu lado, você conseguiu evitar dano com seu corpo intacto.",
+	// Be the last player standing, and with your Pressure value at its max.
+	"achievement.fullPressureWin.name": "Segurando No Limite",
+	"achievement.fullPressureWin.description": "Mesmo nos seus maiores picos de pressão, você persistiu até o fim.",
+	// Sabotage ten times in your lifetime.
+	"achievement.sabotages.name": "Sabotador Experiente",
+	"achievement.sabotages.description": "Você deve gostar de Goober mesmo, hein. Use a habilidade delu cinquenta vezes.",
+	// Pressurize twice in a row without shooting a live bullet.
+	"achievement.doublePressurize.name": "Equação Quadrática",
+	"achievement.doublePressurize.description": "Enquanto você sobrecarrega o dispositivo duas vezes, o próximo jogador aceita seu destino.",
+	// Pressurize, then shoot yourself with the live bullet afterwards.
+	"achievement.pressurizeYourself.name": "Pela culatra",
+	"achievement.pressurizeYourself.description": "Prove do seu próprio remédio Pressurizado. Intencional ou apenas azar?",
+	// Get a P Rank, AKA the maximum score.
+	"achievement.maximumScore.name": "Perfeccionismo Dolorido",
+	"achievement.maximumScore.description": "Muito bem. Você jogou um jogo perfeito, e o que isso lhe custou.",
+	// Get the lowest score possible.
+	"achievement.minimumScore.name": "Fracasso Estratégico",
+	"achievement.minimumScore.description": "É como se você não tivesse nem tentado, mas olhando de perto parece que você tentou - PERDER?",
+	// Win in all game modes at least once.
+	"achievement.allGameModeWins.name": "Tour Completo",
+	"achievement.allGameModeWins.description": "Uma medalha de dedicação e improdutividade.",
+	// Win as all vanilla characters at least once.
+	"achievement.allCharacterWins.name": "Meus Casas",
+	"achievement.allCharacterWins.description": "Parece que você realmente não tem uma preferência especial por esses receptáculos.",
+	// Find all Easter Egg Startups.
+	"achievement.allEasterEggs.name": "Déficit de Atenção",
+	"achievement.allEasterEggs.description": "Os grifos arcaicos se mantém velados, salve escavando arquivos, ou buscando nos códigos.",
+	// Accumulate 10000 Dongs in the Main Menu.
+	"achievement.noLife.name": "Absolutamente Desempregado",
+	"achievement.noLife.description": "Desperdice tempo da sua vida por nenhuma razão. Você foi marcado permanentemente.",
+	"achievement.rarePolarizeSuccess.name": "Roleta Russa Reversa",
+	"achievement.rarePolarizeSuccess.description": "Você sabe que essa habilidade é arriscada, especialmente quando é em uma nova rodada de balas, mas milagrosamente você fez dar certo.",
+	// Use Polarize when there are 6 bullets in the chamber, and not inflate yourself.
+	"achievement.eliminateByAssault.name": "Saque Rápido",
+	"achievement.eliminateByAssault.description": "Uma pessoa à beira da derrota deve ser lidada com leveza... usando um método mais direto.",
+	// Eliminate a player via Assault.
+	"achievement.intentionalLoseByPolarize.name": "Louco por Amor",
+	"achievement.intentionalLoseByPolarize.description": "Você sabe que está seguro; você sabe que está no seu limite; você sabe que vai te fazer perder; mas mesmo assim você põe você mesmo em perigo? Tá com tesão ou algo assim?",
+	// Eliminate yourself after using Reveal and Polarize.
+	"achievement.findCameraman.name": "Luz, Câmera, Ação!",
+	"achievement.findCameraman.description": "Você viu o cameraman?",
+	// Meet Cobalt. (1/128 probability)
+	"achievement.noWinners.name": "Bombeadas de Guerra",
+	"achievement.noWinners.description": "De alguma forma nocauteie todo mundo no jogo, incluindo você mesmo.",
+	// Play a game with no winners
+	"achievement.winAgainstStrategicCPUs.name": "Jogos Mentais",
+	"achievement.winAgainstStrategicCPUs.description": "Não vou mentir, os bots aqui não são muito espertos, mas vendo todo mundo se irritando com esses doidos? Ótimo trabalho.",
+	// Win a game with every CPU set to their highest skill level.
+	"achievement.nineTwentyOne.name": "9 Mortes com 21 Feridos",
+	"achievement.nineTwentyOne.description": "Tá vendo isso? Esse é o tipo de imagem que fica pior quanto mais você olha.",
+	// Play at exactly 9:21 PM, a random stupid image will flash on-screen briefly.
+	"achievement.exportCharacterProject.name": "Utilizador",
+	"achievement.exportCharacterProject.description": "Construa seu próprio receptáculo usando o programa de utilidade Migrational Order Directive.",
+	// Export your first character creator project.
+	"achievement.liveShots.name": "Falta de Ar",
+	"achievement.liveShots.description": "Uma única bala de uma Magnum .357 custa cerca de 15¢ pra fazer, mas os valores podem variar de 60¢ a $1.40. Agora imagine disparar 100 dessas.",
+	// Get shot 600 times with a blank round.
+	"achievement.twoPlayers.name": "Duelo Ao Meio-Dia",
+	"achievement.twoPlayers.description": "Dois idiotas, uma arma. Quem vai sobreviver? Resposta: O Gerente.",
+	// Set player count to 2 and win.
+	"achievement.sixPlayers.name": "Sexteto Sinistro",
+	"achievement.sixPlayers.description": "Espera, por que sinistro? Estão mais para depravados do que qualquer coisa.",
+	// Set player count to 6 and win.
+	"achievement.allFillerWins.name": "Uma Dieta Balanceada",
+	"achievement.allFillerWins.description": "Experiencie cada método de tortura, e se mantenha intacto todas as vezes.",
+	// Win as every filler. (Air, Water, Soda, Slime, Berry)
+
+	"achievementsMenu.windowDisplay": "Conquistas",
+	"achievementsMenu.title": "Suas Conquistas",
+	"achievementsMenu.description": "Escolha uma conquista para ver seus detalhes e status de conclusão.",
+	"achievementsMenu.resetProgress": "Reiniciar Progresso",
+
+	"achievementToast.title": "Conquista Desbloqueada!",
+
+	"resetAchievementMenu.prompt": "Confirme o reinício de\n%1?\nEssa ação é irreversível.",
+
+	"galleryMainMenu.windowDisplay": "Galeria",
+	// If the language's script can be written vertically, set this string to false
+	"galleryMainMenu.envelope.rotateText": "true",
+	// Context: There are different versions of Goobers, one being Slime Goobers, and one labelled "???".
+	// The way I interpret this is like, them having races or something
+	"galleryMainMenu.envelope.goober.description": "Vistos pela primeira vez no jogo original, os Goobers entram em ação com uma nova cara! Eles se tornaram o personagem certeiro para aparecer em incontáveis remakes e fanarts.\n\nSobre como e porquê eles se uniram ao jogo, ninguém sabe! Atores? Reféns? Vendidos? Há muitas teorias por aí! Não se sabe muito sobre sua biologia, mas foi confirmado que são classificados em diversas raças, variando de Goobers compostos inteiramente de slime até C»0NF!D&NC§AL²½",
+	// Context: Literally no lore implication. He's just here for the sake of being here lol
+	"galleryMainMenu.envelope.asimo.description": "Se aproveitando de seus poderes elétricos, Asimo se descarga para dentro de Inflation Roulette querendo \"se divertir\".\n\nNão temos ideia de como ele chegou aqui, e nós com certeza temos 0 conexões com ele, além de sabermos que ele é um lobo, é o testador da porcaria do mod de Friday Night Funkin' do Gerente, e ele é o vencedor de um torneio de arte para ser adicionado como o personagem da Adição de Exemplo.\n\nAsimo é um personagem convidado pertencente a WolfKylis.",
+	"galleryMainMenu.envelope.shib.description": "Sobrenome Nou; primeiro nome Shiba. Vindo de um planeta misterioso, essa criatura parecida com um gato se une à competição! Seu nome em Chinês pode ser interpretado como \"Zero Dez Oito\", derivado da instalação nuclear em que pousou em Pequim.\n\nPassando seus primeiros anos de vida buscando por lugares para viver, eventualmente se encontrou dentro da garagem do Gerente. Foi adotade por ele como sue assistente secundárie e em breve se encontraria apaixonade pelo assistente primário (criado em laboratório por sinal, eca). Sem nenhuma razão aparente além de se mostrar na frente de seu namorado, Shib se juntou ao jogo para mostrar suas habilidades secretas.\n\nShib é ume personagem não-binárie pertencente a NicklySuffer, criade antes do desenvolvimento de Inflation Roulette Reloaded.",
+	"galleryMainMenu.envelope.chester.description": "Como o barista chefe de um café, ele foi forçado a jogar este jogo como um representante da empresa. Com seus resultados acadêmicos pobres e personalidade nem um pouco carismática, o seu sonho de prosperidade e riqueza está agora bem ao seu alcance.\n\nSeu trabalho diário envolve preparar bebidas com açúcar em excesso para clientes tarados. Alguns dizem que as bebidas possuem um efeito \"expansivo\" , o que chamou a atenção de vários agentes de segurança alimentar. No entanto, devido a palhaçada capitalista, avisos do departamento alimentar não levaram a lugar nenhum.\n\nChester é um personagem pertencente a NicklySuffer, criado antes do desenvolvimento de Inflation Roulette Reloaded.",
+	"galleryMainMenu.envelope.synda.description": "Procurando por uma melhora na qualidade de vida, Synda se mete na competição pronta pra estourar alguém! Seus colegas sempre a descrevem como uma pessoa arrogante e irracional de se lidar - não que ela se importe com isso, de qualquer forma. \n\n Como uma [CONFIDENCIAL], ela passa a maior parte do seu tempo como uma guarda de segurança de alto calibre em um laboratório, até que um acidente horrível resultou na perda de seu olho esquerdo e apêndices das costas. Procurando por uma substituição, ela descobriu um procedimento experimental que concederia a ela tentáculos cibernéticos, o problema é que cada par é caro pra diacho, então agora uma fortuna foi prometida a ela pelo Gerente, se ela estiver disposta a sacrificar o seu abdômen inferior inteiro para isso...\n\nSynda é uma personagem de autoria de NicklySuffer, criada antes do desenvolvimento de Inflation Roulette Reloaded.",
+	"galleryMainMenu.envelope.jacob.description": "Jacob se une à competição! Não se sabe muito sobre o Jacob, se você acha que ele pode ser só mais um no grupo, bem, tem razão, isso porque ele realmente é só mais um.\n\nHá não muito tempo, ele e seu amado parceiro se depararam com um pôster oferecendo um papel no que parecia ser um game show. Com sua precária interpretação de texto, ele inscreveu APENAS o seu namorado para o jogo, sem nem saber sobre o que ele é, onde ele se passa ou o quão esquisito é. Agora preso aqui no meio de algum lugar, ele é forçado a jogar este jogo excruciante enquanto o contrato durar...\n\nJacob é um personagem pertencente a um amigo.",
+	"galleryMainMenu.envelope.dev": "Arte dos Desenvolvedores",
+	"galleryMainMenu.envelope.dev.description": "Uma coleção de artes conceituais, rascunhos, e recursos não utilizados feitos pelos desenvolvedores e outros artistas.\n\nangry           bird",
+	"galleryMainMenu.envelope.community": "Arte da Comunidade",
+	"galleryMainMenu.envelope.community.description": "Uma coleção de fanarts feitas por amigos dos desenvolvedores e pela comunidade.",
+
+	// %1 - Envelope Name
+	"galleryEntryMenu.viewFullImage": "Ver Imagem Completa",
+	"galleryEntryMenu.viewFullImageWarned": "AVISO: %1\nVeja Imagem Completa para Revelar",
+	// "galleryEntryMenu.warning.inflation": "Inflation",
+	"galleryEntryMenu.warning.changed": "Alterado",
+
+	"jukeboxMenu.windowDisplay": "Jukebox",
+
+	"utilitiesMenu.windowDisplay": "Ferramentas",
+	// These will be button text that will be in the Utilities Main Menu.
+	"utilitiesMenu.characterCreator": "Criador de Personagens",
+	"utilitiesMenu.stagePreviewer": "Visualizador de Prévia de Palco",
+	"utilitiesMenu.offsetEditor": "Editor de Deslocamentos",
+	"utilitiesMenu.rubHitboxEditor": "Editor de Hitbox de Acariciar",
+	"utilitiesMenu.langConverter": "Conversor .LANG",
+	"utilitiesMenu.loadFile": "Carregar Arquivo",
+	"utilitiesMenu.newFile": "Novo Arquivo",
+	"utilitiesMenu.loadDirectory": "Carregar Pasta",
+	"utilitiesMenu.newDirectory": "Nova Pasta",
+	"utilitiesMenu.browseImage": "Procurar Imagem",
+	"utilitiesMenu.browseImage.downloadTemplate": "Baixar Molde",
+	// %1: Width, %2: Height
+
+	// Subtext for the button
+	"utilitiesMenu.browseImage.recommendedSize": "Tamanho Recomendado: %1px × %2px",
+
+	// A screen which tells the user to adjust the image's offset if it doesn't make the recommended size.
+	"utilitiesMenu.browseImage.adjustOffsets.title": "Ajuste Deslocamentos",
+	"utilitiesMenu.browseImage.adjustOffsets.description": "Setas para Mover Imagem\nSegure SHIFT/CTRL para Aumentar Taxa\nTenha Certeza de que a Imagem se Alinha com o Centro Inferior da Silhueta",
+	"utilitiesMenu.error.prompt": "Um erro ocorreu.",
+	"utilitiesMenu.firstStartup.prompt": "Aviso: Muito Instável\n\nAs ferramentas a seguir não são para serem levadas como Ferramentas de Desenvolvedor, e foram criadas apenas como meios para artistas casuais fazerem seus próprios personagens. A qualquer momento, em qualquer lugar, as ferramentas podem, de algum jeito, quebrarem e morrerem. As ferramentas não possuem um sistema de sauvamento automático; SALVAMENTO MANUAL é fortemente recomendado.\n\n Se você deseja reclamar sobre elas, aprenda JSON e Flash, caramba!",
+	// Dummy text. Used as the default name for newly created Sprite Projects.
+	"utilitiesMenu.placeholder": "Placeholder",
+
+	"characterCreator.dataType.metadata": "Metadados",
+	"characterCreator.dataType.spriteData": "Dados do Sprite",
+	"characterCreator.parameter.name": "Nome do Personagem",
+	"characterCreator.parameter.description": "Descrição do Personagem",
+	"characterCreator.parameter.author": "Autor",
+	"characterCreator.parameter.framerate": "Framerate",
+	"characterCreator.parameter.defaultFramerate": "Framerate Padrão",
+	"characterCreator.parameter.defaultDimensions": "Tamanho do Quadro",
+	"characterCreator.parameter.maxPressure": "Pressão Máxima",
+	"characterCreator.parameter.maxConfidence": "Confiança Máxima",
+	"characterCreator.parameter.skills": "Habilidades",
+	"characterCreator.parameter.skills.description": "(Separado por vírgulas: ,)",
+	"characterCreator.explorer.description.root": "Pasta raíz do projeto.",
+	"characterCreator.explorer.description.idle": "Animação estática.",
+	"characterCreator.explorer.description.prepareShoot": "Animação em loop durante o turno.",
+	"characterCreator.explorer.description.preShoot": "Animação de se preparando pra atirar em si mesmo.",
+	"characterCreator.explorer.description.shootBlank": "Animação para atirar uma bala vazia.",
+	"characterCreator.explorer.description.shootLive": "Animação para atirar uma bala viva.",
+	"characterCreator.explorer.description.pass": "Animação para passar a arma para outro jogador.",
+	"characterCreator.explorer.description.skill": "Animação padrão para ativação de Habilidade.",
+	"characterCreator.explorer.description.shocked": "Animação de reação ao confetti ou mirado por Ataque.",
+	"characterCreator.explorer.description.win": "Animação para a pose de vitória",
+	"characterCreator.explorer.description.helpless": "Animação para quando estiver incapaz de jogar um turno após eliminação.",
+	"characterCreator.explorer.description.popped": "Animação em loop quando lançado pro ar ao explodir.",
+	"characterCreator.explorer.description.introPartOne": "Animação para quando estiver interagindo com outros jogadores.",
+	"characterCreator.explorer.description.introPartTwo": "Animação para quando a arma cai na mesa.",
+	"characterCreator.explorer.description.scraps": "Partículas de pedaços surgidos ao explodir.",
+	"characterCreator.explorer.description.cardBG": "O cenário da Carta de Seleção de Personagem.",
+	"characterCreator.explorer.description.cardCharIdle": "O personagem na Carta de Seleção de Personagem quando estático.",
+	"characterCreator.explorer.description.cardCharSelected": "O personagem na Carta de Seleção de Personagem quando selecionado.",
+	"characterCreator.explorer.description.bannerAppear": "O personagem aparecendo após ser selecionado.",
+	"characterCreator.explorer.description.bannerBlink": "O personagem piscando após ser selecionado.",
+	"characterCreator.saveSuccessful.prompt": "Projeto de Sprite salvo com sucesso.",
+	"characterCreator.save": "Salvar Projeto",
+	"characterCreator.exit": "Sair do Editor",
+	"characterCreator.reloadSkills": "Recarregar Habilidades",
+	"characterCreator.modifyOffsets": "Modificar Deslocamentos",
+	"characterCreator.exit.prompt": "Você tem certeza que deseja sair do Criador de Personagem?\nQualquer progresso não salvo será PERDIDO.",
+	"characterCreator.newCharacter.title": "NOVO PERSONAGEM",
+	"characterCreator.newCharacter.unchangeableParameter": "Esse parâmetro não pode ser alterado e não deve ser alterado após a criação.",
+	"characterCreator.newCharacter.create": "Criar Personagem!",
+	"characterCreator.newCharacter.alreadyExists.prompt": "Já existe um Projeto de Sprite com o mesmo nome.",
+	"characterCreator.export": "Exportar Projeto!",
+	"characterCreator.confirmExport.prompt": "O jogo exportará os metadados do Projeto de Sprite, sprites, e dados das animações em um formato compatível com o jogo. Dependendo das especificações do seu maquinário, a exportação pode levar de meros segundos até MUITO TEMPO. Fechar programas que estejam funcionando em segundo plano pode ajudar e acelerar o processo de exportação.\n\nApós a conclusão, todos os arquivos exportados serão armazenados na pasta de exportações na pasta raíz do jogo. Por favor, mantenha este programa aberto sempre durante a exportação para evitar corrupção de dados.\n\nVocê tem certeza de que deseja exportar o projeto?",
+	"characterCreator.exporting": "Exportando Animação:\n%1",
+	"characterCreator.exporting.generatingCharacterData": "Generando Arquivos JSON...",
+	"characterCreator.exporting.generatingLangFile": "Generando Arquivos de Localização...",
+	"characterCreator.exporting.generatingAddonMetadata": "Generando Metadados da Adição...",
+	"characterCreator.exporting.finalizing": "Finalizando...",
+	"characterCreator.exporting.missingAnimations": "O projeto está faltando estas animações:\n%1",
+	"prompt.andManyMore": "e muito mais...",
+	"characterCreator.exporting.description": "Por favor, mantenha este programa aberto.",
+	"characterCreator.exportSuccessful.prompt": "Projeto exportado com sucesso. Você deve considerar ajustar as variáveis nos arquivos JSON.\n\nExported as:\n%1",
+
+	"animationCreator.windowDisplay": "Editor de Animações",
+	"animationCreator.save": "Salvar Animação",
+	"animationCreator.exit": "Sair do Editor",
+	"animationCreator.exit.prompt": "Você tem certeza que quer sair do Editor de Animações?\nQualquer progresso não salvo será PERDIDO.",
+	"animationCreator.saveSuccessful.prompt": "Animação salva com sucesso.",
+
+	"stagePreviewer.stage": "Palco",
+	"stagePreviewer.stage.description": "Esse menu é usado para pré-visualizar palcos e NÃO oferece funções de edição. Utilize-o com um editor de arquivos JSON para uma melhor experiência. ",
+	"stagePreviewer.objectList": "Lista de Objetos",
+	"stagePreviewer.reload": "Recarregar Palco",
+	"stagePreviewer.screenshot": "Modo Captura de Tela",
+	"stagePreviewer.exit": "Sair do Visualizador",
+	"stagePreviewer.exit.prompt": "Você tem certeza que quer sair do Visualizador de Prévia de Palco?",
+
+	"offsetEditor.title": "Modificando Deslocamentos",
+	"offsetEditor.description": "Setas para Mover Imagem\nSegure SHIFT/CTRL para Aumentar Taxa\nTenha Certeza de que a Cruz está Centralizada no Local Desejado",
+	"offsetEditor.offsetType.origin": "Origem",
+	"offsetEditor.offsetType.cameraOffset": "Câmera",
+	"offsetEditor.offsetType.poppedCameraOffset": "Câmera (Explodido)",
+	"offsetEditor.offsetType.particle": "Particulas",
+	"offsetEditor.particleType.origin": "Origem",
+	"offsetEditor.particleType.overhead": "Por Cima",
+	"offsetEditor.particleType.mouth": "Boca",
+	"offsetEditor.particleType.navel": "Umbigo",
+	"offsetEditor.particleType.gunShoot": "Cápsula da Arma (Atirar)",
+	"offsetEditor.particleType.gunSkill": "Cápsula da Arma (Habilidade)",
+	"offsetEditor.exit.prompt": "Você tem certeza que quer sair do Editor de Deslocamento?",
+
+	"rubHitboxEditor.title": "Modificando Hitboxes",
+	"rubHitboxEditor.description": "Setas para Mover Hitbox\nWASD para Redimensionar Hitbox\nSegure SHIFT/CTRL para Aumentar Taxa",
+	"rubHitboxEditor.position": "Posição",
+	"rubHitboxEditor.size": "Tamanho",
+	"rubHitboxEditor.exit.prompt": "Você tem certeza que quer sair do Editor de Hitbox de Acariciar?",
+
+	"langConverter.successPrompt": "Arquivo JSON exportado em:\n%1",
+
+	"resultsMenu.windowDisplay": "Resultados",
+	"resultsMenu.title": "OS RESULTADOS ESTÃO NA MESA!",
+	"resultsMenu.instructions": "Pressione qualquer tecla para sair",
+	// Score bonus for last standing players
+	"resultsMenu.winBonus": "Vencer",
+	// Score bonus for Pressure percentage.
+	"resultsMenu.edgingBonus": "Pressão",
+	// Replaces Edging Bonus when player somehow hasn't inflated once.
+	"resultsMenu.edgingBonus.alt": "Sorte",
+	// Score bonus for using Skills.
+	"resultsMenu.skillBonus": "Habilidade",
+	"resultsMenu.bestPlayer": "VITORIOSO",
+	"resultsMenu.bestPlayers": "VITORIOSOS",
+	"resultsMenu.badPlayer": "DECEPÇÃO",
+	"resultsMenu.badPlayers": "DECEPÇÕES",
+	// $1: Player Type, %2: Character Name, %3: Player No. (If applicable)
+	"resultsMenu.leaderboard.playerFormat": "%1%2",
+	"resultsMenu.leaderboard.playerDuplicateFormat": "%1%2 #%3",
+	// Unless you want to be really specific, it is recommended to leave this string empty
+	"resultsMenu.leaderboard.playerType.human": "",
+	// If the string is not empty, it is recommended to put a whitespace after it.
+	"resultsMenu.leaderboard.playerType.cpu": "CPU ",
+	// %1: Classificação, %2: Tipo de Jogador, %3: Pontuação, %4: Nota
+	// Left Alignment
+	"resultsMenu.leaderboard.format": "%1 | %2 · %3 (%4)",
+	// Right Alignment
+	"resultsMenu.leaderboard.format.reversed": "%2 · %3 (%4) | %1",
+
+	// Menu Options. Used in button text.
+	"menu.yes": "Sim",
+	"menu.no": "Não",
+	"menu.ok": "OK",
+	"menu.confirm": "Confirmar",
+	"menu.cancel": "Cancelar",
+	"menu.exit": "Sair",
+
+	// %1: Game Type (Singleplayer / Multiplayer), %2: Player Count
+	"game.windowDisplay": "%1 (%2 Jogadores)",
+	// Prompt after activating an offensive skill (e.g. Assault, Amnesia)
+	"game.selectTarget": "ESCOLHA O ALVO",
+	"game.playerIndicator.you": "VOCÊ",
+	"game.playerIndicator.player": "P%1",
+
+	"preloadMenu.windowDisplay": "Precarregando",
+	"preloadMenu.progress.gameplay": "Carregando Modos de Jogo...",
+	"preloadMenu.progress.achievements": "Monitorando Conquistas...",
+	"preloadMenu.progress.toasts": "Construindo Notificações...",
+	"preloadMenu.progress.tooltip": "Montando Ferramentas...",
+	"preloadMenu.progress.cursor": "Decorando o Cursor do Mouse...",
+	"preloadMenu.progress.splashes": "Escrevendo Espirros...",
+	"preloadMenu.progress.music": "Encontrando Discos de Música...",
+	"preloadMenu.finished": "Tudo Pronto!",
+
+	"outdatedVersionMenu.windowDisplay": "Versão Desatualizada!",
+	"outdatedVersionMenu.heading": "Versão Desatualizada",
+	"outdatedVersionMenu.text": "Ei! Você está usando uma versão mais antiga de Inflation Roulette: Reloaded. Por favor baixe a última versão para aproveitar os aspectos mais recentes e reparos de bugs!\n\nSua versão: %1\nÚltima versão: %2",
+	"outdatedVersionMenu.update": "Atualizar",
+	"outdatedVersionMenu.dismiss": "Depois",
+
+	"androidPermissionsMenu.windowDisplay": "Permissões Necessárias",
+	"androidPermissionsMenu.permissionsRequired": "Permissões Necessárias!",
+	"androidPermissionsMenu.permissionsGranted": "Permissões Concedidas!",
+	"androidPermissionsMenu.description": "Ok, se liga: o Android não quer que a gente veja as adições que você instalou.\n\nPara que as adições funcionem corretamente, por favor nos dê a permissão para ler o armazenamento externo do seu telefone.",
+	"androidPermissionsMenu.playWithoutAddons": "Jogar sem Adições",
+	"menu.decline": "Negar",
+
+	"filler.air.name": "Ar",
+	"filler.air.description": "A escolha padrão. Balas cheias de dióxido de carbono comprimido.",
+	"filler.water.name": "Água",
+	"filler.water.description": "Consumo excessivo pode causar vazamento oral involuntário.",
+	"filler.soda.name": "Refrigerante",
+	"filler.soda.description": "Uma bebida doce e carbonatada",
+	"filler.slime.name": "Slime",
+	"filler.slime.description": "Alga bioluminescente que se reproduz dentro do estômago. Se contorce dentro do hospedeiro e replica seu DNA.",
+	"filler.berry.name": "Mirtilo",
+	"filler.berry.description": "Suco de mirtilo irradiado. Causa descoloração na pele e vazamentos por vários orifícios.",
+	"filler.random.name": "Aleatório",
+	"filler.random.description": "Indeciso sobre qual escolher? Deixe o jogo decidir por você!",
+
+	"loading.windowDisplay": "Carregando...",
+	"loading.message.format": "%1...",
+	"loading.messages": [
+		"Carregando",
+		"Por favor aguarde",
+		"Por favor, seja paciente",
+		"Preparando coisas",
+		"Posicionando mobília",
+		"Recarregando balas",
+		"Dando curativos em abdômens",
+		"Recrutando participantes",
+		"Desinflando participantes",
+		"Preparando refrescos",
+		"Batizando refrescos"
+	],
+	"loading.messagesRare": [
+		"Descarregando e recarregando tudo",
+		"Chamando a polícia",
+		"Acionando a máquina infernal",
+		"Desperdiçando tempo",
+		"Criando mais bugs",
+		"Reivindicando os direitos autorais de vídeos com IA",
+		"Ficando sem ideias",
+		"Consertando o Criador de Personagens",
+		"Acariciando barrigas",
+		"Curando a Cólera",
+		"Rezando por misericórdia"
+	],
+
+	// Fallback for HTML build
+	"gamemode.fiftyFifty.name": "50/50",
+	"gamemode.fiftyFifty.description": "Seja o que deus quiser. Jogatina rápida e arriscada.",
+
+	"character.asimo.name": "Asimo Dracomaw",
+	"character.asimo.name.short": "Asimo",
+	"character.asimo.description": "Esse lobo só quer se divertir. Sua experiência com o oculto elétrico o permite sobrecarregar armas."}
