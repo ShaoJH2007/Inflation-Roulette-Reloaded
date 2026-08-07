@@ -20,6 +20,8 @@ class Language {
 	public static function initialize() {
 		var prefLang = Preferences.data.language.split('-');
 		prefLang[1] = prefLang[1].toUpperCase();
+		if (prefLang[0] == 'ca' && prefLang[1] == 'AD')
+			prefLang[1] = 'ES';
 		phrases = fetchPhrases(prefLang.join('-'));
 		fallbackPhrases = fetchPhrases(defaultLanguage);
 		fallbackKeys = fetchKeys(defaultLanguage);
