@@ -23,7 +23,7 @@ class OutlineShader extends FlxShader {
 		for (float i = 0.0; i <= iterations; i += 1.0) {
 			float outlineX = sin(i / iterations * PI * 2.0) * inc.x;
 			float outlineY = cos(i / iterations * PI * 2.0) * inc.y;
-			alpha += texture(bitmap, openfl_TextureCoordv + vec2(outlineX, outlineY)).a;
+			alpha += texture2D(bitmap, openfl_TextureCoordv + vec2(outlineX, outlineY)).a;
 		}
 		if (alpha > 0.0) {
 			gl_FragColor = uColor;

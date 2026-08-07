@@ -26,6 +26,8 @@ class CreditsState extends SuffState {
 		['Runey\n(Balloonomatopoeia)', '', 'default'],
 		['Developed With', '', 'HEADING'],
 		['HaxeFlixel', 'haxeflixel', 'LOGO', Std.int(FlxG.height / 4)],
+		['Past Members', '', 'HEADING'],
+		['changedinflation.de', '', 'default'],
 		['Ko-Fi Backers', '', 'HEADING'],
 		[
 			'Trigger',
