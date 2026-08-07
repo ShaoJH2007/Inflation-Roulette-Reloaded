@@ -20,6 +20,7 @@ class StartupState extends SuffState {
 		bg = new FlxSprite().loadGraphic(Paths.getImage('ui/menus/characterSelect/stages/blurred/${FlxG.random.getObject(bgList)}'));
 		bg.setGraphicSize(FlxG.width * 1.25);
 		bg.updateHitbox();
+		bg.antialiasing = !Preferences.data.enableForcedAliasing;
 		bg.screenCenter(Y);
 		bg.alpha = 0;
 		add(bg);

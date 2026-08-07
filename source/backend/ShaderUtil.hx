@@ -1,7 +1,6 @@
 package backend;
 
 import flixel.system.FlxAssets.FlxShader;
-import shaders.ShaderObject;
 import flixel.addons.display.FlxRuntimeShader;
 
 class ShaderUtil {
