@@ -414,9 +414,6 @@
 	// Win as all vanilla characters at least once.
 	"achievement.allCharacterWins.name": "Los Panas",
 	"achievement.allCharacterWins.description": "Parece que no tienes preferencias.",
-	// Find all Easter Egg Startups.
-	"achievement.allEasterEggs.name": "Déficit de atención",
-	"achievement.allEasterEggs.description": "Los glifos arcaicos permanecen ocultos, salvo mediante la búsqueda en archivos o el análisis del código.",
 	// Accumulate 10000 Dongs in the Main Menu.
 	"achievement.noLife.name": "Ya llena una solicitud de empleo",
 	"achievement.noLife.description": "Desperdicias tu vida sin motivo. Has sido marcado, estigmatizado para siempre..",

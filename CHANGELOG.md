@@ -29,7 +29,6 @@ Hotfixes are quick updates that fixes critical bugs.
   - ??????, ??????, ??????!
   - Forever Alone
   - Mind Games
-  - ? ?????? ???? ?? ???????
   - Utilizer
 - New Skills:
   - Unload
@@ -110,6 +109,10 @@ Hotfixes are quick updates that fixes critical bugs.
   - Since this feature is under-utilized and not expanded upon, modifiers no longer have any effect.
 - Removed gamemodes: Stand-Off and Mayhem
 - Removed gamemode parameter: `cylinderDamageChangeOnLive`
+- Removed achievement Attention Deficit
+  - This achievement has been deemed unnecessary.
+- Removed Music Toast.
+  - This is due to an unsolvable memory leak issue.
 ### Fixes
 - Scroll bars, Gallery Image View, Credits menu, and Options sliders snaps elements in place on touchscreens.
 - Blurry Cobalt crashes the game.

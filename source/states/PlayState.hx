@@ -26,6 +26,8 @@ import objects.particles.Liquid;
 import objects.particles.Stain;
 import objects.NPC;
 import objects.particles.DenialShield;
+import openfl.filters.ShaderFilter;
+import backend.ShaderUtil;
 
 class PlayState extends SuffState {
 	public var characterGroup:FlxTypedContainer<Character> = new FlxTypedContainer<Character>();
@@ -161,6 +163,9 @@ class PlayState extends SuffState {
 		instance = this;
 
 		stage = new Stage(Gameplay.currentStage);
+		if (stage.data?.cameraShader != null && stage.data?.cameraShader != '') {
+			camGame.filters = [new ShaderFilter(ShaderUtil.initShader(stage.data.cameraShader))];
+		}
 
 		currentSessionEnablePopping = Preferences.data.enablePopping;
 
@@ -215,8 +220,6 @@ class PlayState extends SuffState {
 		add(pumpGun);
 
 		if (!hasSeenStartCutscene && FlxG.random.bool(1 / 64 * 100)) {
-			Achievements.advanceProgress('findCameraman', [true]);
-
 			var cobalt:FlxSprite = new FlxSprite();
 			cobalt.frames = Paths.getSparrowAtlas('game/cobalt');
 			cobalt.animation.addByPrefix('appear', 'appear', 24, false);

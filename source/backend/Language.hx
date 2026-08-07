@@ -116,12 +116,14 @@ class Language {
 			lePhrases.set(key, string);
 			phrasesCount[langID] += 1;
 		}
+		#if _ALLOW_ADDONS
 		for (addon in Addons.globalAddons) {
 			var moddedPhrases:DynamicAccess<Dynamic> = Json.parse(File.getContent(Paths.getPathInAddons('$addon/lang/$langID.json')));
 			for (key => string in moddedPhrases) {
 				lePhrases.set(key, string);
 			}
 		}
+		#end
 		trace(phrasesCount);
 		return lePhrases;
 	}

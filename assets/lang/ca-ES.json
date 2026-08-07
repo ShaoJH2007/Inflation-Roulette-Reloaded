@@ -419,9 +419,6 @@
 	// Win as all vanilla characters at least once.
 	"achievement.allCharacterWins.name": "Els Amics de les Arts",
 	"achievement.allCharacterWins.description": "Sembla que no tens preferència especial per aquestes mèdiums.",
-	// Find all Easter Egg Startups.
-	"achievement.allEasterEggs.name": "Dèficit d'atenció",
-	"achievement.allEasterEggs.description": "Els glifs arcaics romanen velats, excepte per excavació d'arxius o revisió de codi.",
 	// Accumulate 10000 Dongs in the Main Menu.
 	"achievement.noLife.name": "Absolutament a l'atur",
 	"achievement.noLife.description": "Malgasta teva vida sense motiu. Has estat empremtat, marcat permanentment.",

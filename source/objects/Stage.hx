@@ -7,12 +7,15 @@ import tjson.TJSON as Json;
 import backend.typedefs.StageObjectData;
 import backend.typedefs.AnimationData;
 import backend.Gameplay;
+import backend.ShaderUtil;
 
 class Stage extends FlxBasic {
 	private var game(get, never):PlayState;
 	public var data:StageData;
-	public var objects:Map<String, StageObject> = new Map<String, StageObject>();
-	public var dynamicObjects:Map<String, StageObject> = new Map<String, StageObject>();
+	public var objects:Map<String, StageSprite> = new Map<String, StageSprite>();
+	public var dynamicObjects:Map<String, StageSprite> = new Map<String, StageSprite>();
+	
+	public var elapsedTime:Float = 0;
 
 	public function new(id:String = 'reloaded') {
 		data = cast Json.parse(Paths.getTextFromFile('data/stages/$id.json'));
@@ -39,7 +42,7 @@ class Stage extends FlxBasic {
 				if (object.showInDecreaseDetail == true)
 					continue;
 			}
-			var obj:StageObject = loadObject(object, data.id);
+			var obj:StageSprite = loadObject(object, data.id);
 			addBehindCharacters(object.id, obj);
 		}
 		trace('Loaded background objects');
@@ -51,7 +54,7 @@ class Stage extends FlxBasic {
 				if (object.showInDecreaseDetail == true)
 					continue;
 			}
-			var obj:StageObject = loadObject(object, data.id);
+			var obj:StageSprite = loadObject(object, data.id);
 			addBehindGun(object.id, obj);
 		}
 		trace('Loaded table objects');
@@ -63,7 +66,7 @@ class Stage extends FlxBasic {
 				if (object.showInDecreaseDetail == true)
 					continue;
 			}
-			var obj:StageObject = loadObject(object, data.id);
+			var obj:StageSprite = loadObject(object, data.id);
 			addObject(object.id, obj);
 		}
 		trace('Loaded foreground objects');
@@ -105,8 +108,8 @@ class Stage extends FlxBasic {
 		return [x, y];
 	}
 
-	public static function loadObject(objectData:StageObjectData, stageID:String = 'classic'):StageObject {
-		var object:StageObject = new StageObject();
+	public static function loadObject(objectData:StageObjectData, stageID:String = 'classic'):StageSprite {
+		var object:StageSprite = new StageSprite();
 		if (objectData.walkStep != null)
 			object.walkStep = objectData.walkStep;
 		if (objectData.walkMovement != null)
@@ -144,6 +147,8 @@ class Stage extends FlxBasic {
 				object.animation.play('idle', true);
 			});
 		}
+		if (objectData.shader != null)
+			object.shader = ShaderUtil.initShader(objectData.shader);
 		if (objectData.scrollFactor != null && objectData.scrollFactor.length == 2)
 			object.scrollFactor.set(objectData.scrollFactor[0], objectData.scrollFactor[1]);
 		if (objectData.hideCharacter != null)
@@ -187,6 +192,8 @@ class Stage extends FlxBasic {
 
 	override public function update(elapsed:Float) {
 		super.update(elapsed);
+
+		elapsedTime += elapsed;
 	}
 
 	public function dynamicPlayAnim(animName:String = 'idle', animBackToIdle:Bool = true, force:Bool = true, delayMultiplier:Float = 1) {
@@ -201,23 +208,23 @@ class Stage extends FlxBasic {
 		}
 	}
 
-	inline public function registerObject(tag:String, object:StageObject) {
+	inline public function registerObject(tag:String, object:StageSprite) {
 		objects.set(tag, object);
 		if (object.reactionTime >= 0)
 			dynamicObjects.set(tag, object);
 	}
 
-	inline public function addObject(tag:String, object:StageObject) {
+	inline public function addObject(tag:String, object:StageSprite) {
 		registerObject(tag, object);
 		return game.add(object);
 	}
 
-	inline public function addBehindGun(tag:String, object:StageObject) {
+	inline public function addBehindGun(tag:String, object:StageSprite) {
 		registerObject(tag, object);
 		return game.members.insert(game.members.indexOf(game.pumpGun), object);
 	}
 
-	inline public function addBehindCharacters(tag:String, object:StageObject) {
+	inline public function addBehindCharacters(tag:String, object:StageSprite) {
 		registerObject(tag, object);
 		return game.members.insert(game.members.indexOf(game.characterGroup), object);
 	}

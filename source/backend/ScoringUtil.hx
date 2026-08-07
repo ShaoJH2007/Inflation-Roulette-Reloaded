@@ -5,15 +5,15 @@ import objects.Character;
 import backend.typedefs.ScoreData;
 
 class ScoringUtil {
-	public static final WIN_BONUS:Int = 1800;
-	public static final EDGING_BONUS:Int = 6400;
-	public static final SKILL_BONUS:Int = 1800;
+	public static final MAX_WIN_BONUS:Int = 1800;
+	public static final MAX_EDGING_BONUS:Int = 6400;
+	public static final MAX_SKILL_BONUS:Int = 1800;
 
 	public static function getMaxScore() {
 		return
-			WIN_BONUS * Gameplay.currentGamemode.scoreWinBonusMultiplier +
-			EDGING_BONUS * Gameplay.currentGamemode.scoreEdgingBonusMultiplierRange[1] +
-			SKILL_BONUS * Gameplay.currentGamemode.scoreSkillBonusMultiplier;
+			MAX_WIN_BONUS * Gameplay.currentGamemode.scoreWinBonusMultiplier +
+			MAX_EDGING_BONUS * Gameplay.currentGamemode.scoreEdgingBonusMultiplierRange[1] +
+			MAX_SKILL_BONUS * Gameplay.currentGamemode.scoreSkillBonusMultiplier;
 	}
 
 	public static function getMinScore() {
@@ -21,7 +21,7 @@ class ScoringUtil {
 	}
 
 	public static function judgeWinBonus(char:Character):Int {
-		return Math.round((char.currentPressure <= char.maxPressure) ? WIN_BONUS * Gameplay.currentGamemode.scoreWinBonusMultiplier : 0);
+		return Math.round((char.currentPressure <= char.maxPressure) ? MAX_WIN_BONUS * Gameplay.currentGamemode.scoreWinBonusMultiplier : 0);
 	}
 
 	public static function judgeEdgingBonus(char:Character):Int {
@@ -31,16 +31,16 @@ class ScoringUtil {
 		if (char.getPressurePercentage() > 1)
 			return getMinEdgingBonus();
 		if (char.currentPressure == 0)
-			return Math.round(EDGING_BONUS);
-		return Math.round(FlxMath.lerp(Gameplay.currentGamemode.scoreEdgingBonusMultiplierRange[0], Gameplay.currentGamemode.scoreEdgingBonusMultiplierRange[1], char.getPressurePercentage()) * EDGING_BONUS);
+			return Math.round(MAX_EDGING_BONUS);
+		return Math.round(FlxMath.lerp(Gameplay.currentGamemode.scoreEdgingBonusMultiplierRange[0], Gameplay.currentGamemode.scoreEdgingBonusMultiplierRange[1], char.getPressurePercentage()) * MAX_EDGING_BONUS);
 	}
 
 	public static function getMinEdgingBonus() {
-		return Math.round(EDGING_BONUS * Gameplay.currentGamemode.scoreEdgingBonusMultiplierRange[0]);
+		return Math.round(MAX_EDGING_BONUS * Gameplay.currentGamemode.scoreEdgingBonusMultiplierRange[0]);
 	}
 
 	public static function judgeSkillBonus(char:Character):Int {
-		return Math.round(Math.min(char.skillUseCount, Gameplay.currentGamemode.scoreSkillBonusRequirement) / Gameplay.currentGamemode.scoreSkillBonusRequirement * SKILL_BONUS * Gameplay.currentGamemode.scoreSkillBonusMultiplier);
+		return Math.round(Math.min(char.skillUseCount, Gameplay.currentGamemode.scoreSkillBonusRequirement) / Gameplay.currentGamemode.scoreSkillBonusRequirement * MAX_SKILL_BONUS * Gameplay.currentGamemode.scoreSkillBonusMultiplier);
 	}
 
 	public static function judgeCharacter(char:Character):ScoreData {

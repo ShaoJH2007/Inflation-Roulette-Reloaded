@@ -1,93 +1,77 @@
 package states;
+import ui.objects.SuffVideoSprite;
+import backend.Gameplay;
+import backend.ShaderUtil;
 
 class StartupState extends SuffState {
-	override function create() {
+	var allowToSkip:Bool = false;
+	var bg:FlxSprite;
+	var video:SuffVideoSprite;
+	static final videoSkipTime:Int = 6913;
+	var noSkipTimer:FlxTimer;
+
+	public override function create() {
 		super.create();
 
 		Window.setTitle(Constants.COPYRIGHT);
 
-		startIntro();
-	}
-
-	var logo:FlxSprite;
-	var timeToRemoveBlock:Float = 0;
-	var timeElapsed:Float = 0;
-	var allowToSkip:Bool = false;
-	var removingBlocks:Bool = false;
-	var tileGroup:FlxTypedContainer<FlxSprite> = new FlxTypedContainer<FlxSprite>();
-	var curSquare:Int = 0;
-	var blockCount:Int = 0;
-
-	static final scale:Int = 5;
-
-	var introSound:FlxSound;
-
-	var skipIntroTimer:FlxTimer;
-
-	function startIntro() {
-		logo = new FlxSprite().loadGraphic(Paths.getImage('ui/menus/nicklySufferLogo'));
-		blockCount = Std.int(logo.height);
-		logo.scale.set(scale, scale);
-		logo.updateHitbox();
-		logo.screenCenter(XY);
-		add(logo);
-
-		add(tileGroup);
-
-		for (i in 0...Std.int(blockCount)) {
-			var tile:FlxSprite = new FlxSprite(logo.x, logo.y + i * scale);
-			tile.makeGraphic(Std.int(scale * logo.width), scale, 0xFF000000);
-			tile.updateHitbox();
-			tile.visible = false;
-			tileGroup.add(tile);
-		}
-
-		introSound = new FlxSound().loadEmbedded(Paths.getSound('ui/startup/nicklySufferIntro'));
-		introSound.volume = 0.7;
-		introSound.play();
-
-		timeToRemoveBlock = 1.5 / blockCount;
-
-		allowToSkip = true;
-
-		skipIntroTimer = new FlxTimer().start(1.5, function(tmr:FlxTimer) {
-			skipIntro();
+		var bgList = Gameplay.globalStageList.copy();
+		bgList.remove('void');
+		bg = new FlxSprite().loadGraphic(Paths.getImage('ui/menus/characterSelect/stages/blurred/${FlxG.random.getObject(bgList)}'));
+		bg.setGraphicSize(FlxG.width * 1.25);
+		bg.updateHitbox();
+		bg.screenCenter(Y);
+		bg.alpha = 0;
+		add(bg);
+		
+		video = new SuffVideoSprite(0, 0);
+		video.onFormat(function() {
+			video.setGraphicSize(FlxG.width);
+			video.updateHitbox();
+			video.screenCenter();
+			video.volume = Preferences.data.musicVolume;
 		});
-	}
-
-	function skipIntro() {
-		if (removingBlocks || !allowToSkip)
-			return;
-
-		allowToSkip = false;
-
-		if (introSound != null)
-			introSound.stop();
-		SuffState.playUISound(Paths.getSound('ui/startup/transition'), 0.7);
-		removingBlocks = true;
-		new FlxTimer().start(1.5, function(tmr:FlxTimer) {
+		video.onEnd(function() {
 			FlxTransitionableState.skipNextTransIn = true;
 			SuffState.switchState(new MainMenuState());
 		});
+		add(video);
+
+		if (video.load(Paths.getVideo('nicklySufferLogo_noBg'))) {
+			FlxTween.tween(bg, {alpha: 1}, 1, {
+				onComplete: function(_) {
+					FlxTween.tween(bg, {alpha: 0}, 1, {
+						startDelay: 3.5
+					});
+				}
+			});
+			FlxTween.tween(bg, {x: FlxG.width - bg.width}, 5.5);
+			video.start();
+			video.shader = ShaderUtil.initShader('nicklySufferLogo');
+			allowToSkip = true;
+			noSkipTimer = new FlxTimer().start(videoSkipTime * 0.001, function(_ ) allowToSkip = false);
+		} else {
+			trace('Cannot load startup video. Skipping.');
+			FlxTransitionableState.skipNextTransIn = true;
+			SuffState.switchState(new MainMenuState());
+		}
 	}
 
-	override function update(elapsed:Float) {
+	function skipIntro() {
+		if (!allowToSkip)
+			return;
+		noSkipTimer.cancel();
+		allowToSkip = false;
+
+		video.time = videoSkipTime;
+	}
+
+	public override function update(elapsed:Float) {
 		super.update(elapsed);
 
-		if (Controls.justPressed('exit') || Controls.justPressed('shoot') || FlxG.mouse.justPressed) {
-			if (skipIntroTimer != null)
-				skipIntroTimer.cancel();
+		if (!video.isPlaying) return;
+		if (Controls.justPressed('exit') || FlxG.mouse.justPressed) {
 			skipIntro();
-		}
-
-		if (removingBlocks) {
-			timeElapsed += elapsed;
-			if (timeElapsed >= 0) {
-				for (i in 0...Math.ceil(Math.abs(timeElapsed) / timeToRemoveBlock) + 1) {
-					if (tileGroup.members[i] != null)
-						tileGroup.members[i].visible = true;
-				}
-			}
 		}
 	}
 }

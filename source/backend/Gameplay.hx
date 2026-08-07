@@ -28,7 +28,7 @@ class Gameplay {
 
 	public static function initialize() {
 		globalCharacterList = Paths.readFolderDirectories('data/characters', 'data/characters/characterList.txt', 'stats.json');
-		trace(globalCharacterList);
+		trace('Loaded characters: ' + globalCharacterList);
 		setPlayerCount(4);
 
 		defaultGamemode = new Gamemode('reloaded');
@@ -36,9 +36,11 @@ class Gameplay {
 
 		currentFiller = new Filler('air');
 		globalFillerList = Paths.readDirectories('data/fillers', 'data/fillers/fillerList.txt', 'json');
+		trace('Loaded fillers: ' + globalFillerList);
 
 		currentStage = 'reloaded';
 		globalStageList = Paths.readDirectories('data/stages', 'data/stages/stageList.txt', 'json');
+		trace('Loaded stages: ' + globalStageList);
 	}
 
 	public static function precacheSprites() {

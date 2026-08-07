@@ -14,6 +14,8 @@ class StageMiniCard extends SuffButton {
 		super(x, y, null, null, null, Constants.CHARACTER_CARD_DIMENSIONS[0], Constants.CHARACTER_CARD_DIMENSIONS[1], false);
 
 		var bgGraphic = Paths.getImage('ui/menus/characterSelect/stages/$stage');
+		if (bgGraphic == null)
+			bgGraphic = Paths.getImage('ui/menus/characterSelect/stages/random');
 		bg = new FlxSprite().loadGraphic(bgGraphic);
 		var rectOffset = FlxPoint.get(24, 4);
 		if (stage == 'random')

@@ -3,6 +3,7 @@ package backend.typedefs;
 typedef StageData = {
 	id:String,
 	music:String,
+	cameraShader:String,
 	stageCameraZoom:Float,
 	characterCameraZoom:Float,
 	cameraBounds:Array<Float>,

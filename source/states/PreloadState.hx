@@ -131,7 +131,6 @@ class PreloadState extends SuffState {
 			bg.setGraphicSize(Std.int(originalDimensions[0]), Std.int(originalDimensions[1]));
 			bg.updateHitbox();
 			preloadTxt.visible = false;
-			Achievements.advanceProgress('nineTwentyOne', [true]);
 			SuffState.playUISound(Paths.getSound('void'));
 			new FlxTimer().start(1, function(_) {
 				FlxG.camera.fade(0xFF000000, 0, false);

@@ -16,4 +16,5 @@ addons
 stages/classic
 stages/shitfucks
 stages/void
+stages/lab
 stages/classicAlt

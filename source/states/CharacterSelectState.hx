@@ -661,7 +661,7 @@ class CharacterSelectState extends SuffState {
 
 	function moveOnToStageSelect() {
 		if (status == PLAYER_SETTINGS) {
-			readySign.moveSign(true);
+			readySign.moveSign(false);
 		}
 		status = STAGE_SELECT;
 		playerOutline.visible = false;
@@ -815,7 +815,7 @@ class CharacterSelectState extends SuffState {
 		cardTweens.set('bg2', FlxTween.tween(bg2, {y: FlxG.height * 0.5}, 0.5, {ease: FlxEase.quintOut}));
 		cardTweens.set('playerSettingGroup', FlxTween.tween(playerSettingGroup, {y: FlxG.height * 0.5}, 0.75, {ease: FlxEase.quintOut}));
 
-		readySign.moveSign(false);
+		readySign.moveSign(true);
 	}
 
 	function setPlayer(val:Int) {
@@ -903,7 +903,7 @@ class CharacterSelectState extends SuffState {
 		save.data.characterSkillLevel = characterSkillLevel;
 		save.flush();
 		isExiting = true;
-		readySign.moveSign(true);
+		readySign.moveSign(false);
 		PlayState.hasSeenStartCutscene = false;
 		Gameplay.parseRandomCharacters();
 		openSubState(new GameOnSubState(new PlayState()));

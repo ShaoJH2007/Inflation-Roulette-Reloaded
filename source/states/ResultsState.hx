@@ -7,6 +7,8 @@ import flixel.util.FlxGradient;
 import flixel.addons.display.FlxGridOverlay;
 import backend.ScoringUtil;
 import backend.enums.SuffTransitionStyle;
+import backend.typedefs.CharacterResultsData;
+import tjson.TJSON as Json;
 
 class ResultsState extends SuffState {
 	var barGroup:FlxSpriteGroup;
@@ -197,11 +199,16 @@ class ResultsState extends SuffState {
 
 			var spriteExists:Bool = Paths.fileExists(Paths.getImagePath('ui/menus/results/characters/${data[i].charID}'));
 			var char:FlxSprite = new FlxSprite();
+			var charResultsData:CharacterResultsData = cast Json.parse(Paths.getTextFromFile('data/characters/${data[i].charID}/results.json'));
 			if (spriteExists) {
 				char.frames = Paths.getSparrowAtlas('ui/menus/results/characters/${data[i].charID}');
 			} else {
 				char.frames = Paths.getSparrowAtlas('ui/menus/results/characters/goober');
 			}
+			char.offset.set(charResultsData.offset[0], charResultsData.offset[1]);
+			char.origin.y = char.height;
+			char.scale.set(charResultsData.scale[0], charResultsData.scale[1]);
+			char.antialiasing = charResultsData.antialiasing;
 			var suffix = data[i].charPressure <= 1 ? 'Standing' : 'Defeated';
 			char.animation.addByPrefix('idle', 'idle${suffix}0', 24, true);
 			char.animation.addByPrefix('win', 'win${suffix}0', FlxG.random.int(18, 30), false);

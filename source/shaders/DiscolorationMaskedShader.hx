@@ -6,41 +6,42 @@ import openfl.display.BitmapData;
 class DiscolorationMaskedShader extends FlxShader {
 	@:glFragmentSource('
 	#pragma header
-        uniform vec3 tintColor;
-        uniform float intensity;
-        uniform sampler2D maskTexture;
-        uniform int maskIndex;
+    uniform vec3 tintColor;
+    uniform float intensity;
+    uniform sampler2D maskTexture;
+    uniform int maskIndex;
 
-        uniform bool useMask;
-        // x = left, y = top, z = right, w = bottom
-        uniform vec4 frameBounds;
+    uniform bool uUseMask;
+    // x = left, y = top, z = right, w = bottom
+    uniform vec4 frameBounds;
 
-        void main() {
-            vec4 color = flixel_texture2D(bitmap, openfl_TextureCoordv);
-            vec4 maskColor = vec4(0.0);
+    void main() {
+        vec4 color = flixel_texture2D(bitmap, openfl_TextureCoordv);
+        vec4 maskColor = vec4(0.0);
 
-            // Skip math entirely if base pixel is already transparent
-            if (color.a == 0.0) {
-                gl_FragColor = vec4(0.0);
-                return;
-            }
+        // Skip math entirely if base pixel is already transparent
+        if (color.a == 0.0) {
+            gl_FragColor = vec4(0.0);
+            return;
+        }
 
-			if (useMask) {
-				vec2 localCoord = (openfl_TextureCoordv - frameBounds.xy) / (frameBounds.zw - frameBounds.xy);
-				maskColor = flixel_texture2D(maskTexture, frameBounds.xy + localCoord * (frameBounds.zw - frameBounds.xy));
-				color.rgb = mix(color.rgb, tintColor.rgb * maskColor.rgb, intensity * maskColor.a);
-			} else {
-				color.r *= pow(tintColor.r, intensity);
-				color.g *= pow(tintColor.g, intensity);
-				color.b *= pow(tintColor.b, intensity);
-			}
-
-			gl_FragColor = vec4(color.rgb, color.a);
+		if (uUseMask) {
+			vec2 localCoord = (openfl_TextureCoordv - frameBounds.xy) / (frameBounds.zw - frameBounds.xy);
+			maskColor = flixel_texture2D(maskTexture, frameBounds.xy + localCoord * (frameBounds.zw - frameBounds.xy));
+			color.rgb = mix(color.rgb, tintColor.rgb * maskColor.rgb, intensity * maskColor.a);
+		} else {
+			color.r *= pow(tintColor.r, intensity);
+			color.g *= pow(tintColor.g, intensity);
+			color.b *= pow(tintColor.b, intensity);
 		}
+
+		gl_FragColor = vec4(color.rgb, color.a);
+	}
 	')
 	public var maskBitmaps:Array<BitmapData> = [];
 	public var color(default, set):Array<Float> = [0, 0, 0];
 	public var strength(default, set):Float = 0;
+	public var useMask(default, set):Bool = false;
 
 	private function set_color(value:Array<Float>):Array<Float> {
 		color = value;
@@ -63,7 +64,7 @@ class DiscolorationMaskedShader extends FlxShader {
 	public function new(color:Array<Float>) {
 		super();
 		this.maskIndex.value = [0];
-		this.useMask.value = [false];
+		this.useMask = false;
 		this.frameBounds.value = [
 			0,
 			0,
@@ -74,8 +75,10 @@ class DiscolorationMaskedShader extends FlxShader {
 		this.strength = 0;
 	}
 
-	public function setUseMask(value:Bool = true):Void {
-		this.useMask.value = [value];
+	public function set_useMask(value:Bool):Bool {
+		useMask = value;
+		uUseMask.value = [value];
+		return value;
 	}
 
 	public function initMask(index:Int = 0, bitmap:BitmapData):Void {

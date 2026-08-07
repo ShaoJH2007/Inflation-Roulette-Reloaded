@@ -2,8 +2,10 @@ package backend.typedefs;
 
 typedef StageObjectData = {
 	id:String,
+	?type:String,
 	graphic:String,
 	position:Array<String>,
+	?shader:String,
 	?hideInDecreaseDetail:Bool,
 	?showInDecreaseDetail:Bool,
 	?angle:Float,

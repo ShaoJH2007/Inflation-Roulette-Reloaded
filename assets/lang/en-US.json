@@ -489,9 +489,6 @@
 	// Win as all vanilla characters at least once.
 	"achievement.allCharacterWins.name": "All My Fellas",
 	"achievement.allCharacterWins.description": "Looks like you really have no special preference for these vessels.",
-	// Find all Easter Egg Startups.
-	"achievement.allEasterEggs.name": "Attention Deficit",
-	"achievement.allEasterEggs.description": "The archaic glyphs lie veiled, save by file digging, or code scouring.",
 	// Accumulate 10000 Dongs in the Main Menu.
 	"achievement.noLife.name": "Absolutely Jobless",
 	"achievement.noLife.description": "Waste your life away for no reason. You have been branded, marked permanently.",
@@ -504,18 +501,12 @@
 	"achievement.intentionalLoseByPolarize.name": "Lovesick",
 	"achievement.intentionalLoseByPolarize.description": "You know you're safe; you know you're at your limit; you know it's gonna make you lose; yet you still put yourself in danger? You horny or something?",
 	// Eliminate yourself after using Reveal and Polarize.
-	"achievement.findCameraman.name": "Lights, Camera, Action!",
-	"achievement.findCameraman.description": "Have you seen the cameraman?",
-	// Meet Cobalt. (1/128 probability)
 	"achievement.noWinners.name": "WarPumps",
 	"achievement.noWinners.description": "Somehow knock everyone out of the game, including yourself.",
-	// Play a game with no winners
+	// Be in a game with every player eliminated.
 	"achievement.winAgainstStrategicCPUs.name": "Mind Games",
 	"achievement.winAgainstStrategicCPUs.description": "Not gonna lie the bots aren't very smart either, but seeing everyone raging over these freaks, nice job.",
 	// Win a game with every CPU set to their highest skill level.
-	"achievement.nineTwentyOne.name": "9 Deaths with 21 Injured",
-	"achievement.nineTwentyOne.description": "You seein' this? That's the type of image that gets worse when you see 'em.",
-	// Play at exactly 9:21 PM, a random stupid image will flash on-screen briefly.
 	"achievement.exportCharacterProject.name": "Utilizer",
 	"achievement.exportCharacterProject.description": "Construct your own vessel using the Migrational Order Directive utility program.",
 	// Export your first character creator project.

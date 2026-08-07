@@ -297,10 +297,10 @@ class Character extends FlxSprite {
 		animation.onFrameChange.add(function(animName:String, frameNumber:Int, frameIndex:Int) {
 			if (discoloration == null) return;
 			if (maskFrames == null) {
-				discoloration.setUseMask(false);
+				discoloration.useMask = false;
 				return;
 			} else
-				discoloration.setUseMask(true);
+				discoloration.useMask = true;
 			discoloration.setMask(maskFrames.get(animToMask.get(animName)));
 			discoloration.setFrameBounds(
 				frame.uv.left,

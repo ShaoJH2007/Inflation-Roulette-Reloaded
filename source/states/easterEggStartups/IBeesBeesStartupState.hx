@@ -37,6 +37,7 @@ class IBeesBeesStartupState extends SuffState {
 		for (w in 0..._width) {
 			for (h in 0..._height) {
 				var pizza = new FlxSprite(w * pizzaSize.width, h * pizzaSize.height).loadGraphic(Paths.getImage('ui/menus/easterEggStartups/ibeesbees/pizza'));
+				pizza.antialiasing = !Preferences.data.enableForcedAliasing;
 				pizza.setGraphicSize(Std.int(pizzaSize.width), Std.int(pizzaSize.height));
 				pizza.updateHitbox();
 				pizza.alpha = (w + h) % 2 * 0.2 + 0.4;
@@ -64,7 +65,7 @@ class IBeesBeesStartupState extends SuffState {
 		var leMember = pizzas.members[randomIndex];
 		leMember.visible = true;
 
-		SuffState.playUISound(Paths.getSound('ui/transition/pop_1'), 1, 2.25);
+		SuffState.playUISound(Paths.getSound('void'), 0.5, 3);
 		shownPizzas.push(randomIndex);
 	}
 

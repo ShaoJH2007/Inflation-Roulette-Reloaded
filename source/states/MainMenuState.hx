@@ -22,6 +22,9 @@ import ui.objects.GameLogo;
 import states.debug.DiscolorationTestState;
 import states.debug.LiquidTestState;
 import backend.VersionUtil;
+import states.debug.ReadySignTestState;
+import backend.ScoringUtil;
+import backend.ScoringUtil.ScoringUtil.judgeGame;
 
 class MainMenuState extends SuffState {
 	public static var initialized:Bool = false;
@@ -427,7 +430,6 @@ class MainMenuState extends SuffState {
 				if (currentEasterEggInput.length > 16)
 					currentEasterEggInput = currentEasterEggInput.substring(1);
 				// trace(currentEasterEggInput);
-
 				for (easterEgg in Constants.EASTER_EGG_INPUTS) {
 					var formattedInput = currentEasterEggInput.toLowerCase();
 					if (currentEasterEggInput.toLowerCase() == easterEgg) {
@@ -446,6 +448,47 @@ class MainMenuState extends SuffState {
 			if (FlxG.keys.pressed.CONTROL) {
 				if (FlxG.keys.justPressed.C)
 					SuffState.switchState(new DiscolorationTestState());
+				if (FlxG.keys.justPressed.L)
+					SuffState.switchState(new LiquidTestState());
+				if (FlxG.keys.justPressed.S)
+					SuffState.switchState(new ReadySignTestState());
+				if (FlxG.keys.justPressed.R) {
+					ResultsState.data = [
+						{
+							charID: 'goober',
+							cpuControlled: false,
+							charPressure: 0,
+							winBonus: ScoringUtil.MAX_WIN_BONUS,
+							edgingBonus: ScoringUtil.MAX_EDGING_BONUS,
+							skillBonus: 0
+						},
+						{
+							charID: 'shib',
+							cpuControlled: false,
+							charPressure: 2,
+							winBonus: 0,
+							edgingBonus: ScoringUtil.getMinEdgingBonus(),
+							skillBonus: ScoringUtil.MAX_SKILL_BONUS
+						},
+						{
+							charID: 'chester',
+							cpuControlled: false,
+							charPressure: 2,
+							winBonus: 0,
+							edgingBonus: ScoringUtil.getMinEdgingBonus(),
+							skillBonus: ScoringUtil.MAX_SKILL_BONUS
+						},
+						{
+							charID: 'jacob',
+							cpuControlled: false,
+							charPressure: 2,
+							winBonus: 0,
+							edgingBonus: ScoringUtil.getMinEdgingBonus(),
+							skillBonus: ScoringUtil.MAX_SKILL_BONUS
+						}
+					];
+					SuffState.switchState(new ResultsState());
+				}
 			}
 		}
 	}

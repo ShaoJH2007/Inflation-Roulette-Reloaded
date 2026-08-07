@@ -108,7 +108,6 @@ class Main extends Sprite {
 		FlxG.signals.gameResized.add(function(w, h) {
 			if (FlxG.cameras != null) {
 				for (cam in FlxG.cameras.list) {
-					@:privateAccess
 					if (cam != null && cam.filters != null)
 						resetSpriteCache(cam.flashSprite);
 				}
@@ -145,13 +144,16 @@ class Main extends Sprite {
 		var errMsgTitle:Array<String> = [
 			"don't feel bad; you have a fine job tossing your little balls around",
 			"this is very sad gold <:(",
-			"bro are you trying to make them bigger or something",
-			"kusmek??? is that you???",
-			"bro there's kids around youtube stop recording",
 			"WAIT!! THAT'S NOT AN INTENDED FEATURE!! :broken_heart: :skull:",
 			"here comes a chopper to chop off your head",
-			"death to the eternal enemies of oceania",
-			"don't take the ajuniga's name in vain"
+			"don't take ajuniga's name in vain",
+			"屌你老母臭閪",
+			"oops, my system crashed",
+			"i lost my data, but i had an antivirus",
+			"antivirus is not enough; you need protogen",
+			"play monochrome or you're dead",
+			"i ran out of things to say so just report it to github",
+			"pursuitcore inflation yuri"
 		];
 		
 		#if _OFFICIAL_BUILD

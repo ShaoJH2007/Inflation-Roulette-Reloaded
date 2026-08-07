@@ -460,9 +460,6 @@
 	"achievement.allCharacterWins.name": "Не Имей Сто Рублей",
 	// ^А имей сто друзей. Каждый даст по два рубля, будет двести у тебя.
 	"achievement.allCharacterWins.description": "Похоже, среди этих обликов у тебя нет любимого.",
-	// Find all Easter Egg Startups.
-	"achievement.allEasterEggs.name": "Бездельник Года",
-	"achievement.allEasterEggs.description": "Глифы античности сокрыты завесой загадки. Отыскать их можно прошерстив файлы или код.",
 	// Accumulate 10000 Dongs in the Main Menu.
 	"achievement.noLife.name": "Финальный Босс Безработицы",
 	"achievement.noLife.description": "Ради ЭТОГО драгоценное время твоей жизни было потрачено впустую. Это не достижение, это клеймо, и тебе придётся жить с ним.",
@@ -472,12 +469,8 @@
 	"achievement.eliminateByAssault.description": "С игроком на грани поражения нужно расправляться напрямую.",
 	"achievement.intentionalLoseByPolarize.name": "Пошляк",
 	"achievement.intentionalLoseByPolarize.description": "Ты знал, что тебе ничего не грозит, ты знал, что ты на пределе и ты знал, что тебя это угробит, но ты не смог устоять. У меня не осталось никакой веры в тебя.",
-	"achievement.findCameraman.name": "Свет, Камера, Мотор!",
-	"achievement.findCameraman.description": "А вы видели оператора?",
 	"achievement.winAgainstStrategicCPUs.name": "Игры Разума",
 	"achievement.winAgainstStrategicCPUs.description": "Ни ты, ни эти болванки умом не блещут, но раз все на них так бомбят, наверное, ты молодец.",
-	"achievement.nineTwentyOne.name": "9 Убитых и 21 Раненый",
-	"achievement.nineTwentyOne.description": "Ты тоже это видел? Это одна из тех картинок, что всё больше походит на файл смерти, чем дольше ты на неё смотришь.",
 	"achievement.exportCharacterProject.name": "Утилизатор",
 	"achievement.exportCharacterProject.description": "Создай собственный облик воспользовавшись утилитой Migrational Order Directive.",
 	"achievement.liveShots.name": "Нужно Больше Воздуха",

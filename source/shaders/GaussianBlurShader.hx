@@ -9,11 +9,11 @@ class GaussianBlurShader extends FlxShader {
 	const float PI = 3.141592654;
 	const float Directions = 16.0;
 	const float Quality = 8.0;
-	uniform float blurSize;
-	uniform float brightness;
+	uniform float uSize;
+	uniform float uBrightness;
 
 	void main() {
-		vec2 Radius = blurSize / openfl_TextureSize;
+		vec2 Radius = uSize / openfl_TextureSize;
 		vec2 uv = openfl_TextureCoordv.xy;
 		vec4 Color = texture2D(bitmap, uv);
 
@@ -25,13 +25,28 @@ class GaussianBlurShader extends FlxShader {
 		}
 
 		Color /= Quality * Directions - 15.0;
-		gl_FragColor = vec4(Color.rgb * brightness, Color.a);
+		gl_FragColor = vec4(Color.rgb * uBrightness, Color.a);
 	}
     ')
 
+	public var size(default, set):Float = 8;
+	public var brightness(default, set):Float = 1;
+
+	function set_size(value:Float):Float {
+		size = value;
+		uSize.value = [value];
+		return value;
+	}
+
+	function set_brightness(value:Float):Float {
+		brightness = value;
+		uBrightness.value = [value];
+		return value;
+	}
+
 	public function new(size:Float = 8.0, brightness:Float = 1) {
 		super();
-		this.blurSize.value = [size];
-		this.brightness.value = [brightness];
+		this.size = size;
+		this.brightness = brightness;
 	}
 }

@@ -90,43 +90,12 @@ class Achievements {
 			items: ['air', 'water', 'soda', 'slime', 'berry'],
 			itemTranslationKey: 'filler.%.name'
 		});
-		#if (_ALLOW_EASTER_EGGS && !mobile)
-		createAchievement('allEasterEggs', {
-			tier: GOOD,
-			type: LIST,
-			items: ['roomoneohone', 'blueberryhelium', 'imhighoncrack', 'ibeesbees', 'cogitoergosum', 'youreboringme'],
-			itemTranslationKey: '%',
-			hideIcon: true,
-			hideName: true,
-			// hideDescription: true,
-			// This might not be a good idea.
-			hideItems: true
-		});
-		#end
 
 		createAchievement('noLife', {
 			tier: LAME,
 			type: BOOLEAN,
 			hideFromMenu: true,
 			resettable: false,
-			alwaysAchievable: true
-		});
-
-		// Hidden
-		createAchievement('findCameraman', {
-			tier: COMMON,
-			type: BOOLEAN,
-			hideIcon: true,
-			hideName: true,
-			silent: true,
-			alwaysAchievable: true
-		});
-		createAchievement('nineTwentyOne', {
-			tier: LAME,
-			type: BOOLEAN,
-			hideIcon: true,
-			hideName: true,
-			silent: true,
 			alwaysAchievable: true
 		});
 

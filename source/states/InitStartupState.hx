@@ -7,12 +7,11 @@ import states.easterEggStartups.*;
 #if android
 import backend.AndroidUtil;
 import states.AndroidPermissionsState;
-import backend.Addons.Addons.pushGlobalAddons;
-import backend.Addons;
+import states.StartupState;
 #end
 
 class InitStartupState extends SuffState {
-	override function create() {
+	public override function create() {
 		// CursorHandler.cursorVisible = false;
 
 		super.create();
@@ -49,6 +48,8 @@ class InitStartupState extends SuffState {
 					SuffState.switchState(new CogitoErgoSumStartupState());
 				case 'youreboringme':
 					SuffState.switchState(new YouReBoringMeStartupState());
+				case 'ifuckyourmother':
+					SuffState.switchState(new ClassicStartupState());
 				#end
 				default:
 					SuffState.switchState(new StartupState());
