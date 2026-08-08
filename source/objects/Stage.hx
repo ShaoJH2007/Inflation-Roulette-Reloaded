@@ -7,7 +7,6 @@ import tjson.TJSON as Json;
 import backend.typedefs.StageObjectData;
 import backend.typedefs.AnimationData;
 import backend.Gameplay;
-import backend.ShaderUtil;
 
 class Stage extends FlxBasic {
 	private var game(get, never):PlayState;
@@ -148,7 +147,7 @@ class Stage extends FlxBasic {
 			});
 		}
 		if (objectData.shader != null)
-			object.shader = ShaderUtil.initShader(objectData.shader);
+			object.shader = Paths.getShader(objectData.shader);
 		if (objectData.scrollFactor != null && objectData.scrollFactor.length == 2)
 			object.scrollFactor.set(objectData.scrollFactor[0], objectData.scrollFactor[1]);
 		if (objectData.hideCharacter != null)

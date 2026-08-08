@@ -1,11 +1,11 @@
 package states;
 import ui.objects.SuffVideoSprite;
 import backend.Gameplay;
-import backend.ShaderUtil;
 
 class StartupState extends SuffState {
 	var allowToSkip:Bool = false;
 	var bg:FlxSprite;
+	var bgAlphaTween:FlxTween;
 	var video:SuffVideoSprite;
 	static final videoSkipTime:Int = 6913;
 	var noSkipTimer:FlxTimer;
@@ -39,16 +39,16 @@ class StartupState extends SuffState {
 		add(video);
 
 		if (video.load(Paths.getVideo('nicklySufferLogo'))) {
-			FlxTween.tween(bg, {alpha: 1}, 1, {
+			bgAlphaTween = FlxTween.tween(bg, {alpha: 1}, 1, {
 				onComplete: function(_) {
 					FlxTween.tween(bg, {alpha: 0}, 1, {
 						startDelay: 3.5
 					});
 				}
 			});
-			FlxTween.tween(bg, {x: FlxG.width - bg.width}, 5.5);
+			bg.velocity.x = (FlxG.width - bg.width) / 5.5;
 			video.start();
-			video.shader = ShaderUtil.initShader('nicklySufferLogo');
+			video.shader = Paths.getShader('blackToAlpha');
 			allowToSkip = true;
 			noSkipTimer = new FlxTimer().start(videoSkipTime * 0.001, function(_ ) allowToSkip = false);
 		} else {
@@ -62,6 +62,8 @@ class StartupState extends SuffState {
 		if (!allowToSkip)
 			return;
 		noSkipTimer.cancel();
+		bgAlphaTween.cancel();
+		bg.destroy();
 		allowToSkip = false;
 
 		video.time = videoSkipTime;

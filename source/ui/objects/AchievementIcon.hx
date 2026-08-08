@@ -1,18 +1,22 @@
 package ui.objects;
 
-import shaders.GrayscaleShader;
+import flixel.addons.display.FlxRuntimeShader;
 
 class AchievementIcon extends FlxSprite {
-	var grayscaleShader:GrayscaleShader;
+	public static var grayscaleShader:FlxRuntimeShader;
 	
 	public var locked(default, set):Bool = false;
 	public function new(x:Float, y:Float, id:String, locked:Bool = false) {
 		super(x, y);
-		
-		this.locked = locked;
-		grayscaleShader = new GrayscaleShader();
 
+		initShader();
+		this.locked = locked;
 		loadIconGraphic(id, locked);
+	}
+	
+	public static function initShader() {
+		if (!Preferences.data.enableGLSL || grayscaleShader != null) return;
+		grayscaleShader = Paths.getShader('grayscale');
 	}
 	
 	private function set_locked(value:Bool):Bool {

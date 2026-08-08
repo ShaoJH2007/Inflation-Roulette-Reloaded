@@ -16,7 +16,6 @@ import objects.Stage;
 import backend.ScoringUtil;
 import objects.particles.SkillIndicator;
 import ui.objects.RevealBullet;
-import shaders.GaussianBlurShader;
 import objects.particles.Bloosh;
 import objects.particleEmitters.PopEmitter;
 import objects.particles.BulletShell;
@@ -27,7 +26,7 @@ import objects.particles.Stain;
 import objects.NPC;
 import objects.particles.DenialShield;
 import openfl.filters.ShaderFilter;
-import backend.ShaderUtil;
+
 
 class PlayState extends SuffState {
 	public var characterGroup:FlxTypedContainer<Character> = new FlxTypedContainer<Character>();
@@ -164,7 +163,7 @@ class PlayState extends SuffState {
 
 		stage = new Stage(Gameplay.currentStage);
 		if (stage.data?.cameraShader != null && stage.data?.cameraShader != '') {
-			camGame.filters = [new ShaderFilter(ShaderUtil.initShader(stage.data.cameraShader))];
+			camGame.filters = [new ShaderFilter(Paths.getShader(stage.data.cameraShader))];
 		}
 
 		currentSessionEnablePopping = Preferences.data.enablePopping;
@@ -243,7 +242,10 @@ class PlayState extends SuffState {
 				}, 10);
 			});
 			if (Preferences.data.enableGLSL) {
-				cobalt.shader = new GaussianBlurShader(16, 0.5);
+				var gaussianBlur = Paths.getShader('gaussianBlur');
+				gaussianBlur.data.uSize.value = [16];
+				gaussianBlur.data.uBrightness.value = [0.5];
+				cobalt.shader = gaussianBlur;
 				cobalt.scale.set(1.1, 1.1);
 				cobalt.antialiasing = !Preferences.data.enableForcedAliasing;
 			} else

@@ -1,13 +1,13 @@
 package ui.objects;
 
-import shaders.OutlineShader;
+import flixel.addons.display.FlxRuntimeShader;
 
 class ReadySign extends SuffButton {
 	var sign:FlxSprite;
 	var chainLeft:FlxSprite;
 	var chainRight:FlxSprite;
 	
-	var outlineShader:OutlineShader;
+	static var outlineShader:FlxRuntimeShader;
 
 	var currentFrame:Float = 0;
 	var frameDirection:Float = 0;
@@ -18,7 +18,7 @@ class ReadySign extends SuffButton {
 	public function new(startDisabled:Bool = true) {
 		super((FlxG.width - 230) / 2, 0, null, null, null,230, 160, false);
 
-		outlineShader = new OutlineShader(3, 0xFFFFFFFF);
+		initShader();
 
 		chainLeft = new FlxSprite().loadGraphic(Paths.getImage('ui/menus/characterSelect/readySign/chain'));
 		chainLeft.shader = outlineShader;
@@ -40,6 +40,14 @@ class ReadySign extends SuffButton {
 		frameDirection = moveIn ? 1 : -1;
 		this.disabled = !moveIn;
 		sign.visible = chainLeft.visible = chainRight.visible = true;
+	}
+	
+	static function initShader() {
+		if (!Preferences.data.enableGLSL || outlineShader != null) return;
+		outlineShader = Paths.getShader('outline');
+		outlineShader.data.uColor.value = [1.0, 1.0, 1.0, 1.0];
+		outlineShader.data.uThickness.value = [3.0];
+		outlineShader.data.uEnabled.value = [false];
 	}
 	
 	function animate(frameDecimal:Float) {
@@ -92,7 +100,7 @@ class ReadySign extends SuffButton {
 	override function update(elapsed:Float) {
 		super.update(elapsed);
 
-		outlineShader.enabled = !disabled && hovered;
+		outlineShader.data.uEnabled.value = [!disabled && hovered];
 
 		currentFrame = FlxMath.bound(currentFrame + elapsed * frameRate * frameDirection, firstFrame, lastFrame);
 		animate(currentFrame);
