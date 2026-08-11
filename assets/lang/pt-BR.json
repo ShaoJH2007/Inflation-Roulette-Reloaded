@@ -1,29 +1,31 @@
 {
 	// ! DO NOT DELETE THE COMMENTS        !
 	// ! COMMENTS WILL NOT BE READ BY GAME !
-	// *** Translation File ***
-	// Language: Português (Brasil)
-	
+	// Translation File
+
 	// Comments are prefixed with two slashes (//) before each LINE, and will not be recognized by the game.
 	// Comments are reserved for translation notes, either to clarify context or give instructions.
 	// There's no need to translate comments.
-	
+
+	// If a string needs retranslation, it will be commented out, and prefixed with an asterisk (*).
+	// If retranslated, feel free to uncomment it.
+
 	// Empty lines will also be ignored as well.
-	
+
 	// For the majority of the text in the game UI, a technical tone is used.
 	// Unless specified otherwise, most lengthy prompts uses a witty/humorous tone.
 	// Some jokes may be regional and lose its punchline. In this case, try to come up with a similar joke
 	// that works in your country's region. If all else fails, just make an entirely different joke.
-	
+
 	// In all cases, try your best to capture the original tone of the locale strings.
 	// But if the language you're translating is inherently unserious (e.g. LOLCAT, Pirate Speak), ehh just get the message across.
 	// Ultimately, the message that came across should remain unchanged to avoid any confusion.
-	
+
 	// For names of fictional people and fictional places, they should remain untranslated.
 	// If your language uses another script other than Latin, make sure they phonetically
 	// sound similar to its English counterpart.
 	// In a nutshell, transliterate names.
-	
+
 	// For terms like "Inflation Roulette" and "Reloaded" used in a naming context,
 	// unless your language does not use the Latin script, it should be remain
 	// untranslated.
@@ -118,8 +120,7 @@
 	"extrasMenu.jukebox": "Jukebox",
 	
 	"debugText.framerate": "FPS",
-	"debugText.memory": "GC RAM",
-	"debugText.memoryPeak": "GC RAM Peak",
+	"debugText.gcMemory": "GC RAM",
 	"debugText.state": "State",
 	// %1: Debug Text
 	"debugText.format": "%1: %2",
@@ -256,7 +257,7 @@
 	"option.enableForcedAliasing.name": "Pixelização Forçada",
 	"option.enableForcedAliasing.description": "Desativa antiserrilhamento de todas as sprites mesmo com ele ligado. Pode deixar alguns gráficos pixelados.",
 	"option.enableGLSL.name": "Shaders GLSL",
-	"option.enableGLSL.description": "Ativa Shaders GLSL para alguns elementos do menu. Desativar essa opção pode reduzir a carga em GPUs mais fracas.",
+	"option.enableGLSL.description": "Ativa GLSL shaders de alta qualidade. Desativar essa opção mantém apenas shaders essenciais de baixa intensidade ativados, o que pode reduzir a carga em GPUs mais fracas.",
 	"option.alwaysPlayMainMenuAnims.name": "Animações no Menu Principal",
 	"option.alwaysPlayMainMenuAnims.description": "Sempre reproduzir animações de inicialização no Menu Principal.",
 	"option.showMusicToast.name": "Notificação Visual da Música",
@@ -293,7 +294,7 @@
 	"option.showDebugText.description": "Exibe informação de depuração no canto superior esquerdo da tela",
 	"option.showFramerateOnDebugText.name": "Framerate",
 	"option.showFramerateOnDebugText.description": "Mostra a framerate atual no Texto de Depuração.",
-	"option.showMemoryUsageOnDebugText.name": "Uso de memória do GC",
+	"option.showMemoryUsageOnDebugText.name": "Uso de memória",
 	"option.showMemoryUsageOnDebugText.description": "Exibe a quantidade de memória atualmente usada pelo garbage collector no Texto de Depuração.",
 	"option.showCurrentStateOnDebugText.name": "Estado Atual",
 	"option.showCurrentStateOnDebugText.description": "Exibe o menu que está sendo atualmente navegado no Texto de Depuração.",
@@ -308,7 +309,6 @@
 	"languageMenu.description": "Nota: Traduções podem não ser 100% exatas, e podem conter traduções incorretas ou texto não traduzido.",
 	"languageMenu.contributors": "Contribuidores",
 	"languageMenu.completion": "%1 Completo",
-	"languageMenu.deprecated": "[DEFASADO]",
 	"languageMenu.exportedUnmatchedKeys": "Indentificadores de localização faltantes e defasados exportados em:\n%1",
 
 	"gamemodeSelect.windowDisplay": "Selecionar Modo de Jogo",
@@ -489,9 +489,6 @@
 	// Win as all vanilla characters at least once.
 	"achievement.allCharacterWins.name": "Meus Casas",
 	"achievement.allCharacterWins.description": "Parece que você realmente não tem uma preferência especial por esses receptáculos.",
-	// Find all Easter Egg Startups.
-	"achievement.allEasterEggs.name": "Déficit de Atenção",
-	"achievement.allEasterEggs.description": "Os grifos arcaicos se mantém velados, salve escavando arquivos, ou buscando nos códigos.",
 	// Accumulate 10000 Dongs in the Main Menu.
 	"achievement.noLife.name": "Absolutamente Desempregado",
 	"achievement.noLife.description": "Desperdice tempo da sua vida por nenhuma razão. Você foi marcado permanentemente.",
@@ -504,17 +501,11 @@
 	"achievement.intentionalLoseByPolarize.name": "Louco por Amor",
 	"achievement.intentionalLoseByPolarize.description": "Você sabe que está seguro; você sabe que está no seu limite; você sabe que vai te fazer perder; mas mesmo assim você põe você mesmo em perigo? Tá com tesão ou algo assim?",
 	// Eliminate yourself after using Reveal and Polarize.
-	"achievement.findCameraman.name": "Luz, Câmera, Ação!",
-	"achievement.findCameraman.description": "Você viu o cameraman?",
-	// Meet Cobalt. (1/128 probability)
 	"achievement.noWinners.name": "Bombeadas de Guerra",
 	"achievement.noWinners.description": "De alguma forma nocauteie todo mundo no jogo, incluindo você mesmo.",
 	// Play a game with no winners
 	"achievement.winAgainstStrategicCPUs.name": "Jogos Mentais",
 	"achievement.winAgainstStrategicCPUs.description": "Não vou mentir, os bots aqui não são muito espertos, mas vendo todo mundo se irritando com esses doidos? Ótimo trabalho.",
-	// Win a game with every CPU set to their highest skill level.
-	"achievement.nineTwentyOne.name": "9 Mortes com 21 Feridos",
-	"achievement.nineTwentyOne.description": "Tá vendo isso? Esse é o tipo de imagem que fica pior quanto mais você olha.",
 	// Play at exactly 9:21 PM, a random stupid image will flash on-screen briefly.
 	"achievement.exportCharacterProject.name": "Utilizador",
 	"achievement.exportCharacterProject.description": "Construa seu próprio receptáculo usando o programa de utilidade Migrational Order Directive.",

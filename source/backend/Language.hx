@@ -12,19 +12,28 @@ using StringTools;
 class Language {
 	public static final defaultLanguage:String = 'en-US';
 	public static var phrases:Map<String, Dynamic> = [];
-	public static var fallbackPhrases:Map<String, Dynamic> = [];
+	public static var fallbackPhrases:Map<String, Dynamic> = null;
 	public static var fallbackKeys:Array<String> = [];
 
 	public static var phrasesCount:Map<String, Int> = [];
 
 	public static function initialize() {
 		var prefLang = Preferences.data.language.split('-');
-		prefLang[1] = prefLang[1].toUpperCase();
-		if (prefLang[0] == 'ca' && prefLang[1] == 'AD')
-			prefLang[1] = 'ES';
+		if (prefLang.length > 1) {
+			prefLang[1] = prefLang[1].toUpperCase();
+			if (prefLang[0] == 'ca' && prefLang[1] == 'AD')
+				prefLang[1] = 'ES';
+		}
 		phrases = fetchPhrases(prefLang.join('-'));
-		fallbackPhrases = fetchPhrases(defaultLanguage);
-		fallbackKeys = fetchKeys(defaultLanguage);
+		if (phrases == null) {
+			trace('$prefLang does not exist. Using en-US');
+			Preferences.data.language = defaultLanguage;
+			phrases = fetchPhrases(defaultLanguage);
+		}
+		if (fallbackPhrases == null)
+			fallbackPhrases = fetchPhrases(defaultLanguage);
+		if (fallbackKeys.length <= 0)
+			fallbackKeys = fetchKeys(defaultLanguage);
 
 		FlxAssets.FONT_DEFAULT = Paths.getFont('default');
 	}
@@ -114,7 +123,16 @@ class Language {
 	public static function fetchPhrases(langID:String = 'en-US'):Map<String, Dynamic> {
 		phrasesCount.set(langID, 0);
 		trace('Fetching phrases from $langID');
-		var vanillaPhrases:DynamicAccess<Dynamic> = Json.parse(Paths.getTextFromFile('lang/$langID.json', false));
+		var langRawJson = Paths.getTextFromFile('lang/$langID.json', false);
+		if (langRawJson == null) {
+			trace('Cannot read phrases from $langID.');
+			return null;
+		}
+		var vanillaPhrases:DynamicAccess<Dynamic> = Json.parse(langRawJson);
+		if (vanillaPhrases == null) {
+			trace('Cannot read phrases from $langID.');
+			return null;
+		}
 		var lePhrases:Map<String, Dynamic> = [];
 		for (key => string in vanillaPhrases) {
 			lePhrases.set(key, string);

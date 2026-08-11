@@ -241,15 +241,14 @@ class PlayState extends SuffState {
 					}
 				}, 10);
 			});
+			cobalt.color = 0xFF808080;
 			if (Preferences.data.enableGLSL) {
 				var gaussianBlur = Paths.getShader('gaussianBlur');
 				gaussianBlur.data.uSize.value = [16];
-				gaussianBlur.data.uBrightness.value = [0.5];
 				cobalt.shader = gaussianBlur;
 				cobalt.scale.set(1.1, 1.1);
 				cobalt.antialiasing = !Preferences.data.enableForcedAliasing;
-			} else
-				cobalt.color = 0xFF808080;
+			}
 			cobalt.camera = camEffects;
 			add(cobalt);
 		}

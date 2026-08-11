@@ -99,6 +99,7 @@ Hotfixes are quick updates that fixes critical bugs.
   - The final damage dealt will be rounded down.
 - Character sprites are no longer preloaded on the start of the game.
 - Decreased RAM usage by up to 50%. (Not guaranteed)
+- Switching languages is now faster.
 - Max Framerate is now capped at 120.
   - Since this update uses more resources, higher framerates are unstable on low-end devices.
 #### Utilities

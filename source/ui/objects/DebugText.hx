@@ -2,7 +2,6 @@ package ui.objects;
 
 import openfl.text.TextField;
 import openfl.text.TextFormat;
-import openfl.system.System;
 
 #if gl_stats
 import openfl.display._internal.stats.Context3DStats;
@@ -20,6 +19,7 @@ import openfl.Lib;
 @:fileXml('tags="haxe,release"')
 @:noDebug
 #end
+@:include('winapi.hpp')
 class DebugText extends TextField {
 	/**
 		The current frame rate, expressed using frames-per-second
@@ -48,13 +48,6 @@ class DebugText extends TextField {
 		cacheCount = 0;
 		currentTime = 0;
 		times = [];
-
-		#if flash
-		addEventListener(Event.ENTER_FRAME, function(e) {
-			var time = Lib.getTimer();
-			__enterFrame(time - currentTime);
-		});
-		#end
 	}
 
 	public function reloadFont(color:Int = 0xFFFFFFFF) {
@@ -89,10 +82,8 @@ class DebugText extends TextField {
 		}
 
 		cacheCount = currentCount;
-		if (memCount > memPeak) memPeak = memCount;
 	}
-
-	private var memPeak:Float = 0;
+	
 	private var memCount(get, never):Float;
 
 	private function get_memCount() {
@@ -106,8 +97,7 @@ class DebugText extends TextField {
 			text += Language.getPhrase('debugText.format', [Language.getPhrase('debugText.framerate'), currentFPS]) + '\n';
 		#if (openfl && !html5)
 		if (Preferences.data.showMemoryUsageOnDebugText) {
-			text += Language.getPhrase('debugText.format', [Language.getPhrase('debugText.memory'), Utilities.formatBytes(memCount, 1)]) + '\n';
-			text += Language.getPhrase('debugText.format', [Language.getPhrase('debugText.memoryPeak'), Utilities.formatBytes(memPeak, 1)]) + '\n';
+			text += Language.getPhrase('debugText.format', [Language.getPhrase('debugText.gcMemory'), Utilities.formatBytes(memCount, 1)]) + '\n';
 		}
 		#end
 		if (Preferences.data.showCurrentStateOnDebugText) {

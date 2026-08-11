@@ -8,6 +8,7 @@ import ui.objects.SuffIconButton;
 import ui.objects.SuffTextButton;
 import tjson.TJSON as Json;
 import substates.GenericPrompt;
+import ui.objects.SuffScrollBar;
 
 class LanguageSelectState extends SuffState {
 	public static var initialized:Bool = false;
@@ -31,7 +32,8 @@ class LanguageSelectState extends SuffState {
 	var title:FlxText;
 	var description:FlxText;
 	var progress:SuffTextButton;
-	var languageButtons:FlxTypedContainer<SuffTextButton> = new FlxTypedContainer<SuffTextButton>();
+	var scrollBar:SuffScrollBar;
+	var languageButtons:FlxTypedSpriteGroup<SuffTextButton> = new FlxTypedSpriteGroup<SuffTextButton>();
 	var contributorText:FlxSpriteGroup = new FlxSpriteGroup();
 	var languages:Array<String> = [];
 	var languageMetadataList:Array<LanguageMetadata> = [];
@@ -42,11 +44,9 @@ class LanguageSelectState extends SuffState {
 
 	var bgOverlayScale:FlxPoint;
 
-	override function create() {
+	public override function create() {
 		Paths.clearUnusedMemory();
 		Paths.clearStoredMemory();
-
-		Window.setTitle(Language.getPhrase('languageMenu.windowDisplay'));
 
 		bg = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0xFFFFFFFF);
 		add(bg);
@@ -83,10 +83,20 @@ class LanguageSelectState extends SuffState {
 		selectorRight.x = FlxG.width;
 
 		selectorLeft.color = selectorRight.color = textColor;
+		selectedLine = new FlxSprite(0, 0).makeGraphic(1, 3, textColor);
+		add(selectedLine);
+		
 		add(contributorText);
 
 		languages = Utilities.textFileToArray('lang/languageList.txt');
 		languages.unshift(Language.defaultLanguage);
+		/*
+		for (lang in languages.copy()) {
+			for (i in 0...3) {
+				languages.push(lang);
+			}
+		}
+		 */
 		languages.sort(function(a:String, b:String):Int {
 			a = a.toUpperCase();
 			b = b.toUpperCase();
@@ -99,7 +109,7 @@ class LanguageSelectState extends SuffState {
 			}
 		}); // Sort languages alphabetically by their ID
 		var maxWidth:Float = 0;
-		var padding:Float = Math.max(32, 96 / languages.length);
+		var padding:Float = 32;
 		for (num => item in languages) {
 			var metadataJson = Paths.getTextFromFile('lang/$item/metadata.json');
 			var metadata:LanguageMetadata = cast Json.parse(metadataJson);
@@ -109,7 +119,7 @@ class LanguageSelectState extends SuffState {
 			if (!Paths.fileExists(langFontPath)) {
 				langFontPath = Paths.getFont('default');
 			}
-			var btn = new SuffTextButton(32, (FlxG.height - (languages.length * 64 + (languages.length - 1) * padding)) / 2 + (64 + padding) * num,
+			var btn = new SuffTextButton(0, (64 + padding) * num,
 				'${metadata.name} (${metadata.locale})', 48, langFontPath);
 			btn.btnTextColor = btn.btnTextColorHovered = btn.btnTextColorClicked = textColor;
 			btn.x = num % 2 == 0 ? -btn.width - 100 : FlxG.width + 100;
@@ -117,8 +127,6 @@ class LanguageSelectState extends SuffState {
 				maxWidth = btn.width;
 			if (Preferences.data.language == item) {
 				curSelecting = curSelected = num;
-				selectedLine = new FlxSprite(0, 0).makeGraphic(Std.int(btn.width), 3, textColor);
-				add(selectedLine);
 			}
 			btn.onHover = function() {
 				curSelecting = num;
@@ -127,11 +135,12 @@ class LanguageSelectState extends SuffState {
 			btn.onClick = function() {
 				if (Preferences.data.language != item) {
 					Preferences.data.language = item;
+					curSelected = num;
 					Language.initialize();
 					Preferences.savePrefs();
 					FlxTransitionableState.skipNextTransIn = true;
 					FlxTransitionableState.skipNextTransOut = true;
-					FlxG.resetState();
+					reloadText();
 					if (Main.debugText != null) {
 						Main.debugText.reloadFont();
 					}
@@ -145,6 +154,17 @@ class LanguageSelectState extends SuffState {
 		languageOverlay.screenCenter(X);
 		languageOverlay.alpha = 0.25;
 		add(languageOverlay);
+		if (languageButtons.height <= FlxG.height - 64)
+			languageButtons.screenCenter(Y);
+		else {
+			languageButtons.y = 32;
+			scrollBar = new SuffScrollBar(languageOverlay.x + languageOverlay.width, 0, function(percent:Float) {
+				languageButtons.y = FlxMath.lerp(32, FlxG.height - languageButtons.height - 32, percent);
+			}, 16, languageButtons.height);
+			scrollBar.visible = false;
+			scrollBar.color = textColor;
+			add(scrollBar);
+		}
 		add(languageButtons);
 
 		add(selectorLeft);
@@ -208,7 +228,29 @@ class LanguageSelectState extends SuffState {
 			transition(true);
 		}
 
+		reloadText();
+
 		super.create();
+	}
+	
+	function reloadText() {
+		title.font = Paths.getFont('default');
+		title.text = Language.getPhrase('languageMenu.title');
+
+		progress.y = title.y + title.height + 16;
+		progress.btnTextFontPath = Paths.getFont('small');
+		var leProgress = (Language.getCompletionProgress(Preferences.data.language) * 100) + '%';
+		progress.btnTextTxt = Language.getPhrase('languageMenu.completion', [leProgress]);
+		progress.btnText.updateHitbox();
+		progress.btnText.setPosition(progress.btnBG.x, progress.btnBG.y);
+		progress.btnBG.resize(progress.btnText.width, progress.btnText.height);
+		progress.visible = (Preferences.data.language != Language.defaultLanguage);
+
+		description.font = Paths.getFont('small');
+		description.text = Language.getPhrase('languageMenu.description');
+		description.y = progress.y + progress.height + 16;
+
+		Window.setTitle(Language.getPhrase('languageMenu.windowDisplay'));
 	}
 
 	final duration:Float = Math.PI;
@@ -218,6 +260,8 @@ class LanguageSelectState extends SuffState {
 
 	function regenerateContributorsList(id:String, contributors:Array<String>) {
 		contributorText.clear();
+		if (id == Language.defaultLanguage)
+			return;
 		if (contributors == null || contributors.length <= 0)
 			contributors = ['Unknown'];
 		for (num => contributor in contributors) {
@@ -268,7 +312,8 @@ class LanguageSelectState extends SuffState {
 		selectorLeft.x = btn.x - selectorLeft.width - 8;
 		selectorRight.x = btn.x + btn.width + 8;
 		if (selectedLine != null && btnSelected != null) {
-			selectedLine.x = btnSelected.x;
+			selectedLine.x = btnSelected.x + btnSelected.width / 2;
+			selectedLine.scale.x = btnSelected.width;
 			selectedLine.y = btnSelected.y + btnSelected.height - 7;
 		}
 
@@ -308,6 +353,8 @@ class LanguageSelectState extends SuffState {
 
 		bg.color = leBGColor;
 		bgOverlay.visible = true;
+		if (scrollBar != null)
+			scrollBar.visible = true;
 		ajuniga.loadGraphic(Paths.getImage('ui/menus/language/ajunigaBlended'));
 		ajuniga.angle = 0;
 		exitButton.visible = githubButton.visible = true;
@@ -318,10 +365,10 @@ class LanguageSelectState extends SuffState {
 			FlxTween.tween(languageOverlay, {y: 0}, 0.5, {
 				ease: FlxEase.quintOut,
 				onComplete: function(_) {
-					for (num => btn in languageButtons) {
+					for (num => btn in languageButtons.members) {
 						FlxTween.tween(btn, {x: (FlxG.width - btn.width) / 2}, 0.75, {
 							ease: FlxEase.quintOut,
-							startDelay: num * 0.1
+							startDelay: 1 / languageButtons.members.length * num
 						});
 					}
 				}
@@ -354,7 +401,7 @@ class LanguageSelectState extends SuffState {
 			add(explod);
 		} else {
 			languageOverlay.y = 0;
-			for (num => btn in languageButtons) {
+			for (num => btn in languageButtons.members) {
 				btn.x = (FlxG.width - btn.width) / 2;
 			}
 			ajuniga.setPosition(FlxG.width * 0.6, FlxG.height * 0.4);

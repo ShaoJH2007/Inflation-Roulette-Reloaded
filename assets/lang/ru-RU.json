@@ -1,35 +1,37 @@
 {
+	// ! DO NOT DELETE THE COMMENTS        !
+	// ! COMMENTS WILL NOT BE READ BY GAME !
 	// Translation File
 	// Language: Russian (Russia)
-	
+
 	// Comments are prefixed with two slashes (//) before each LINE, and will not be recognized by the game.
 	// Comments are reserved for translation notes, either to clarify context or give instructions.
 	// There's no need to translate comments.
-	
+
+	// If a string needs retranslation, it will be commented out, and prefixed with an asterisk (*).
+	// If retranslated, feel free to uncomment it.
+
 	// Empty lines will also be ignored as well.
-	
+
 	// For the majority of the text in the game UI, a technical tone is used.
 	// Unless specified otherwise, most lengthy prompts uses a witty/humorous tone.
-	// Some jokes may be regional and lose its punchline. In this case, try come up with a similar joke
+	// Some jokes may be regional and lose its punchline. In this case, try to come up with a similar joke
 	// that works in your country's region. If all else fails, just make an entirely different joke.
-	
+
 	// In all cases, try your best to capture the original tone of the locale strings.
 	// But if the language you're translating is inherently unserious (e.g. LOLCAT, Pirate Speak), ehh just get the message across.
 	// Ultimately, the message that came across should remain unchanged to avoid any confusion.
-	
-	// For names of people and places, they should remain untranslated.
+
+	// For names of fictional people and fictional places, they should remain untranslated.
 	// If your language uses another script other than Latin, make sure they phonetically
 	// sound similar to its English counterpart.
 	// In a nutshell, transliterate names.
-	
+
 	// For terms like "Inflation Roulette" and "Reloaded" used in a naming context,
 	// unless your language does not use the Latin script, it should be remain
 	// untranslated.
-	
-	// Valid Escape Sequences:
-	// \n: New line
-	// \s: Whitespace
-	// The positions of escape sequences in-between sentences should be left AS IS.
+
+	// The positions of escape sequence in-between sentences should be left AS IS.
 	
 	"metadata.title": "Раздутая Рулетка: Перезапуск",
 	"metadata.titleShort": "Раздутая Рулетка",
@@ -119,8 +121,7 @@
 	"extrasMenu.jukebox": "Пластинки",
 	
 	"debugText.framerate": "FPS",
-	"debugText.memory": "GC RAM",
-	"debugText.memoryPeak": "GC RAM Peak",
+	"debugText.gcMemory": "GC RAM",
 	"debugText.state": "State",
 	// %1: Debug Text
 	"debugText.format": "%1: %2",
@@ -237,7 +238,7 @@
 	"option.enableForcedAliasing.name": "Отключить сглаживание",
 	"option.enableForcedAliasing.description": "Спрайты не сглаживаются, если активно. Некоторая графика может выглядеть обрезанно.",
 	"option.enableGLSL.name": "GLSL Шейдеры",
-	"option.enableGLSL.description": "Включает GLSL шейдеры для некоторых элементов меню. Отключение может сбавить нагрузку на слабые видеокарты.",
+	// * "option.enableGLSL.description": "Включает GLSL шейдеры для некоторых элементов меню. Отключение может сбавить нагрузку на слабые видеокарты.",
 	"option.alwaysPlayMainMenuAnims.name": "Увлекательное Меню",
 	"option.alwaysPlayMainMenuAnims.description": "В Главном Меню всегда проигрываются анимации при заходе.",
 	"option.showMusicToast.name": "Музыкальные Плашки",
@@ -303,7 +304,6 @@
 	"languageMenu.description": "Учтите: Перевод может быть неточным и содержать ошибки/непереведённый текст.",
 	"languageMenu.contributors": "Авторы",
 	"languageMenu.completion": "%1 Выполнено",
-	"languageMenu.deprecated": "[НЕДОПУСТИМО]",
 	"languageMenu.exportedUnmatchedKeys": "Отсутствующие и недопустимые ключи локализации экспортированы в:\n%1",
 
 	"gamemodeSelect.windowDisplay": "Выбор Режима",

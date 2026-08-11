@@ -2,7 +2,6 @@ const float PI = 3.141592654;
 const float DIRECTIONS = 16.0;
 const float QUALITY = 8.0;
 uniform float uSize;
-uniform float uBrightness;
 
 void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
     vec2 RADIUS = uSize / iResolution.xy;
@@ -17,5 +16,5 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
     }
 
     color /= QUALITY * DIRECTIONS - 15.0;
-    fragColor = vec4(color.rgb * uBrightness, color.a);
+    fragColor = vec4(color.rgb, color.a);
 }

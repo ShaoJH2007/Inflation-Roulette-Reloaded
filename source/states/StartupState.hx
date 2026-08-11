@@ -23,7 +23,6 @@ class StartupState extends SuffState {
 		bg.antialiasing = !Preferences.data.enableForcedAliasing;
 		bg.screenCenter(Y);
 		bg.alpha = 0;
-		add(bg);
 		
 		video = new SuffVideoSprite(0, 0);
 		video.onFormat(function() {
@@ -36,7 +35,17 @@ class StartupState extends SuffState {
 			FlxTransitionableState.skipNextTransIn = true;
 			SuffState.switchState(new MainMenuState());
 		});
-		add(video);
+
+		if (Preferences.data.enableGLSL) {
+			bg.shader = Paths.getShader('wiggle');
+			bg.shader.data.iTime.value = [0];
+			add(bg);
+			add(video);
+		} else {
+			bg.blend = LIGHTEN;
+			add(video);
+			add(bg);
+		}
 
 		if (video.load(Paths.getVideo('nicklySufferLogo'))) {
 			bgAlphaTween = FlxTween.tween(bg, {alpha: 1}, 1, {
@@ -48,7 +57,8 @@ class StartupState extends SuffState {
 			});
 			bg.velocity.x = (FlxG.width - bg.width) / 5.5;
 			video.start();
-			video.shader = Paths.getShader('blackToAlpha');
+			if (Preferences.data.enableGLSL)
+				video.shader = Paths.getShader('blackToAlpha');
 			allowToSkip = true;
 			noSkipTimer = new FlxTimer().start(videoSkipTime * 0.001, function(_ ) allowToSkip = false);
 		} else {
@@ -71,6 +81,9 @@ class StartupState extends SuffState {
 
 	public override function update(elapsed:Float) {
 		super.update(elapsed);
+
+		if (bg != null && bg?.shader?.data?.iTime != null)
+			bg.shader.data.iTime.value[0] += elapsed;
 
 		if (!video.isPlaying) return;
 		if (Controls.justPressed('exit') || FlxG.mouse.justPressed) {

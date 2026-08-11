@@ -434,7 +434,6 @@ class MainMenuState extends SuffState {
 					var formattedInput = currentEasterEggInput.toLowerCase();
 					if (currentEasterEggInput.toLowerCase() == easterEgg) {
 						FlxG.save.data.easterEggStartup = formattedInput;
-						Achievements.advanceProgress('allEasterEggs', [formattedInput]);
 						FlxG.save.flush();
 						SuffState.switchState(new InitStartupState(), INTERMISSION, true);
 						break;

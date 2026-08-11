@@ -1,35 +1,37 @@
 {
+	// ! DO NOT DELETE THE COMMENTS        !
+	// ! COMMENTS WILL NOT BE READ BY GAME !
 	// Translation File
-	// Language: Catalan
-	
+	// Language: Catalan (Spain)
+
 	// Comments are prefixed with two slashes (//) before each LINE, and will not be recognized by the game.
 	// Comments are reserved for translation notes, either to clarify context or give instructions.
 	// There's no need to translate comments.
-	
+
+	// If a string needs retranslation, it will be commented out, and prefixed with an asterisk (*).
+	// If retranslated, feel free to uncomment it.
+
 	// Empty lines will also be ignored as well.
-	
+
 	// For the majority of the text in the game UI, a technical tone is used.
 	// Unless specified otherwise, most lengthy prompts uses a witty/humorous tone.
-	// Some jokes may be regional and lose its punchline. In this case, try come up with a similar joke
+	// Some jokes may be regional and lose its punchline. In this case, try to come up with a similar joke
 	// that works in your country's region. If all else fails, just make an entirely different joke.
-	
+
 	// In all cases, try your best to capture the original tone of the locale strings.
 	// But if the language you're translating is inherently unserious (e.g. LOLCAT, Pirate Speak), ehh just get the message across.
 	// Ultimately, the message that came across should remain unchanged to avoid any confusion.
-	
-	// For names of people and places, they should remain untranslated.
+
+	// For names of fictional people and fictional places, they should remain untranslated.
 	// If your language uses another script other than Latin, make sure they phonetically
 	// sound similar to its English counterpart.
 	// In a nutshell, transliterate names.
-	
+
 	// For terms like "Inflation Roulette" and "Reloaded" used in a naming context,
 	// unless your language does not use the Latin script, it should be remain
 	// untranslated.
-	
-	// Valid Escape Sequences:
-	// \n: New line
-	// \s: Whitespace
-	// The positions of escape sequences in-between sentences should be left AS IS.
+
+	// The positions of escape sequence in-between sentences should be left AS IS.
 	
 	"metadata.title": "Inflation Roulette: Reloaded",
 	"metadata.titleShort": "Inflation Roulette",
@@ -114,8 +116,7 @@
 	"extrasMenu.jukebox": "Tocadiscs",
 	
 	"debugText.framerate": "FPS",
-	"debugText.memory": "RAM GC",
-	"debugText.memoryPeak": "Pic de RAM GC",
+	"debugText.gcMemory": "RAM GC",
 	"debugText.state": "Estat",
 	// %1: Debug Text
 	"debugText.format": "%1: %2",
@@ -234,7 +235,7 @@
 	// Yes. This DOES mean Forced Aliasing as in like forcing to turn off anti-aliasing
 	"option.enableForcedAliasing.description": "Desactiva antialiàsing de tots sprites fins i tot quan està habilitat. Pot fer que alguns gràfics semblin oscats.",
 	"option.enableGLSL.name": "Ombradors GLSL",
-	"option.enableGLSL.description": "Activa ombradors GLSL per a alguns elements de menú. Desactivar-ho pot reduir càrrega a GPU de gamma baixa.",
+	// * "option.enableGLSL.description": "Activa ombradors GLSL per a alguns elements de menú. Desactivar-ho pot reduir càrrega a GPU de gamma baixa.",
 	"option.alwaysPlayMainMenuAnims.name": "Animacions de menú principal",
 	"option.alwaysPlayMainMenuAnims.description": "Reprodueix sempre animacions d'inici al menú principal.",
 	"option.showMusicToast.name": "Notificació de música",

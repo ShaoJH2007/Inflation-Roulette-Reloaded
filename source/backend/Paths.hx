@@ -498,7 +498,7 @@ class Paths {
 		['fragCoord', '(openfl_TextureCoordv * openfl_TextureSize)'],
 		['iResolution', 'openfl_TextureSize'],
 		['fragColor', 'gl_FragColor'],
-		['texture(', 'texture2D('],
+		['texture(', 'flixel_texture2D('],
 		['iChannel0', 'bitmap']
 	];
 

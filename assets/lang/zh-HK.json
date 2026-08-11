@@ -1,6 +1,37 @@
 {
+	// ! DO NOT DELETE THE COMMENTS        !
+	// ! COMMENTS WILL NOT BE READ BY GAME !
 	// Translation File
 	// Language: Traditional Chinese (Hong Kong)
+
+	// Comments are prefixed with two slashes (//) before each LINE, and will not be recognized by the game.
+	// Comments are reserved for translation notes, either to clarify context or give instructions.
+	// There's no need to translate comments.
+
+	// If a string needs retranslation, it will be commented out, and prefixed with an asterisk (*).
+	// If retranslated, feel free to uncomment it.
+
+	// Empty lines will also be ignored as well.
+
+	// For the majority of the text in the game UI, a technical tone is used.
+	// Unless specified otherwise, most lengthy prompts uses a witty/humorous tone.
+	// Some jokes may be regional and lose its punchline. In this case, try to come up with a similar joke
+	// that works in your country's region. If all else fails, just make an entirely different joke.
+
+	// In all cases, try your best to capture the original tone of the locale strings.
+	// But if the language you're translating is inherently unserious (e.g. LOLCAT, Pirate Speak), ehh just get the message across.
+	// Ultimately, the message that came across should remain unchanged to avoid any confusion.
+
+	// For names of fictional people and fictional places, they should remain untranslated.
+	// If your language uses another script other than Latin, make sure they phonetically
+	// sound similar to its English counterpart.
+	// In a nutshell, transliterate names.
+
+	// For terms like "Inflation Roulette" and "Reloaded" used in a naming context,
+	// unless your language does not use the Latin script, it should be remain
+	// untranslated.
+
+	// The positions of escape sequence in-between sentences should be left AS IS.
 	
 	"metadata.title": "膨脹輪盤：重裝上陣",
 	"metadata.titleShort": "膨脹輪盤",
@@ -68,8 +99,7 @@
 	"extrasMenu.jukebox": "點唱單",
 	
 	"debugText.framerate": "FPS",
-	"debugText.memory": "GC RAM",
-	"debugText.memoryPeak": "GC RAM高峰",
+	"debugText.gcMemory": "垃圾收集 RAM",
 	"debugText.state": "選單",
 	"debugText.format": "%1: %2",
 
@@ -203,7 +233,7 @@
 	"option.enableForcedAliasing.name": "強迫像素化",
 	"option.enableForcedAliasing.description": "即使人物啟用抗鋸齒功能，也會停用它所有圖案的抗鋸齒效果。會導致某些圖形出現鋸齒狀邊緣。",
 	"option.enableGLSL.name": "GLSL著色器",
-	"option.enableGLSL.description": "為部分選單元素啟用GLSL著色器。停用此功能可減輕低階GPU的負載。",
+	"option.enableGLSL.description": "啟用高品質GLSL著色器。停用此選項將保留必要、低消耗的著色器，從而為低階GPU減輕負載。",
 	"option.alwaysPlayMainMenuAnims.name": "生動主選單",
 	"option.alwaysPlayMainMenuAnims.description": "常在主選單中播放啟動動畫。",
 	"option.showMusicToast.name": "音樂提示通知",
@@ -240,7 +270,7 @@
 	"option.showDebugText.description": "在螢幕左上角顯示調試資訊。",
 	"option.showFramerateOnDebugText.name": "FPS",
 	"option.showFramerateOnDebugText.description": "在調試文字中顯示目前的 FPS。",
-	"option.showMemoryUsageOnDebugText.name": "GC記憶體使用率",
+	"option.showMemoryUsageOnDebugText.name": "記憶體使用率",
 	"option.showMemoryUsageOnDebugText.description": "在調試文字中顯示垃圾回收工能使用的記憶體量。",
 	"option.showCurrentStateOnDebugText.name": "目前選單",
 	"option.showCurrentStateOnDebugText.description": "在調試文字中顯示目前正在瀏覽的選單。",
@@ -255,7 +285,6 @@
 	"languageMenu.description": "譯文可能並非 100% 準確，可能包含誤譯或未翻譯的文字。",
 	"languageMenu.contributors": "協作者",
 	"languageMenu.completion": "%1 完成",
-	"languageMenu.deprecated": "已棄用",
 	"languageMenu.exportedUnmatchedKeys": "缺失或已棄用的本地化字串已導出至：\n%1",
 
 	"gamemodeSelect.windowDisplay": "遊戲模式選單",

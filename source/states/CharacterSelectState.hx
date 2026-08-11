@@ -78,7 +78,7 @@ class CharacterSelectState extends SuffState {
 	var cardGroup:FlxTypedSpriteGroup<CharacterCard> = new FlxTypedSpriteGroup<CharacterCard>();
 	var fillerGroup:FlxTypedSpriteGroup<FillerCard> = new FlxTypedSpriteGroup<FillerCard>();
 
-	override function create() {
+	public override function create() {
 		super.create();
 
 		Window.setTitle(Language.getPhrase('characterSelect.windowDisplay'));
@@ -583,20 +583,37 @@ class CharacterSelectState extends SuffState {
 				}));
 			} else {
 				// Technically disable flickering if photosensitive mode is on
-				FlxFlicker.flicker(card, 0.75, (!Preferences.data.enablePhotosensitiveMode ? 1 / 30 : 1), true, true, function(_) {
-					var index:Int = curPlayer;
-					for (i in 0...Gameplay.selectedCharacterList.length) {
-						index = (index + 1) % Gameplay.selectedCharacterList.length;
-						if (Gameplay.selectedCharacterList[index] == '') {
-							break;
+				if (!Preferences.data.enablePhotosensitiveMode) {
+					FlxFlicker.flicker(card, 0.75, 1 / 30, function(_) {
+						var index:Int = curPlayer;
+						for (i in 0...Gameplay.selectedCharacterList.length) {
+							index = (index + 1) % Gameplay.selectedCharacterList.length;
+							if (Gameplay.selectedCharacterList[index] == '') {
+								break;
+							}
 						}
-					}
-					if (curPlayer != index) {
-						setPlayer(index);
-					} else {
-						moveOnToFillerSelect();
-					}
-				});
+						if (curPlayer != index) {
+							setPlayer(index);
+						} else {
+							moveOnToFillerSelect();
+						}
+					});
+				} else {
+					new FlxTimer().start(0.75, function(_) {
+						var index:Int = curPlayer;
+						for (i in 0...Gameplay.selectedCharacterList.length) {
+							index = (index + 1) % Gameplay.selectedCharacterList.length;
+							if (Gameplay.selectedCharacterList[index] == '') {
+								break;
+							}
+						}
+						if (curPlayer != index) {
+							setPlayer(index);
+						} else {
+							moveOnToFillerSelect();
+						}
+					});
+				}
 			}
 		}
 	}
@@ -786,10 +803,16 @@ class CharacterSelectState extends SuffState {
 					ease: FlxEase.quintOut
 				}));
 			} else {
-				// Technically disable flickering if photosensitive mode is on
-				FlxFlicker.flicker(filler, 0.75, (!Preferences.data.enablePhotosensitiveMode ? 1 / 30 : 1), false, true, function(_) {
-					moveOnToStageSelect();
-				});
+				if (!Preferences.data.enablePhotosensitiveMode) {
+					FlxFlicker.flicker(filler, 0.75, 1 / 30, false, true, function(_) {
+						moveOnToStageSelect();
+					});
+				} else {
+					new FlxTimer().start(0.75, function(_) {
+						filler.visible = false;
+						moveOnToStageSelect();
+					});
+				}
 			}
 		}
 		trace('Current filler', Gameplay.currentFiller);
@@ -806,7 +829,6 @@ class CharacterSelectState extends SuffState {
 			banner.disabled = true;
 		}
 		for (card in cardGroup) {
-			var leIndex:Int = cardGroup.members.indexOf(card);
 			card.visible = false;
 		}
 		cardTweens.set('stageSelectGroup', FlxTween.tween(stageSelectGroup, {y: FlxG.height}, 0.75, {ease: FlxEase.quintOut}));
