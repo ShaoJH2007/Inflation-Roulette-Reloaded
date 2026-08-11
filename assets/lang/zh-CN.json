@@ -1,39 +1,92 @@
 {
+	// ! DO NOT DELETE THE COMMENTS        !
+	// ! COMMENTS WILL NOT BE READ BY GAME !
 	// Translation File
-	// Language: Traditional Chinese (Hong Kong)
+	// Language: English (United States)
+
+	// Comments are prefixed with two slashes (//) before each LINE, and will not be recognized by the game.
+	// Comments are reserved for translation notes, either to clarify context or give instructions.
+	// There's no need to translate comments.
+
+	// If a string needs retranslation, it will be commented out, and prefixed with an asterisk (*).
+	// If retranslated, feel free to uncomment it.
+
+	// Empty lines will also be ignored as well.
+
+	// For the majority of the text in the game UI, a technical tone is used.
+	// Unless specified otherwise, most lengthy prompts uses a witty/humorous tone.
+	// Some jokes may be regional and lose its punchline. In this case, try to come up with a similar joke
+	// that works in your country's region. If all else fails, just make an entirely different joke.
+
+	// In all cases, try your best to capture the original tone of the locale strings.
+	// But if the language you're translating is inherently unserious (e.g. LOLCAT, Pirate Speak), ehh just get the message across.
+	// Ultimately, the message that came across should remain unchanged to avoid any confusion.
+
+	// For names of fictional people and fictional places, they should remain untranslated.
+	// If your language uses another script other than Latin, make sure they phonetically
+	// sound similar to its English counterpart.
+	// In a nutshell, transliterate names.
+
+	// For terms like "Inflation Roulette" and "Reloaded" used in a naming context,
+	// unless your language does not use the Latin script, it should be remain
+	// untranslated.
+
+	// The positions of escape sequence in-between sentences should be left AS IS.
 	
+	// Remember the "Transliterate Names" rule
 	"metadata.title": "膨胀轮盘：重装上阵",
 	"metadata.titleShort": "膨胀轮盘",
-	"metadata.acronym": "膨胀轮盘",
+	"metadata.acronym": "IRR",
 	
-	"metadata.version.numeral.format": "版本编号 %1",
-	"metadata.version.numeralModded.format": "模组版本编号 %1",
+	// Version Formatting
+	// For example, if the version is 2.3.1 in an Linux environment,
+	// it will be formatted in the following way in the bottom info text of the Main Menu:
+	
+	// Inflation Roulette: Reloaded
+	// Patch of Creativity (Pitstop 3 Amendment 1)
+	// Version 2.3.1
+	// Linux Build
+	
+	"metadata.version.numeral.format": "版本 %1",
+	"metadata.version.numeralModded.format": "模组版本 %1",
 	"metadata.version.name.minor.format": "次版 %1",
 	"metadata.version.name.hotfix.format": "修订 %1",
+	// %1 is the platform in which the executable is dedicated.
+	// For example, if the game is on Windows, "Windows Build" will be displayed.
+	// Note that platform names will remain untranslated.
+	"game.build.format": "%1 版本",
 	
 	"metadata.version.name.major.0": "开发版本",
+	// Version 1: Initial Release
 	"metadata.version.name.major.1": "初始版本",
+	// Version 2: Added Achievements, Modding Tools, More Characters, Gallery & Jukebox and Results Screen
+	// The Version Name has two interpretations. One being it being a update that introduces creative-related content (e.g. Modding Tools, Extras).
+	// Another way to interpret this is the update being a piece of cloth, which is usually associated with creativity, suiting the update content.
+	// If applicable, try to come up with some clever word-play or multi-interpreting phrases.
 	"metadata.version.name.major.2": "创意包裹",
+	// Version 3: Final update. Added Android support and quality of life features.
 	"metadata.version.name.major.3": "决定版",
-	
+	// Yes. I'm using Greek letters for stylistic purposes (even tho it looks kinda offensive lmao)
 	"metadata.version.name.state.a": "预览版本 %1",
 	"metadata.version.name.state.b": "公开测试 %1",
 	"metadata.version.name.state.c": "发布候选 %1",
 	
-	"game.build.format": "%1 版本",
-
+	// These are the button texts in the Main Menu.
 	"mainMenu.windowDisplay": "主菜单",
 	"mainMenu.play": "游玩",
 	"mainMenu.achievements": "成就",
 	"mainMenu.options": "设定",
 	"mainMenu.language": "语言",
 	"mainMenu.addons": "附加包",
+	// Utilities means Modding Utilities
 	"mainMenu.utilities": "制作工具",
 	"mainMenu.extras": "额外",
 	"mainMenu.donate": "捐款",
 	
+	// Tooltips for buttons in the Main Menu.
 	"mainMenu.donate.tooltip": "您的捐款有助支持更多游戏！",
 	
+	// When clicking on the Main Menu icon, a tally counter will be incremented. Get 10000 results in an achievement.
 	"mainMenu.dongs": "你已累计：\n%1个咚",
 	"mainMenu.dongs.comment.10": "好了，你可以停止了",
 	"mainMenu.dongs.comment.20": "没有其他事可做吗？",
@@ -68,14 +121,15 @@
 	"extrasMenu.jukebox": "点唱单",
 	
 	"debugText.framerate": "FPS",
-	"debugText.memory": "GC RAM",
-	"debugText.memoryPeak": "GC RAM高峰",
+	"debugText.gcMemory": "GC RAM",
 	"debugText.state": "菜单",
+	// %1: Debug Text
 	"debugText.format": "%1: %2",
-
+	
+	// Please make sure that this is written in a formal tone.
 	"warningMenu.windowDisplay": "警告",
 	"warningMenu.title": "警告",
-	"warningMenu.content": "本游戏仅限18岁以上之成年玩家！\n\n本游戏为恋物向作品，主要包含福瑞膨胀内容。由第三方制作的附加包未经审核，可能包含令部分玩家不适的内容。强烈建议勿于未成年人常驻之社群平台录制或直播本游戏！\n\n本游戏包含闪烁画面与画面晃动效果，能引发部分玩家光敏性癫痫症状，可通过设定菜单减缓此类特效。\n\n点击「接受」即表示您已知悉上述警告，并愿自行承担游戏所引发之任何影响。",
+	"warningMenu.content": "本游戏仅限18岁以上之成年玩家！\n本游戏为恋物向作品，主要包含福瑞膨胀内容。由第三方制作的附加包未经审核，可能包含令部分玩家不适的内容。强烈建议勿于未成年人常驻之社群平台录制或直播本游戏！\n本游戏包含闪烁画面与画面晃动效果，能引发部分玩家光敏性癫痫症状，可通过设定菜单减缓此类特效。\n点击「接受」即表示您已知悉上述警告，并愿自行承担游戏所引发之任何影响。",
 	"menu.accept": "接受",
 
 	"optionsMenu.windowDisplay": "设定",
@@ -88,7 +142,7 @@
 	"optionsMenu.heading.cursor": "光标",
 	"optionsMenu.heading.technical": "技术",
 	"optionsMenu.heading.debugText": "调试文字",
-	
+
 	"option.skipEliminatedPlayers.name": "跳过淘汰者",
 	"option.skipEliminatedPlayers.description": "被击败的玩家在轮到他们行动时不会播放动画。",
 	"option.enableBellyRubbing.name": "揉肚",
@@ -196,6 +250,7 @@
 	"option.hideTooltip.description": "隐藏按钮工具提示。",
 	"option.screenSafeArea.name": "屏幕安全区",
 	"option.screenSafeArea.description": "调整滑杆，直到白色区域覆盖屏幕上所有无遮蔽区域。\n（退出后界面将更新）",
+	// Yes. This DOES mean Forced Aliasing as in like forcing to turn off anti-aliasing
 	"option.decreaseDetail.name": "降低细节",
 	"option.decreaseDetail.description": "减少不必要的粒子效果。可对低阶装置有帮助。",
 	"option.decreaseSounds.name": "降低声音",
@@ -228,12 +283,12 @@
 	"option.playCursorSounds.description": "鼠标光标点击任何地方时都会发出咔哒声。",
 	"option.maxFramerate.name": "最高 FPS",
 	"option.maxFramerate.description": "游戏在一秒钟内应该进行多少次屏幕刷新和游戏更新。",
-	"option.checkForUpdates.name": "自动检查更新",
-	"option.checkForUpdates.description": "启动游戏时自动检查最新更新。",
 	"option.pauseOnUnfocus.name": "自动暂停",
 	"option.pauseOnUnfocus.description": "当游戏窗口失去焦点时，自动暂停游戏。",
 	"option.cacheOnGPU.name": "显存快取",
 	"option.cacheOnGPU.description": "允许使用 GPU 透过 VRAM 储存材质，从而降低 RAM 使用量。\n可能无法在低阶 GPU 上正常运作。",
+	"option.checkForUpdates.name": "自动检查更新",
+	"option.checkForUpdates.description": "启动游戏时自动检查最新更新。",
 	"option.enableDebugKeybinds.name": "调试快捷键",
 	"option.enableDebugKeybinds.description": "在电脑上启用调试快捷键。",
 	"option.showDebugText.name": "调试文字",
@@ -248,14 +303,13 @@
 	"addonsMenu.windowDisplay": "附加包",
 	"addonsMenu.authors": "作者名单：",
 	"addonsMenu.noAddonsDetected.title": "未侦测到任何附加包",
-	"addonsMenu.noAddonsDetected.content": "在附加包文件夹中未侦测到任何附加包。请检查你是否已在附加包文件夹的 metadata 文件夹中新增了 metadata.json 文件。 \n如果你认为这是一个错误，请将此问题报告到我们的 GitHub 代码库。",
+	"addonsMenu.noAddonsDetected.content": "在附加包文件夹中未侦测到任何附加包。请检查你是否已在附加包文件夹的 metadata 文件夹中新增了 metadata.json 文件。\n如果你认为这是一个错误，请将此问题报告到我们的 GitHub 代码库。",
 
 	"languageMenu.windowDisplay": "语言菜单",
 	"languageMenu.title": "选择语言",
 	"languageMenu.description": "译文可能并非 100% 准确，可能包含误译或未翻译的文字。",
 	"languageMenu.contributors": "协作者",
 	"languageMenu.completion": "%1 完成",
-	"languageMenu.deprecated": "已弃用",
 	"languageMenu.exportedUnmatchedKeys": "缺失或已弃用的本地化字符串已导出至：\n%1",
 
 	"gamemodeSelect.windowDisplay": "游戏模式菜单",
@@ -264,6 +318,7 @@
 	"gamemodeSelect.setting.format": "%1：%2",
 	"gamemode.quickPlay.name": "快玩",
 	"gamemode.quickPlay.description": "随机人物。\n快捷无阻。",
+	// Reloaded should remain untranslated (transliterate if not Latin script)
 	"gamemode.reloaded.name": "重装",
 	"gamemode.reloaded.description": "全新的膨胀轮盘玩法。\n游戏平衡性符合开发者的预期。",
 	"gamemode.inequality.name": "不均",
@@ -274,55 +329,94 @@
 	"gamemode.charge.description": "每次空弹都会增加伤害力。\n风险与回报并存。",
 
 	"characterSelect.windowDisplay": "游戏配置",
+	// Select Character: This phrase is meant to be archaic. Try to make your translation mysterious/archaic.
 	"characterSelect.selectCharacter": "择尔之躯",
 	"characterSelect.holdCardsToSeeInfo": "持卡查看讯息",
+	// Select Filler: This however, does not need to be in the same tone as Select Character.
 	"characterSelect.selectFiller": "择尔之毒",
+	// Select Stage: This however, does not need to be in the same tone as Select Character.
 	"characterSelect.selectStage": "选择背景",
-
+	
+	// Player Settings
 	"characterSelect.option.cpuControlled": "CPU",
 	"characterSelect.option.skillLevel": "CPU 水平",
+	// Easy mode. Only shoots and does nothing else.
 	"characterSelect.option.skillLevel.1": "张宗昌",
+	// Normal mode. Same as Easy mode. Can use Skills periodically... at random.
 	"characterSelect.option.skillLevel.2": "诸葛亮",
+	// Hard mode. Estimate chances and acts accordingly.
 	"characterSelect.option.skillLevel.3": "孙子",
 	"characterSelect.option.skillLevel.format.inBounds": "%1",
 	"characterSelect.option.skillLevel.format.levelDown": "← %1 ←",
 	"characterSelect.option.skillLevel.format.levelUp": "→ %1 →",
+	// This text appears when more than 1 player-controlled characters are present.
+	// Prevents player from cheating
 	"characterSelect.cantEarnAchievements": "这设定下无法获得大多数成就。",
 	
+	// Goober: A character species present in the original Inflation Roulette.
+	// Looks like a feline, or a canine, or something, but doesn't exactly behave like one. IDK lmao
+	// Skills: Reload, Sabotage
 	"character.goober.name": "古伯",
 	"character.goober.name.short": "古伯",
 	"character.goober.description": "生活在城市地区且有感知的物种。擅长修理枪械。",
+	// Shib: Character created by NicklySuffer. Non-binary, and designed to look like one of those simplistic white cat anons.
+	// Screams "city boy" vibes.
+	// Skills: Sabotage, Amnesia
 	"character.shib.name": "欧拾巴",
 	"character.shib.name.short": "拾巴",
 	"character.shib.description": "来自外星，狡猾，喜欢柠檬茶。能使人暂时失忆。",
+	// Chester: Character created by NicklySuffer. Works in a coffee shop, and also looks like one of those simplistic white cat anons,
+	// but wears a cap too I guess. Screams "overworked minimum wagie" vibes.
+	// Designed with no offensive skills, but has one more pressure point lmao.
+	// Skills: Reveal, Reload
 	"character.chester.name": "切斯特・德明",
 	"character.chester.name.short": "切斯特",
 	"character.chester.description": "一位不幸的咖啡师，被迫为公司玩游。他的工作锻炼了耐力。",
+	// Synda: Character created by NicklySuffer. Resembles one of those squid dogs from Changed.
+	// Her tentacles were amputated due to an accident, and desperately needs money for cybernetic tentacles.
+	// Designed as a high-risk character, with the ability to shoot others.
+	// Skills: Reload, Assault
 	"character.synda.name": "鲜西娅・达阿斯",
 	"character.synda.name.short": "鲜达",
 	"character.synda.description": "急需资金进行身体改造的女子。有足够的自信时，她能够射击他人。",
+	// Jacob: Guest character. A dorky fox tricked into playing the game.
+	// Designed as a low-risk character.
+	// Skills: Reload, Denial
 	"character.jacob.name": "雅各布・哥丁顿",
 	"character.jacob.name.short": "雅各布",
 	"character.jacob.description": "一只胆小的狐狸。尽管被骗去参与，它还能迅速避免冲突。",
+	// Option to choose a random character.
 	"character.random.name": "随机",
 	"character.random.name.short": "随机",
 	"character.random.description": "不知选谁？让游戏决定吧！",
-
+	
+	// Classic Room: The original stage from the original game redrawn.
 	"stage.classic.name": "经典客房",
 	"stage.classic.description": "我们都熟悉且喜爱的房。",
+	// Manager's Lounge: The context is that four people, either motivated by a better life or forced by their higher-ups, are
+	// offered a place as a game participant to satisfy the manager's desires.
 	"stage.reloaded.name": "休息室",
 	"stage.reloaded.description": "这场景⋯是咸片的拍摄现场吧？恭喜你，答对了，摄影机还正转着呢。",
+	// Shitfucks Café: Named Shitfucks. The exact coffee shop that Chester works at.
+	// Sells coffee that inflates people, and agreed to host horrible shit like this. Disgusting.
+	// Again, transliterate Shitfucks.
 	"stage.shitfucks.name": "史弗事咖啡厅",
 	"stage.shitfucks.description": "出名的咖啡店。里面绝对没有任何不可告人的事。",
+	// Paprika Beachside: Beach themed background. Held in somewhere of a beach resort.
+	// You do not have to transliterate Paprika.
 	"stage.beach.name": "红椒海滩俱乐部",
 	"stage.beach.description": "一家海滨度假村。以其夜总会和蜜月胜地而闻名。",
+	// Paprika Beachside: Independent laboratory, this time they're testing the Pump Gun.
+	// They are doing... product testing. Certainly, no test subjects were harmed.
 	"stage.lab.name": "紫甄实验室",
 	"stage.lab.description": "名不见经传的独立实验室，因检测来自可疑客户的产品而臭名昭著。",
+	// White Void: Literally just a white void with a glass table.
 	"stage.void.name": "白色虚空",
 	"stage.void.description": "大名鼎鼎的全能活动场所，无数艺术作品和动画里都有它的身影。",
 	"stage.random.name": "随机",
 	"stage.random.description": "不知选哪里？让游戏决定吧！",
 	
+	// Splash text that is displayed
 	"gameOn.text": "游戏开始!",
 	
 	"skill.reload.name": "换弹",
@@ -356,7 +450,7 @@
 	"gameType.singleplayer": "单人游戏",
 	"gameType.multiplayer": "多人游戏",
 	"pauseMenu.details.players": "%1位玩家",
-	
+
 	"stats.pressure": "压力",
 	"stats.pressure.Null": "已爆",
 	"stats.pressure.Overinflated": "过充",
@@ -365,49 +459,70 @@
 	"stats.skills": "技能",
 
 	"creditsMenu.windowDisplay": "鸣谢",
-	
+
+	// Be the last player standing in a match.
 	"achievement.firstWin.name": "首次得胜",
 	"achievement.firstWin.description": "从今以后，你一生将被锁链束缚。",
+	// Be the last player standing, and with your Pressure value at 0.
 	"achievement.noPressureWin.name": "百年难中",
 	"achievement.noPressureWin.description": "靠着运气踏步，毫发无伤地躲过伤害。",
+	// Be the last player standing, and with your Pressure value at its max.
 	"achievement.fullPressureWin.name": "绝地英控",
 	"achievement.fullPressureWin.description": "即使在你承受最大压力时，也坚持到最后。",
+	// Sabotage ten times in your lifetime.
 	"achievement.sabotages.name": "历练偷刺",
 	"achievement.sabotages.description": "你一定很喜欢古伯的话，就用它的能力五十次吧。",
+	// Pressurize twice in a row without shooting a live bullet.
 	"achievement.doublePressurize.name": "二次方程式",
 	"achievement.doublePressurize.description": "下个玩家看着你连续两次使气枪过载，只能接受命运。",
+	// Pressurize, then shoot yourself with the live bullet afterwards.
 	"achievement.pressurizeYourself.name": "反射",
 	"achievement.pressurizeYourself.description": "尝尝自己加压来的苦果。是人为还是厄运？",
+	// Get a P Rank, AKA the maximum score.
 	"achievement.maximumScore.name": "完美之苦",
 	"achievement.maximumScore.description": "很好，你赢得完美一场，但为此付出了什么代价？",
+	// Get the lowest score possible.
 	"achievement.minimumScore.name": "策略性失败",
 	"achievement.minimumScore.description": "表面上看你根本没努力，但仔细一看又好像花了努力⋯来输？",
+	// Win in all game modes at least once.
 	"achievement.allGameModeWins.name": "全景游",
 	"achievement.allGameModeWins.description": "全心投入和浪费时间的徽章。",
+	// Win as all vanilla characters at least once.
 	"achievement.allCharacterWins.name": "我和我的朋友们",
 	"achievement.allCharacterWins.description": "看来你对这些肉体没有什么特别偏好。",
+	// Accumulate 10000 Dongs in the Main Menu.
 	"achievement.noLife.name": "无就业、无进修、无辅导",
 	"achievement.noLife.description": "白白浪费生命。你已被烙印，永久记号。",
 	"achievement.rarePolarizeSuccess.name": "反向俄罗斯轮盘赌",
 	"achievement.rarePolarizeSuccess.description": "你知道这技能风险很高，尤其是在子弹新鲜滚热辣的时候，但你却奇妙地成功了。",
+	// Use Polarize when there are 6 bullets in the chamber, and not inflate yourself.
 	"achievement.eliminateByAssault.name": "神枪手",
 	"achievement.eliminateByAssault.description": "对于濒临失败者，必须迅速处置⋯用更直接的方法采取。",
+	// Eliminate a player via Assault.
 	"achievement.intentionalLoseByPolarize.name": "不兽控制",
 	"achievement.intentionalLoseByPolarize.description": "明明知道自己安全；明明知道自己到了极限；明明知道这样做会淘汰，但你仍然承受它？你戆撚鸠㗎？",
+	// Eliminate yourself after using Reveal and Polarize.
 	"achievement.noWinners.name": "战争泵气",
 	"achievement.noWinners.description": "带着自己把所有玩家淘汰出局。",
+	// Be in a game with every player eliminated.
 	"achievement.winAgainstStrategicCPUs.name": "孙子兵法",
 	"achievement.winAgainstStrategicCPUs.description": "说实话，这些CPU也不算很聪明，但见人轮给他们时怒发冲冠，算吧。",
+	// Win a game with every CPU set to their highest skill level.
 	"achievement.exportCharacterProject.name": "参保者",
 	"achievement.exportCharacterProject.description": "使用移民游乐计划注册程序创建你自己的肉体。",
+	// Export your first character creator project.
 	"achievement.liveShots.name": "不够气",
 	"achievement.liveShots.description": "一颗 .357 Magnum 子弹的制造成本约为 15 美毫，但零售价从 0.60 到 1.40 美元不等。现在想像一下发射 100 颗这样的子弹。",
+	// Get shot 600 times with a blank round.
 	"achievement.twoPlayers.name": "对峙",
 	"achievement.twoPlayers.description": "两只笨蛋，一把气枪。谁能活下来？答案：经理先生。",
+	// Set player count to 2 and win.
 	"achievement.sixPlayers.name": "六六大顺",
 	"achievement.sixPlayers.description": "这就是年轻人所谓的「六六六」吗？不如直接叫他们围团打飞机算了。",
+	// Set player count to 6 and win.
 	"achievement.allFillerWins.name": "均衡饮食",
 	"achievement.allFillerWins.description": "体验每一种酷刑，每次都能守着自己的身体。",
+	// Win as every filler. (Air, Water, Soda, Slime, Berry)
 
 	"achievementsMenu.windowDisplay": "成就",
 	"achievementsMenu.title": "你的成就",
@@ -419,8 +534,12 @@
 	"resetAchievementMenu.prompt": "确认重置\n%1？\n此行动不可逆转。",
 
 	"galleryMainMenu.windowDisplay": "画廊",
+	// If the language's script can be written vertically, set this string to false
 	"galleryMainMenu.envelope.rotateText": "false",
+	// Context: There are different versions of Goobers, one being Slime Goobers, and one labelled "???".
+	// The way I interpret this is like, them having races or something
 	"galleryMainMenu.envelope.goober.description": "古伯最初出现在原版游戏中，现在以全新的面貌登场！他们已成为无数重制版和同人作品中不可或缺的人物。\n\n至于他们为何以及如何加入游戏，无人知道！演员？人质？叛徒？很多可能性的！关于他们的生物学知之甚少，但已证实他们被分为几个种族，从完全由史莱姆组成的古伯到R»EDA©±ED§²½",
+	// Context: Literally no lore implication. He's just here for the sake of being here lol
 	"galleryMainMenu.envelope.asimo.description": "阿西莫冲进了膨胀轮盘，声称要「找点乐子」。\n\n我们不知道他是怎么来到这里的，我们也完全与他没有任何关系，除了他是一只狼，他是为经理的死人《周五放克夜》模组造游玩测试，而且他是抽出来添加到游戏中，作为范例附件包的人物。\n\n阿西莫是 WolfKylis 拥有的客串人物。",
 	"galleryMainMenu.envelope.shib.description": "姓欧名拾巴，这只生物来自一个神秘的外星球。他的名字可以解释为「〇十八」，源自他在北京降落的核弹机地。\n\n他生命中的前几年都在不同的地方寻找住所，最终经理在车库里找到了他。经理便收养了他作为第二助理，很快就发现自己爱上了第一助理（实验室培养的，真恶心）。没有其他明显的原因，只是为了在男朋友面前炫耀，他加入了游戏，展示他隐藏的能力。\n\n欧拾巴是 NicklySuffer 拥有的人物，在《膨胀轮盘：重装上阵》开发之前制作。",
 	"galleryMainMenu.envelope.chester.description": "作为咖啡店的首席咖啡师，切斯特被迫作为公司的代表来玩这个游戏。由于他糟糕的学业成绩和内向的性格，他对繁荣和财富的梦想尚未实现。\n\n他日常的工作包括为心理变态的顾客制作饮料。有人说这些饮料有「膨胀」的效果，这引起了几位食品安全官员的注意。然而，由于资本主义的力量，食品部门警告了它后无所作为。\n\n切斯特是 NicklySuffer 拥有的人物，在《膨胀轮盘：重装上阵》开发之前制作。",
@@ -431,6 +550,7 @@
 	"galleryMainMenu.envelope.community": "粉丝作品",
 	"galleryMainMenu.envelope.community.description": "由开发者的朋友和粉丝制作的画作集。",
 
+	// %1 - Envelope Name
 	"galleryEntryMenu.viewFullImage": "观看完整图片",
 	"galleryEntryMenu.viewFullImageWarned": "内容警告：%1\n观看完整图片以显示",
 	// "galleryEntryMenu.warning.inflation": "膨胀",
@@ -439,6 +559,7 @@
 	"jukeboxMenu.windowDisplay": "点唱单",
 
 	"utilitiesMenu.windowDisplay": "制作工具",
+	// These will be button text that will be in the Utilities Main Menu.
 	"utilitiesMenu.characterCreator": "人物创建器",
 	"utilitiesMenu.stagePreviewer": "背景预览器",
 	"utilitiesMenu.offsetEditor": "偏移编辑器",
@@ -451,13 +572,18 @@
 	"utilitiesMenu.browseImage": "浏览图片",
 	"utilitiesMenu.browseImage.downloadTemplate": "导出模板",
 	// %1: Width, %2: Height
+	
+	// Subtext for the button
 	"utilitiesMenu.browseImage.recommendedSize": "建议尺寸：%1px × %2px",
+	
+	// A screen which tells the user to adjust the image's offset if it doesn't make the recommended size.
 	"utilitiesMenu.browseImage.adjustOffsets.title": "调整偏移",
 	"utilitiesMenu.browseImage.adjustOffsets.description": "用方向键调整偏移\n按住 SHIFT/CTRL 键提高移动速度\n确保图像与模板的底部中心对齐",
 	"utilitiesMenu.error.prompt": "抱歉，发生错误！",
 	"utilitiesMenu.firstStartup.prompt": "警告：极不稳定\n\n以下工具并非为开发用途而设，纯粹是为了让业余画家能自己做人物才弄出来的。这些工具随时可能毫无预警地仆街，又没有自动保存功能，强烈建议你手动保存。\n\n想说功能不好用的话，去学 JSON 同 Flash 啦，死蠢。",
+	// Dummy text. Used as the default name for newly created Sprite Projects.
 	"utilitiesMenu.placeholder": "小明",
-	
+
 	"characterCreator.dataType.metadata": "元数据",
 	"characterCreator.dataType.spriteData": "精灵数据",
 	"characterCreator.parameter.name": "人物名称",
@@ -576,6 +702,7 @@
 	// Right Alignment
 	"resultsMenu.leaderboard.format.reversed": "%2 · %3 (%4) | %1",
 	
+	// Menu Options. Used in button text.
 	"menu.yes": "是",
 	"menu.no": "否",
 	"menu.ok": "好的",
@@ -583,7 +710,9 @@
 	"menu.cancel": "取消",
 	"menu.exit": "退出",
 
+	// %1: Game Type (Singleplayer / Multiplayer), %2: Player Count
 	"game.windowDisplay": "%1（%2位玩家）",
+	// Prompt after activating an offensive skill (e.g. Assault, Amnesia)
 	"game.selectTarget": "选择目标",
 	"game.playerIndicator.you": "YOU",
 	"game.playerIndicator.player": "P%1",
