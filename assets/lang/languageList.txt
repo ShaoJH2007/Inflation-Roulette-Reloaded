@@ -3,3 +3,4 @@ ru-RU
 ca-ES
 es-MX
 pt-BR
+zh-CN
