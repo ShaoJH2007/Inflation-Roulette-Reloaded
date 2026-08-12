@@ -731,7 +731,7 @@
     "outdatedVersionMenu.heading": "版本过期",
     "outdatedVersionMenu.text": "喂！你目前使用的《膨胀轮盘：重装上阵》的版本已过期。请下载最新版本，以体验最新功能和修复错误！\n\n你的版本：%1\n最新版本：%2",
     "outdatedVersionMenu.update": "更新",
-    "outdatedVersionMenu.dismiss": "下次先啦",
+    "outdatedVersionMenu.dismiss": "下次吧",
 
     "androidPermissionsMenu.windowDisplay": "需要获得权限！",
     "androidPermissionsMenu.permissionsRequired": "需要获得权限",
