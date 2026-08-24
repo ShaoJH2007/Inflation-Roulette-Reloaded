@@ -40,7 +40,7 @@ class AchievementsState extends SuffState {
 	public static var curSelected:Int = 0;
 	public static var instance:AchievementsState;
 
-	override function create() {
+	public override function create() {
 		Paths.clearUnusedMemory();
 		Paths.clearStoredMemory();
 
@@ -179,18 +179,26 @@ class AchievementsState extends SuffState {
 
 		SuffState.playMusic('achievements');
 
-		var black = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0xFF000000);
-		black.scrollFactor.set();
-		add(black);
-		FlxTween.tween(black, {alpha: 0.75}, FlxG.sound.music.loopTime * 0.001, {
-			onComplete: function(_) {
-				black.destroy();
-				showUI();
-			}
-		});
+		if (!initialized || Preferences.data.alwaysPlayMainMenuAnims) {
+			var black = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0xFF000000);
+			black.scrollFactor.set();
+			add(black);
+			FlxTween.tween(black, {alpha: 0.75}, FlxG.sound.music.loopTime * 0.001, {
+				onComplete: function(_) {
+					black.destroy();
+					showUI();
+				}
+			});	
+		} else {
+			showUI(true);
+			FlxG.sound.music.time = FlxG.sound.music.loopTime;
+		}
+		initialized = true;
 
 		instance = this;
 	}
+	
+	static var initialized:Bool = false;
 
 	function changePage(delta:Int = 0) {
 		if (curPage + delta < 0 || curPage + delta > lastPage)
@@ -290,16 +298,23 @@ class AchievementsState extends SuffState {
 		achievementProgress.y = achievementDescription.y + achievementDescription.height + 20;
 	}
 
-	function showUI() {
-		if (!Preferences.data.enablePhotosensitiveMode)
-			FlxG.camera.flash(0xFFFFFFFF, 0.5);
-		FlxTween.tween(exitButton, {y: 20 + ScreenSafeArea.Y}, 1, {
-			ease: FlxEase.backOut
-		});
-		FlxTween.tween(overlay, {x: FlxG.width - overlay.width}, 0.75, {
-			ease: FlxEase.quintOut
-		});
-		cameraPosOffset.x = -overlay.width / 2;
+	function showUI(instant:Bool = false) {
+		if (instant) {
+			exitButton.y = 20 + ScreenSafeArea.Y;
+			overlay.x = FlxG.width - overlay.width;
+			cameraPosOffset.x = -overlay.width / 2;
+			cameraPosLerped.x = cameraPos.x - cameraPosOffset.x;
+		} else {
+			if (!Preferences.data.enablePhotosensitiveMode)
+				FlxG.camera.flash(0xFFFFFFFF, 0.5);
+			FlxTween.tween(exitButton, {y: 20 + ScreenSafeArea.Y}, 1, {
+				ease: FlxEase.backOut
+			});
+			FlxTween.tween(overlay, {x: FlxG.width - overlay.width}, 0.75, {
+				ease: FlxEase.quintOut
+			});
+			cameraPosOffset.x = -overlay.width / 2;
+		}
 		enableInput = true;
 		changePage();
 		changeAchievementText();
@@ -317,9 +332,7 @@ class AchievementsState extends SuffState {
 	var cameraPosOffset:FlxPoint = new FlxPoint(0, 0);
 	var cameraPosLerped:FlxObject = new FlxObject(FlxG.width / 2, FlxG.height / 2);
 
-	var what:Int = 0;
-
-	override function update(elapsed:Float) {
+	public override function update(elapsed:Float) {
 		super.update(elapsed);
 
 		#if FLX_ACCELEROMETER

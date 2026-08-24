@@ -3,8 +3,8 @@ package states.easterEggStartups;
 import flixel.group.FlxSpriteContainer;
 import backend.Controls;
 
-class BlueberryHeliumStartupState extends SuffState {
-	override function create() {
+class SnakeMoldStartupState extends SuffState {
+	public override function create() {
 		super.create();
 
 		WindowUtil.setTitle('我要食魚翅');
@@ -36,7 +36,7 @@ class BlueberryHeliumStartupState extends SuffState {
 		" - src/states/easterEggStartups/ImHighOnCrackStartupState.cpp",
 		" - src/ui/objects/AddonMenuItem.cpp",
 		" - src/states/StartupState.cpp",
-		" - src/states/easterEggStartups/BlueberryHeliumStartupState.cpp",
+		" - src/states/easterEggStartups/SnakeMoldStartupState.cpp",
 		" - src/ui/objects/CharacterBanner.cpp",
 		" - src/ui/objects/SuffBox.cpp",
 		" - src/states/InitStartupState.cpp",
@@ -73,7 +73,7 @@ class BlueberryHeliumStartupState extends SuffState {
 		"    Creating library ApplicationMain.lib and object ApplicationMain.exp"
 	];
 	var terminalCurLine:Int = 0;
-	var tobi:FlxSprite;
+	var luna:FlxSprite;
 	var ambientSound:FlxSound;
 	var fanSound:FlxSound;
 	var allowToSkip:Bool = true;
@@ -81,7 +81,7 @@ class BlueberryHeliumStartupState extends SuffState {
 	var skipIntroTimer:FlxTimer;
 
 	function startIntro() {
-		ambientSound = new FlxSound().loadEmbedded(Paths.getSound('ui/startup/blueberryhelium/fanAmbience'));
+		ambientSound = new FlxSound().loadEmbedded(Paths.getSound('ui/startup/snakemold/fanAmbience'));
 		ambientSound.looped = true;
 		ambientSound.play();
 
@@ -105,20 +105,20 @@ class BlueberryHeliumStartupState extends SuffState {
 			scanlines.add(scanlineCenter);
 		}
 
-		tobi = new FlxSprite(0, 530);
-		tobi.frames = Paths.getSparrowAtlas('ui/menus/easterEggStartups/blueberryhelium/tobi');
-		tobi.animation.addByPrefix('idle', 'tobi idle', 24);
-		tobi.animation.addByPrefix('type', 'tobi type', 24);
-		tobi.animation.play('idle', true);
-		add(tobi);
+		luna = new FlxSprite(0, 530);
+		luna.frames = Paths.getSparrowAtlas('ui/menus/easterEggStartups/snakemold/luna');
+		luna.animation.addByPrefix('idle', 'luna idle', 24);
+		luna.animation.addByPrefix('type', 'luna type', 24);
+		luna.animation.play('idle', true);
+		add(luna);
 
 		loadedObjects = true;
 
 		new FlxTimer().start(1, function(tmr:FlxTimer) {
-			FlxTween.tween(tobi, {y: 240}, 0.75, {
+			FlxTween.tween(luna, {y: 240}, 0.75, {
 				ease: FlxEase.quadInOut,
 				onComplete: function(_) {
-					FlxTween.tween(tobi, {y: 0}, 0.5, {
+					FlxTween.tween(luna, {y: 0}, 0.5, {
 						startDelay: 0.5,
 						ease: FlxEase.quadInOut,
 						onComplete: function(_) {
@@ -155,23 +155,23 @@ class BlueberryHeliumStartupState extends SuffState {
 		if (!allowToSkip || !loadedObjects)
 			return;
 
-		FlxTween.cancelTweensOf(tobi);
+		FlxTween.cancelTweensOf(luna);
 		FlxTimer.globalManager.forEach(function(tmr:FlxTimer) {
 			tmr.cancel();
 		});
-		tobi.y = 0;
+		luna.y = 0;
 
-		SuffState.playUISound(Paths.getSound('ui/startup/blueberryhelium/limeTestLinux'), 2);
+		SuffState.playUISound(Paths.getSound('ui/startup/snakemold/limeTestLinux'), 2);
 		FlxTween.num(0, inputText.length, 1.4, {
 			onComplete: function(_) {
-				tobi.animation.play('idle', true);
+				luna.animation.play('idle', true);
 				FlxTween.num(1, 1.5, 4, {
 					ease: FlxEase.quadInOut
 				}, function(num:Float) {
 					ambientSound.pitch = num;
 				});
 				nextLine();
-				FlxTween.tween(tobi, {y: 530}, 1, {
+				FlxTween.tween(luna, {y: 530}, 1, {
 					startDelay: 2,
 					ease: FlxEase.quadIn,
 					onComplete: function(_) {
@@ -197,8 +197,8 @@ class BlueberryHeliumStartupState extends SuffState {
 		}, function(num:Float) {
 			updateTextInTerminal(inputText.substring(0, Math.round(num)));
 
-			tobi.animation.play('type');
-			tobi.offset.set(FlxG.random.int(-1, 1) * 10, FlxG.random.int(-1, 0) * 5);
+			luna.animation.play('type');
+			luna.offset.set(FlxG.random.int(-1, 1) * 10, FlxG.random.int(-1, 0) * 5);
 		});
 
 		allowToSkip = false;

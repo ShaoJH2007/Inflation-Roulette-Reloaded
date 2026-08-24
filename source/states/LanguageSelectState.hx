@@ -130,7 +130,7 @@ class LanguageSelectState extends SuffState {
 			}
 			btn.onHover = function() {
 				curSelecting = num;
-				regenerateContributorsList(item, metadata.contributors);
+				// regenerateContributorsList(item, metadata.contributors);
 			};
 			btn.onClick = function() {
 				if (Preferences.data.language != item) {
@@ -141,6 +141,7 @@ class LanguageSelectState extends SuffState {
 					FlxTransitionableState.skipNextTransIn = true;
 					FlxTransitionableState.skipNextTransOut = true;
 					reloadText();
+					regenerateContributorsList(item, metadata.contributors);
 					if (Main.debugText != null) {
 						Main.debugText.reloadFont();
 					}
@@ -154,12 +155,12 @@ class LanguageSelectState extends SuffState {
 		languageOverlay.screenCenter(X);
 		languageOverlay.alpha = 0.25;
 		add(languageOverlay);
-		if (languageButtons.height <= FlxG.height - 64)
+		if (languageButtons.height <= FlxG.height - 64 - ScreenSafeArea.Y * 2)
 			languageButtons.screenCenter(Y);
 		else {
 			languageButtons.y = 32;
 			scrollBar = new SuffScrollBar(languageOverlay.x + languageOverlay.width, 0, function(percent:Float) {
-				languageButtons.y = FlxMath.lerp(32, FlxG.height - languageButtons.height - 32, percent);
+				languageButtons.y = FlxMath.lerp(32 + ScreenSafeArea.Y, FlxG.height - languageButtons.height - 32 - ScreenSafeArea.Y, percent);
 			}, 16, languageButtons.height);
 			scrollBar.visible = false;
 			scrollBar.color = textColor;
@@ -210,7 +211,7 @@ class LanguageSelectState extends SuffState {
 		githubButton.visible = false;
 		add(githubButton);
 
-		if (!initialized && !atWarningState) {
+		if ((!initialized || Preferences.data.alwaysPlayMainMenuAnims) && !atWarningState) {
 			initialized = true;
 
 			SuffState.playMusic('null');

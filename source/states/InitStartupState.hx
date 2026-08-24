@@ -38,8 +38,8 @@ class InitStartupState extends SuffState {
 				#if _ALLOW_EASTER_EGGS
 				case 'imhighoncrack':
 					SuffState.switchState(new ImHighOnCrackStartupState());
-				case 'blueberryhelium':
-					SuffState.switchState(new BlueberryHeliumStartupState());
+				case 'snakemold':
+					SuffState.switchState(new SnakeMoldStartupState());
 				case 'roomoneohone':
 					SuffState.switchState(new RoomOneOhOneStartupState());
 				case 'ibeesbees':

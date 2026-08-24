@@ -78,7 +78,7 @@ class Constants {
 	public static final CPU_SKILL_LIMIT:Array<Int> = [1, 3];
 
 	#if (_ALLOW_EASTER_EGGS && !mobile)
-	public static final EASTER_EGG_INPUTS:Array<String> = ['imhighoncrack', 'blueberryhelium', 'roomoneohone', 'ibeesbees', 'cogitoergosum', 'youreboringme'];
+	public static final EASTER_EGG_INPUTS:Array<String> = ['imhighoncrack', 'snakemold', 'roomoneohone', 'ibeesbees', 'cogitoergosum', 'youreboringme'];
 	#end
 	public static final ALPHABET_UPPERCASE:String = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -86,5 +86,5 @@ class Constants {
 	/**
 	 * How many fwoomping sound samples to use.
 	 */
-	public static final FWOOMPS_SAMPLE_COUNT:Int = #if !mobile 4 #else 2 #end;
+	public static final FWOOMPS_SAMPLE_COUNT:Int = 4;
 }

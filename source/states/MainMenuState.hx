@@ -387,7 +387,7 @@ class MainMenuState extends SuffState {
 			});
 		}
 
-		dongsPerSecond = FlxMath.roundDecimal(dongsPerSecond * (1 - elapsed), 1);
+		dongsPerSecond = dongsPerSecond * (1 - elapsed);
 		splashText.offset.x = -Math.pow(Math.max(0, dongsPerSecond - 5) * 6, 2);
 		dongCommentText.alpha = FlxMath.bound(splashText.offset.x / -2000, 0, 1);
 

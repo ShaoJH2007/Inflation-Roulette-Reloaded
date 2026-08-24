@@ -48,7 +48,7 @@ class StartupState extends SuffState {
 		}
 
 		if (video.load(Paths.getVideo('nicklySufferLogo'))) {
-			bgAlphaTween = FlxTween.tween(bg, {alpha: 1}, 1, {
+			bgAlphaTween = FlxTween.tween(bg, {alpha: 0.75}, 1, {
 				onComplete: function(_) {
 					FlxTween.tween(bg, {alpha: 0}, 1, {
 						startDelay: 3.5
