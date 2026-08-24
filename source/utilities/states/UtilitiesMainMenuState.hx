@@ -118,7 +118,7 @@ class UtilitiesMainMenuState extends UtilitiesBaseMenuState {
 				LoadDirectoryPrompt.newFileFunction = null;
 				openSubState(new LoadDirectoryPrompt('${Utilities.getExecutablePath()}\\assets\\data\\characters\\goober\\'));
 			case 'langConverter':
-				Window.setTitle(Language.getPhrase('utilitiesMenu.windowDisplay'), Language.getPhrase('utilitiesMenu.langConverter'));
+				WindowUtil.setTitle(Language.getPhrase('utilitiesMenu.windowDisplay'), Language.getPhrase('utilitiesMenu.langConverter'));
 				LoadFilePrompt.loadFileFunction = function(path:String) {
 					try {
 						var fullDirectory = path.split('/');
@@ -137,7 +137,7 @@ class UtilitiesMainMenuState extends UtilitiesBaseMenuState {
 	}
 
 	function resetTitle() {
-		Window.setTitle(Language.getPhrase('utilitiesMenu.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('utilitiesMenu.windowDisplay'));
 	}
 
 	override function update(elapsed:Float) {

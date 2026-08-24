@@ -1,11 +1,12 @@
 package backend;
 
+import backend.WindowUtil;
+
 /**
  * Default list of settings to be used in-game.
  */
 class SaveVariables {
 	public var maxFramerate:Int = 60;
-	public var enableFullscreen:Bool = false;
 	public var pauseOnUnfocus:Bool = false;
 	public var enablePopping:Bool = true;
 	public var skipEliminatedPlayers:Bool = false;
@@ -42,6 +43,7 @@ class SaveVariables {
 	public var decreaseDetail:Bool = false;
 	public var decreaseSounds:Bool = false;
 	public var language:String = 'en-US';
+	public var resolution:Array<Int> = [0, 0]; // Unset, will be calculated by game
 
 	public function new() {
 	}
@@ -120,7 +122,15 @@ class Preferences {
 				Reflect.setField(data, key, Reflect.field(defaultData, key));
 			}
 		}
-
+		trace(WindowUtil.AVAILABLE_RESOLUTIONS);
+		trace(data.resolution);
+		if (WindowUtil.resolutionIndexOf(data.resolution) == -1)
+			data.resolution = [0, 0];
+		if (data.resolution[0] == 0 || data.resolution[1] == 0) {
+			var usedResStr:Array<Int> = WindowUtil.AVAILABLE_RESOLUTIONS[Std.int(WindowUtil.AVAILABLE_RESOLUTIONS.length / 2)];
+			data.resolution = usedResStr;
+		}
+		
 		var save:FlxSave = new FlxSave();
 		save.bind('controlsV2', Utilities.getSavePath());
 		if (save?.data?.keybinds != null) {
@@ -142,8 +152,9 @@ class Preferences {
 		#if !html5
 		FlxG.autoPause = data.pauseOnUnfocus;
 		#end
-
-		FlxG.fullscreen = data.enableFullscreen;
+		
+		WindowUtil.resizeWindow(data.resolution[0], data.resolution[1]);
+		WindowUtil.screenCenter();
 
 		FlxG.mouse.useSystemCursor = !data.useBuiltInCursor;
 

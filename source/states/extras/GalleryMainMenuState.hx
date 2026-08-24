@@ -9,20 +9,28 @@ class GalleryMainMenuState extends SuffState {
 	var allowInput:Bool = false;
 
 	var bg:FlxSprite;
+	var leftButton:SuffIconButton;
+	var rightButton:SuffIconButton;
 	var grid:FlxBackdrop;
-	var envelopes:FlxTypedContainer<GalleryEnvelope> = new FlxTypedContainer<GalleryEnvelope>();
+	var envelopes:FlxTypedSpriteGroup<GalleryEnvelope> = new FlxTypedSpriteGroup<GalleryEnvelope>();
 	var exitButton:SuffIconButton;
+	var allowInputTimer:FlxTimer;
 
 	var envelopeWidth:Float = 0;
 	final envelopeSpacing:Float = 80;
 
-	override function create() {
+	public var currentPage:Int = 0;
+	public var lastPage:Int = 0;
+	public static var envelopesPerPage = 6;
+	var envelopeList:Array<String> = [];
+
+	public override function create() {
 		Paths.clearUnusedMemory();
 		Paths.clearStoredMemory();
 
 		super.create();
 
-		Window.setTitle(Language.getPhrase('galleryMainMenu.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('galleryMainMenu.windowDisplay'));
 
 		bg = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0xFFFFFFFF);
 		bg.color = 0xFFE0E0E0;
@@ -35,18 +43,80 @@ class GalleryMainMenuState extends SuffState {
 		add(grid);
 
 		add(envelopes);
-		var list:Array<String> = Paths.readDirectories('data/extras/gallery/envelopes', 'data/extras/gallery/envelopes/envelopeList.txt', 'json');
-		list.remove('dev');
-		list.push('dev');
-		list.remove('community');
-		list.push('community');
+		envelopeList = Paths.readDirectories('data/extras/gallery/envelopes', 'data/extras/gallery/envelopes/envelopeList.txt', 'json');
+		envelopeList.remove('dev');
+		envelopeList.push('dev');
+		envelopeList.remove('community');
+		envelopeList.push('community');
+		trace(envelopeList);
+		envelopesPerPage = Std.int(Math.max(1, (FlxG.width - ScreenSafeArea.X * 2 - 140 - 140) / (envelopeSpacing * 2)));
+		lastPage = Math.ceil(envelopeList.length / envelopesPerPage) - 1;
+		if (lastPage < 0)
+			lastPage = 0;
 		// Make sure dev envelope is at the last
-		for (num => item in list) {
+
+		leftButton = new SuffIconButton(20 + ScreenSafeArea.X, 20, 'buttons/left', null, 2);
+		leftButton.screenCenter(Y);
+		leftButton.onClick = function() {
+			changePage(-1);
+		};
+		add(leftButton);
+
+		rightButton = new SuffIconButton(20, 20, 'buttons/right', null, 2);
+		rightButton.x = FlxG.width - rightButton.width - 20 - ScreenSafeArea.X;
+		rightButton.screenCenter(Y);
+		rightButton.onClick = function() {
+			changePage(1);
+		};
+		add(rightButton);
+
+		changePage(0, true);
+
+		exitButton = new SuffIconButton(20, 20 + ScreenSafeArea.Y, 'buttons/exit', null, 2);
+		exitButton.x = FlxG.width - exitButton.width - 20 - ScreenSafeArea.X;
+		exitButton.onClick = function() {
+			exitMenu();
+		};
+		add(exitButton);
+	}
+	
+	function changePage(delta:Int = 0, initialize:Bool = false) {
+		if (!allowInput && !initialize)
+			return;
+		if (allowInputTimer != null)
+			allowInputTimer.cancel();
+		leftButton.visible = false;
+		rightButton.visible = false;
+		allowInput = false;
+		currentPage = Std.int(FlxMath.bound(currentPage + delta, 0, lastPage));
+		if (initialize)
+			loadPage();
+		else {
+			envelopes.forEachAlive(function(member:GalleryEnvelope) {
+				member.intendedPos.x = FlxMath.signOf(delta) == -1 ? -member.width - 100 : FlxG.width + 100;
+			});
+			new FlxTimer().start(0.25, function(_) loadPage());
+		}
+	}
+	
+	function loadPage() {
+		var firstIndex = currentPage * envelopesPerPage;
+		var lastIndex = Std.int(Math.min(firstIndex + envelopesPerPage, envelopeList.length) - 1);
+		var miniListLength = lastIndex - firstIndex + 1;
+		envelopes.clear();
+		for (member in envelopes) {
+			var envelope = member;
+			FlxTween.cancelTweensOf(envelope);
+			envelope.destroy();
+		}
+		envelopes.x = 0;
+		for (num in 0...miniListLength) {
+			var item = envelopeList[num + firstIndex];
 			var envelope:GalleryEnvelope = new GalleryEnvelope(0, 0, item);
-			envelopeWidth = envelope.width + envelopeSpacing * (list.length - 1);
+			envelopeWidth = envelope.width + envelopeSpacing * (miniListLength - 1);
 			envelope.originalPos = FlxPoint.get((FlxG.width - envelopeWidth) / 2 + num * envelopeSpacing, (FlxG.height - envelope.height) / 2);
 			envelope.x = envelope.intendedPos.x = envelope.originalPos.x;
-			envelope.y = envelope.intendedPos.y = FlxG.height;
+			envelope.y = envelope.intendedPos.y = FlxG.height + 100;
 			FlxTween.tween(envelope, {'intendedPos.y': envelope.originalPos.y}, 0.75, {
 				ease: FlxEase.quintOut,
 				startDelay: 0.1 * num,
@@ -62,17 +132,11 @@ class GalleryMainMenuState extends SuffState {
 			};
 			envelopes.add(envelope);
 		}
-
-		exitButton = new SuffIconButton(20, 20 + ScreenSafeArea.Y, 'buttons/exit', null, 2);
-		exitButton.x = FlxG.width - exitButton.width - 20 - ScreenSafeArea.X;
-		exitButton.onClick = function() {
-			exitMenu();
-		};
-		add(exitButton);
-
-		new FlxTimer().start(1, function(_){
+		allowInputTimer = new FlxTimer().start(miniListLength * 0.1 + 0.4, function(_){
 			allowInput = true;
 		});
+		leftButton.visible = (currentPage > 0);
+		rightButton.visible = (currentPage < lastPage);
 	}
 
 	function exitMenu() {
@@ -83,6 +147,9 @@ class GalleryMainMenuState extends SuffState {
 
 	function confirmSelection() {
 		allowInput = false;
+		FlxTween.tween(leftButton, {alpha: 0}, 0.25);
+		FlxTween.tween(rightButton, {alpha: 0}, 0.25);
+		FlxTween.tween(exitButton, {alpha: 0}, 0.25);
 		for (num => item in envelopes.members) {
 			item.disabled = true;
 			if (num == selectedIndex) {
@@ -108,7 +175,7 @@ class GalleryMainMenuState extends SuffState {
 
 	var selectedIndex:Int = 0;
 
-	override function update(elapsed:Float) {
+	public override function update(elapsed:Float) {
 		super.update(elapsed);
 
 		if (!allowInput)
@@ -118,6 +185,8 @@ class GalleryMainMenuState extends SuffState {
 		/ (envelopeWidth / envelopes.members.length));
 		selectedIndex = Std.int(FlxMath.bound(selectedIndex, 0, envelopes.members.length - 1));
 		var selectedMember = envelopes.members[selectedIndex];
+		if (selectedMember == null)
+			return;
 		selectedMember.intendedPos.x = selectedMember.originalPos.x;
 		for (num => item in envelopes.members) {
 			item.disabled = num != selectedIndex;

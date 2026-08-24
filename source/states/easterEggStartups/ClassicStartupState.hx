@@ -4,7 +4,7 @@ class ClassicStartupState extends SuffState {
 	public override function create() {
 		super.create();
 
-		Window.setTitle(Constants.COPYRIGHT);
+		WindowUtil.setTitle(Constants.COPYRIGHT);
 
 		startIntro();
 	}

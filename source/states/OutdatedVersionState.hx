@@ -7,7 +7,7 @@ class OutdatedVersionState extends SuffState {
 	override function create() {
 		super.create();
 
-		Window.setTitle(Language.getPhrase('outdatedVersionMenu.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('outdatedVersionMenu.windowDisplay'));
 
 		var heading:FlxText = new FlxText(0, 0, FlxG.width * (3 / 4), Language.getPhrase('outdatedVersionMenu.heading'), 64);
 		heading.alignment = 'center';

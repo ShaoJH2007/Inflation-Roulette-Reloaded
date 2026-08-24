@@ -55,7 +55,7 @@ class ResultsState extends SuffState {
 		allowSkip = achievementsToEarn.length <= 0;
 		trace(achievementsToEarn);
 
-		Window.setTitle(Language.getPhrase('resultsMenu.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('resultsMenu.windowDisplay'));
 
 		super.create();
 

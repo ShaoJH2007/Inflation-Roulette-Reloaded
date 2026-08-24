@@ -1,0 +1,18 @@
+{
+	"titleTranslationKey": "character.drey.name",
+	"hasCharacter": true,
+	"artwork": [
+		"dreyRender",
+		"dreySticker",
+		"dreyReference",
+		"dreyOriginalAppearance",
+		"dreyRenderReference"
+	],
+	"color": "#FF40FF",
+	"quotes": [
+		"OWO",
+		">W<",
+		"UWU",
+		"@W@"
+	]
+}

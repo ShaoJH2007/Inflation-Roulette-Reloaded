@@ -19,15 +19,16 @@ class PreloadState extends SuffState {
 	var loadingProgress:Int = -1;
 	var loadingTexts:Array<String> = ['gameplay', 'music', 'achievements', 'toasts', 'tooltip', 'cursor', 'splashes'];
 
-	override function create() {
+	public override function create() {
 		super.create();
 
 		FlxG.save.bind('game', Utilities.getSavePath());
+		WindowUtil.calculateResolutions();
 		Preferences.loadPrefs();
 		if (AndroidUtil.checkAllFilesPermission())
 			Addons.pushGlobalAddons();
 		Language.initialize();
-		Window.setTitle(Language.getPhrase('preloadMenu.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('preloadMenu.windowDisplay'));
 
 		#if !html5
 		bg = new FlxSprite().loadGraphic(Paths.getImage('ui/menus/preload/loadingArt'));
@@ -57,7 +58,7 @@ class PreloadState extends SuffState {
 		#if !html5
 		preloadTxt.text = Language.getPhrase('preloadMenu.progress.' + loadingTexts[loadingProgress]);
 		#end
-		Window.setTitle(Language.getPhrase('preloadMenu.windowDisplay'), preloadTxt.text);
+		WindowUtil.setTitle(Language.getPhrase('preloadMenu.windowDisplay'), preloadTxt.text);
 		new FlxTimer().start(FlxG.elapsed, function(_) {
 			switch (loadingTexts[loadingProgress]) {
 				case 'gameplay':
@@ -142,7 +143,7 @@ class PreloadState extends SuffState {
 		#end
 		{
 			preloadTxt.text = Language.getPhrase('preloadMenu.finished');
-			Window.setTitle(Language.getPhrase('preloadMenu.windowDisplay'), preloadTxt.text);
+			WindowUtil.setTitle(Language.getPhrase('preloadMenu.windowDisplay'), preloadTxt.text);
 			FlxG.camera.fade(0xFF000000, 1, false, function() {
 				goToStartupState();
 			});

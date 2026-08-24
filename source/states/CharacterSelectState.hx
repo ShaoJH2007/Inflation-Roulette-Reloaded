@@ -81,7 +81,7 @@ class CharacterSelectState extends SuffState {
 	public override function create() {
 		super.create();
 
-		Window.setTitle(Language.getPhrase('characterSelect.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('characterSelect.windowDisplay'));
 
 		var characterList = Gameplay.globalCharacterList.copy();
 		if (characterList.length >= 3) {

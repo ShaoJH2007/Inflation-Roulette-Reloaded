@@ -18,7 +18,7 @@ class PauseSubState extends SuffSubState {
 	public function new() {
 		super();
 
-		Window.setTitle(Language.getPhrase('pauseMenu.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('pauseMenu.windowDisplay'));
 
 		FlxG.sound.music.volume = 0;
 		usedFollowLerp = FlxG.camera.followLerp;

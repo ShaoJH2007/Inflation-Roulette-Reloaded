@@ -71,7 +71,7 @@ class MainMenuState extends SuffState {
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
-		Window.setTitle(Language.getPhrase('mainMenu.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('mainMenu.windowDisplay'));
 
 		if (FlxG.sound.music == null || SuffState.currentMusicName == 'null') { // idk lmao
 			SuffState.playMusic('mainMenu');

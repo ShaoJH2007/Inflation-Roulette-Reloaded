@@ -1,0 +1,15 @@
+{
+	"cardDisplayedKey": "character.drey.name.short",
+	"maxPressure": 4,
+	"maxConfidence": 4,
+	"skills": [
+		{
+			"id": "unload",
+			"cost": 1
+		},
+		{
+			"id": "hosebound",
+			"cost": 3
+		}
+	]
+}

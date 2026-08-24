@@ -250,7 +250,7 @@ class LanguageSelectState extends SuffState {
 		description.text = Language.getPhrase('languageMenu.description');
 		description.y = progress.y + progress.height + 16;
 
-		Window.setTitle(Language.getPhrase('languageMenu.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('languageMenu.windowDisplay'));
 	}
 
 	final duration:Float = Math.PI;

@@ -19,7 +19,7 @@ class RubHitboxEditorState extends UtilitiesBaseMenuState {
 	var offsetTxt:FlxText;
 	var hitbox:FlxSprite;
 	override public function create() {
-		Window.setTitle(Language.getPhrase('utilitiesMenu.windowDisplay'), Language.getPhrase('utilitiesMenu.rubHitboxEditor'));
+		WindowUtil.setTitle(Language.getPhrase('utilitiesMenu.windowDisplay'), Language.getPhrase('utilitiesMenu.rubHitboxEditor'));
 		super.create();
 		remove(exitButton);
 

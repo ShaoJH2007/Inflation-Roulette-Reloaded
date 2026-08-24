@@ -38,7 +38,7 @@ class OffsetEditorSubstate extends UtilitiesBaseMenuSubState {
 	public function new() {
 		super();
 
-		Window.setTitle(Language.getPhrase('utilitiesMenu.windowDisplay'), Language.getPhrase('utilitiesMenu.offsetEditor'));
+		WindowUtil.setTitle(Language.getPhrase('utilitiesMenu.windowDisplay'), Language.getPhrase('utilitiesMenu.offsetEditor'));
 
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0xFF000000);
 		bg.alpha = 0.5;
@@ -130,7 +130,7 @@ class OffsetEditorSubstate extends UtilitiesBaseMenuSubState {
 	}
 
 	public override function leaveMenu() {
-		Window.setTitle(Language.getPhrase('utilitiesMenu.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('utilitiesMenu.windowDisplay'));
 		super.leaveMenu();
 	}
 

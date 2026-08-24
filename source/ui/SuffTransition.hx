@@ -201,7 +201,7 @@ class SuffTransition extends SuffSubState {
 	function startLoading(showText:Bool = true) {
 		// CursorHandler.cursorVisible = false;
 		Paths.clearUnusedMemory();
-		Window.setTitle(Language.getPhrase('loading.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('loading.windowDisplay'));
 		if (finishCallback != null) {
 			loadingTxt.visible = showText;
 			finishCallback();

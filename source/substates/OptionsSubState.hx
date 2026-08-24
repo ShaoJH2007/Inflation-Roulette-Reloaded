@@ -6,6 +6,7 @@ import ui.objects.SuffSlider;
 import states.PlayState;
 import ui.objects.SuffScrollBar;
 import substates.ScreenSafeAreaSubState;
+import backend.Preferences;
 
 class OptionsSubState extends SuffSubState {
 	public static var notInGame:Bool = true;
@@ -31,7 +32,7 @@ class OptionsSubState extends SuffSubState {
 	public function new() {
 		super();
 
-		Window.setTitle(Language.getPhrase('optionsMenu.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('optionsMenu.windowDisplay'));
 
 		bg = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		bg.alpha = 0.75;
@@ -153,13 +154,41 @@ class OptionsSubState extends SuffSubState {
 		// GRAPHICS SETTINGS
 		createHeading('visuals');
 
-		createBooleanOption('hideHUD', function(value:Bool) {
-			Preferences.data.hideHUD = value;
-		}, Preferences.data.hideHUD);
+		createSliderOption('maxFramerate', function(value:Float) {
+			Preferences.data.maxFramerate = Math.round(value);
+			PauseSubState.usedFollowLerp = 0.1 * Preferences.data.cameraSpeed;
+		}, 30, #if !mobile 300 #else 120 #end, 10, function(value:Float) {
+			return '' + Math.round(value);
+		}, Preferences.data.maxFramerate);
+		// Prevent mobiles from overheating
 
-		createBooleanOption('hideTooltip', function(value:Bool) {
-			Preferences.data.hideTooltip = value;
-		}, Preferences.data.hideTooltip);
+		#if desktop
+		createSliderOption('resolution', function(value:Float) {
+			var index = Std.int(value);
+			Preferences.data.resolution = WindowUtil.AVAILABLE_RESOLUTIONS[index];
+		}, 0, WindowUtil.AVAILABLE_RESOLUTIONS.length - 1, 1, function(value:Float) {
+			var index = Std.int(value);
+			var res:Array<Int> = WindowUtil.AVAILABLE_RESOLUTIONS[index];
+			var resHeight:Int = res[1];
+			var returnStr:String = '${res[0]} × ${res[1]}';
+			if (index == WindowUtil.AVAILABLE_RESOLUTIONS.length - 1)
+				returnStr += '\n' + Language.getPhrase('option.resolution.scale.fullscreen');
+			else {
+				var scalePercent = Math.round(resHeight / Constants.ORIGINAL_FLXG_HEIGHT * 100);
+				if (scalePercent != 100)
+					returnStr += '\n' + Language.getPhrase('option.resolution.scale', [scalePercent]);
+				else
+					returnStr += '\n' + Language.getPhrase('option.resolution.scale.default');
+			}
+			return returnStr;
+		}, WindowUtil.resolutionIndexOf(Preferences.data.resolution));
+		
+		/*
+		createBooleanOption('enableFullscreen', function(value:Bool) {
+			Preferences.data.enableFullscreen = value;
+		}, Preferences.data.enableFullscreen);
+		 */
+		#end
 
 		if (notInGame) {
 			createButtonOption('screenSafeArea', function() {
@@ -167,11 +196,13 @@ class OptionsSubState extends SuffSubState {
 			});
 		}
 
-		#if desktop
-		createBooleanOption('enableFullscreen', function(value:Bool) {
-			Preferences.data.enableFullscreen = value;
-		}, Preferences.data.enableFullscreen);
-		#end
+		createBooleanOption('hideHUD', function(value:Bool) {
+			Preferences.data.hideHUD = value;
+		}, Preferences.data.hideHUD);
+
+		createBooleanOption('hideTooltip', function(value:Bool) {
+			Preferences.data.hideTooltip = value;
+		}, Preferences.data.hideTooltip);
 
 		createBooleanOption('alwaysPlayMainMenuAnims', function(value:Bool) {
 			Preferences.data.alwaysPlayMainMenuAnims = value;
@@ -250,14 +281,6 @@ class OptionsSubState extends SuffSubState {
 
 		// TECHNICAL SETTINGS
 		createHeading('technical');
-
-		createSliderOption('maxFramerate', function(value:Float) {
-			Preferences.data.maxFramerate = Math.round(value);
-			PauseSubState.usedFollowLerp = 0.1 * Preferences.data.cameraSpeed;
-		}, 30,120, 10, function(value:Float) {
-			return '' + Math.round(value);
-		}, Preferences.data.maxFramerate);
-		// Mobile framerate is capped at 120 to avoid device heating up
 
 		#if _CHECK_FOR_UPDATES
 		createBooleanOption('checkForUpdates', function(value:Bool) {
@@ -378,7 +401,7 @@ class OptionsSubState extends SuffSubState {
 			PauseSubState.resetMusic = true;
 		}
 		Tooltip.text = '';
-		Window.setTitle(Language.getPhrase('mainMenu.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('mainMenu.windowDisplay'));
 		close();
 		if (notInGame) {
 			SuffState.playMusic('mainMenu');

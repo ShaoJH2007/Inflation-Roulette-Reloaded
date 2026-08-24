@@ -38,7 +38,7 @@ class OffsetEditorState extends UtilitiesBaseMenuState {
 	var camHUD:FlxCamera;
 
 	override public function create() {
-		Window.setTitle(Language.getPhrase('utilitiesMenu.windowDisplay'), Language.getPhrase('utilitiesMenu.offsetEditor'));
+		WindowUtil.setTitle(Language.getPhrase('utilitiesMenu.windowDisplay'), Language.getPhrase('utilitiesMenu.offsetEditor'));
 
 		camGame = new FlxCamera();
 		camHUD = new FlxCamera();

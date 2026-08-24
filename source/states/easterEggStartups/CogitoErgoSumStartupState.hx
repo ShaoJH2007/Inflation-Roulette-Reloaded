@@ -33,7 +33,7 @@ class CogitoErgoSumStartupState extends SuffState {
 
 		super.create();
 
-		Window.setTitle('I THINK THEREFORE I AM');
+		WindowUtil.setTitle('I THINK THEREFORE I AM');
 
 		if (!Preferences.data.decreaseDetail) {
 			for (i in 1...21)

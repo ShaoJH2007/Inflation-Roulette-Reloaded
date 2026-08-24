@@ -33,7 +33,7 @@ class AddonsMenuState extends SuffState {
 	override function create() {
 		super.create();
 
-		Window.setTitle(Language.getPhrase('addonsMenu.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('addonsMenu.windowDisplay'));
 
 		bg = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0xFFFFFFFF);
 		bg.alpha = 0.5;

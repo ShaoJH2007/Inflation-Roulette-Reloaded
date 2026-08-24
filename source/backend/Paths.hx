@@ -52,6 +52,13 @@ class Paths {
 				currentTrackedTextures.remove(key); // and remove the key from local cache map
 			}
 		}
+		for (key in currentTrackedShaders.keys()) {
+			// if it is not currently contained within the used local assets
+			if (!localTrackedAssets.contains(key) && !isDumpExcluded(key)) {
+				currentTrackedShaders[key] = null;
+				currentTrackedShaders.remove(key);
+			}
+		}
 
 		System.gc();
 	}
@@ -501,9 +508,14 @@ class Paths {
 		['texture(', 'flixel_texture2D('],
 		['iChannel0', 'bitmap']
 	];
+	
+	public static var currentTrackedShaders:Map<String, FlxRuntimeShader> = [];
 
 	public static function getShader(path:String):FlxRuntimeShader {
-		var fragmentStr = Paths.getTextFromFile('shaders/$path.frag').trim();
+		var file = 'shaders/$path.frag';
+		if (currentTrackedShaders.exists(file))
+			return currentTrackedShaders.get(file);
+		var fragmentStr = Paths.getTextFromFile(file).trim();
 		try {
 			if (fragmentStr == null || fragmentStr.length <= 0)
 				throw 'Shader file non-existent or contents empty.';
@@ -519,7 +531,9 @@ class Paths {
 			return null;
 		}
 		var shader:FlxRuntimeShader = new FlxRuntimeShader(fragmentStr);
-		trace('Loaded shader: $path\n' + shader.glFragmentSource);
+		localTrackedAssets.push(file);
+		currentTrackedShaders.set(file, shader);
+		trace('Loaded shader: $path');
 		// FlxG.state.add(shader);
 		return shader;
 	}
@@ -561,7 +575,7 @@ class Paths {
 		for (addon in Addons.globalAddons) {
 			var fileToCheck:String = getPathInAddons(addon + '/' + key);
 			if (FileSystem.exists(fileToCheck)) {
-				trace('Fetched from addon $addon: $fileToCheck');
+				// trace('Fetched from addon $addon: $fileToCheck');
 				return fileToCheck;
 			}
 		}

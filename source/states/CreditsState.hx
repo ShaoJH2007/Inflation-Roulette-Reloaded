@@ -94,7 +94,7 @@ class CreditsState extends SuffState {
 
 		super.create();
 
-		Window.setTitle(Language.getPhrase('creditsMenu.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('creditsMenu.windowDisplay'));
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic(FlxGradient.createGradientBitmapData(FlxG.width, FlxG.height, [0xFF794080, 0xFF404080]));
 		add(bg);

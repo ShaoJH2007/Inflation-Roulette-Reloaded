@@ -103,7 +103,7 @@ class GalleryEntryState extends SuffState {
 		title.color = overlay.color;
 		add(title);
 
-		Window.setTitle(Language.getPhrase('galleryMainMenu.windowDisplay'), titleText);
+		WindowUtil.setTitle(Language.getPhrase('galleryMainMenu.windowDisplay'), titleText);
 
 		descriptionText = Language.getPhrase('galleryMainMenu.envelope.${envelopeData.id}.description');
 		description = new FlxText(title.x, title.y + title.height + 16, FlxG.width / 2 - title.x * 2, descriptionText, 32);

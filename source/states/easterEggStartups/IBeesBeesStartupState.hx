@@ -15,7 +15,7 @@ class IBeesBeesStartupState extends SuffState {
 	public override function create() {
 		super.create();
 
-		Window.setTitle(Constants.COPYRIGHT, 'Pursuitcore Inflation Yuri');
+		WindowUtil.setTitle(Constants.COPYRIGHT, 'Pursuitcore Inflation Yuri');
 
 		bg = new FlxBackdrop(Paths.getImage('ui/menus/easterEggStartups/ibeesbees/bg'));
 		bg.color = 0xFFFFFFFF;

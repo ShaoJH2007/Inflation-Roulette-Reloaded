@@ -82,8 +82,14 @@ class GalleryArtworkSubState extends SuffSubState {
 		changeSelection();
 	}
 
-	override function update(elapsed:Float) {
+	public override function update(elapsed:Float) {
 		super.update(elapsed);
+		
+		for (artwork in artworkGroup) {
+			if (artwork?.image?.shader == null)
+				continue;
+			artwork.image.shader.data.iTime.value[0] += elapsed;
+		}
 
 		if (!allowInput) return;
 		if (Controls.justPressed('exit')) {
@@ -106,9 +112,19 @@ class GalleryArtworkSubState extends SuffSubState {
 			var translatedWarnings = artworkData.warnings.map(function(f:String) return Language.getPhrase('galleryEntryMenu.warning.' + f));
 			artworkGroup.members[curSelected].tooltipText = Language.getPhrase('galleryEntryMenu.viewFullImageWarned', [translatedWarnings.join(', ')]);
 			var dimensions = [artworkGroup.members[curSelected].width, artworkGroup.members[curSelected].height];
-			artworkGroup.members[curSelected].image.loadGraphic(Paths.getImage('ui/menus/extras/gallery/images/contentWarning'));
-			artworkGroup.members[curSelected].image.setGraphicSize(dimensions[0], dimensions[1]);
-			artworkGroup.members[curSelected].image.updateHitbox();
+			var contentWarningImage = Paths.getImage('ui/menus/extras/gallery/images/contentWarning');
+			if (Preferences.data.enableGLSL) {
+				var shader = Paths.getShader('checkerboard');
+				artworkGroup.members[curSelected].image.shader = shader;
+				shader.data.iTime.value = [0];
+				shader.data.uTexSize.value = [dimensions[0], dimensions[1]];
+				shader.data.uGrid.input = contentWarningImage.bitmap;
+				shader.data.uGridSize.value = [contentWarningImage.width, contentWarningImage.height];
+			} else {
+				artworkGroup.members[curSelected].image.loadGraphic(contentWarningImage);
+				artworkGroup.members[curSelected].image.setGraphicSize(dimensions[0], dimensions[1]);
+				artworkGroup.members[curSelected].image.updateHitbox();
+			}
 		}
 		// description.updateHitbox();
 		description.alignment = description.height <= 32 ? CENTER : JUSTIFY;

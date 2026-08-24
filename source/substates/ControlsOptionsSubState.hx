@@ -12,7 +12,7 @@ class ControlsOptionsSubState extends SuffSubState {
 	public function new() {
 		super();
 
-		Window.setTitle(Language.getPhrase('optionsMenu.windowDisplay'), Language.getPhrase('option.controls.name'));
+		WindowUtil.setTitle(Language.getPhrase('optionsMenu.windowDisplay'), Language.getPhrase('option.controls.name'));
 
 		bg = new FlxSprite().loadGraphic(Paths.getImage('ui/menus/options/bg'));
 		bg.color = 0x303030;
@@ -119,7 +119,7 @@ class ControlsOptionsSubState extends SuffSubState {
 	function exitOptionsMenu() {
 		Preferences.savePrefs();
 		Preferences.loadPrefs();
-		Window.setTitle(Language.getPhrase('optionsMenu.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('optionsMenu.windowDisplay'));
 		close();
 	}
 

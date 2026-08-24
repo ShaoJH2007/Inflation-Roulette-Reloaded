@@ -7,7 +7,7 @@ class BlueberryHeliumStartupState extends SuffState {
 	override function create() {
 		super.create();
 
-		Window.setTitle('我要食魚翅');
+		WindowUtil.setTitle('我要食魚翅');
 
 		startIntro();
 	}

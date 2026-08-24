@@ -21,7 +21,7 @@ class RoomOneOhOneStartupState extends SuffState {
 	override function create() {
 		super.create();
 
-		Window.setTitle('YOU\'RE SUPPOSED TO OBEY ME');
+		WindowUtil.setTitle('YOU\'RE SUPPOSED TO OBEY ME');
 
 		explodeSound = new FlxSound().loadEmbedded(Paths.getSound('explosionLoud'));
 		explodeSound.volume = Preferences.data.uiSoundVolume;

@@ -410,7 +410,7 @@ class PlayState extends SuffState {
 	}
 
 	public function setWindowTitle() {
-		Window.setTitle(Language.getPhrase('game.windowDisplay', [Language.getPhrase('gameType.' + (Gameplay.isMultiplayer() ? 'multiplayer' : 'singleplayer')), characterGroup.members.length]));
+		WindowUtil.setTitle(Language.getPhrase('game.windowDisplay', [Language.getPhrase('gameType.' + (Gameplay.isMultiplayer() ? 'multiplayer' : 'singleplayer')), characterGroup.members.length]));
 	}
 
 	private function set_isSelectingPlayer(value:Bool):Bool {

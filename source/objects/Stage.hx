@@ -146,8 +146,9 @@ class Stage extends FlxBasic {
 				object.animation.play('idle', true);
 			});
 		}
-		if (objectData.shader != null)
+		if (objectData.shader != null) {
 			object.shader = Paths.getShader(objectData.shader);
+		}
 		if (objectData.scrollFactor != null && objectData.scrollFactor.length == 2)
 			object.scrollFactor.set(objectData.scrollFactor[0], objectData.scrollFactor[1]);
 		if (objectData.hideCharacter != null)

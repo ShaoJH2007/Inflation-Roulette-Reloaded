@@ -6,6 +6,7 @@ typedef StageObjectData = {
 	graphic:String,
 	position:Array<String>,
 	?shader:String,
+	?shaderValues:Map<String, Float>,
 	?hideInDecreaseDetail:Bool,
 	?showInDecreaseDetail:Bool,
 	?angle:Float,

@@ -10,7 +10,7 @@ class ExtrasSubState extends SuffSubState {
 	public function new() {
 		super();
 
-		Window.setTitle(Language.getPhrase('extrasMenu.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('extrasMenu.windowDisplay'));
 
 		persistentUpdate = false;
 
@@ -112,7 +112,7 @@ class ExtrasSubState extends SuffSubState {
 
 	function exitMenu() {
 		persistentUpdate = true;
-		Window.setTitle(Language.getPhrase('mainMenu.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('mainMenu.windowDisplay'));
 		close();
 	}
 }

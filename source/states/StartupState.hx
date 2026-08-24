@@ -13,7 +13,7 @@ class StartupState extends SuffState {
 	public override function create() {
 		super.create();
 
-		Window.setTitle(Constants.COPYRIGHT);
+		WindowUtil.setTitle(Constants.COPYRIGHT);
 
 		var bgList = Gameplay.globalStageList.copy();
 		bgList.remove('void');

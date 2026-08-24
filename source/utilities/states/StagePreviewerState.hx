@@ -49,7 +49,7 @@ class StagePreviewerState extends UtilitiesBaseMenuState {
 		FlxG.cameras.setDefaultDrawTarget(camGame, true);
 
 		super.create();
-		Window.setTitle(Language.getPhrase('utilitiesMenu.windowDisplay'), Language.getPhrase('utilitiesMenu.stagePreviewer'));
+		WindowUtil.setTitle(Language.getPhrase('utilitiesMenu.windowDisplay'), Language.getPhrase('utilitiesMenu.stagePreviewer'));
 
 		escapeToLeave = false;
 

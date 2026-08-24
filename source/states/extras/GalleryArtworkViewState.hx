@@ -23,7 +23,7 @@ class GalleryArtworkViewState extends SuffState {
 
 	public static var path:String = '';
 
-	override function create() {
+	public override function create() {
 		Paths.clearUnusedMemory();
 		Paths.clearStoredMemory();
 

@@ -95,7 +95,7 @@ class AnimationEditorState extends UtilitiesBaseMenuState {
 	override function create() {
 		super.create();
 
-		Window.setTitle(Language.getPhrase('utilitiesMenu.windowDisplay'), Language.getPhrase('animationEditor.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('utilitiesMenu.windowDisplay'), Language.getPhrase('animationEditor.windowDisplay'));
 
 		remove(exitButton);
 

@@ -46,7 +46,7 @@ class AchievementsState extends SuffState {
 
 		super.create();
 
-		Window.setTitle(Language.getPhrase('achievementsMenu.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('achievementsMenu.windowDisplay'));
 
 		persistentDraw = true;
 		persistentUpdate = false;

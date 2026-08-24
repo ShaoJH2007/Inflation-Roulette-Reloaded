@@ -17,7 +17,7 @@ class AndroidPermissionsState extends SuffState {
 	override function create() {
 		super.create();
 
-		Window.setTitle(Language.getPhrase('androidPermissionsMenu.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('androidPermissionsMenu.windowDisplay'));
 
 		bg = new FlxSprite();
 		bg.loadGraphic(Paths.getImage('ui/menus/android/permissionsRequired'));

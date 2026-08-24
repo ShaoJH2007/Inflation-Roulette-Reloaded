@@ -27,7 +27,7 @@ class GamemodeSelectSubState extends SuffSubState {
 	public function new() {
 		super();
 
-		Window.setTitle(Language.getPhrase('gamemodeSelect.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('gamemodeSelect.windowDisplay'));
 
 		persistentUpdate = false;
 
@@ -141,7 +141,7 @@ class GamemodeSelectSubState extends SuffSubState {
 	function exitMenu() {
 		persistentUpdate = true;
 		Tooltip.text = '';
-		Window.setTitle(Language.getPhrase('mainMenu.windowDisplay'));
+		WindowUtil.setTitle(Language.getPhrase('mainMenu.windowDisplay'));
 		close();
 	}
 

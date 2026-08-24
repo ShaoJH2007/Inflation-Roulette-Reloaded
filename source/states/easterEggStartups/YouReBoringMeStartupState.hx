@@ -8,7 +8,7 @@ class YouReBoringMeStartupState extends SuffState {
 	override function create() {
 		super.create();
 
-		Window.setTitle('DO YOU WANT TO PLAY WITH ME?');
+		WindowUtil.setTitle('DO YOU WANT TO PLAY WITH ME?');
 
 		video = new SuffVideoSprite(0, 0);
 		video.onFormat(function() {

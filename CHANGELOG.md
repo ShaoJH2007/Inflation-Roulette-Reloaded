@@ -87,7 +87,7 @@ Hotfixes are quick updates that fixes critical bugs.
 #### Gameplay
 - Quick Play now randomizes the human player's position.
 - Player count is now unaffected by game mode.
-- The damage of the live round in the Charge gamemode now increments by 0.5 instead of 1.
+- Live round damage in the Charge gamemode now increments by 0.5 instead of 1.
 - Restarting a game session is quicker and done without a transition.
   - This also reduces memory usage on restart.
 #### Technical
@@ -98,10 +98,10 @@ Hotfixes are quick updates that fixes critical bugs.
 - `cylinderDamageChangeOnBlank`, and `cylinderInitialDamage` now support floats.
   - The final damage dealt will be rounded down.
 - Character sprites are no longer preloaded on the start of the game.
-- Decreased RAM usage by up to 50%. (Not guaranteed)
 - Switching languages is now faster.
 - Max Framerate is now capped at 120.
   - Since this update uses more resources, higher framerates are unstable on low-end devices.
+- Game window can now be scaled in the Options menu.
 #### Utilities
 - Character Editor now generates addon metadata and localization files for you.
 ### Removals

@@ -47,13 +47,13 @@
 	<!-- ____________________________ Window Settings ___________________________ -->
 
 	<!--These window settings apply to all targets-->
-	<window width="1280" height="720" background="#000000" hardware="true" vsync="false" allow-high-dpi="true"/>
+	<window width="1280" height="720" background="#000000" hardware="true" vsync="false"/>
 
 	<!--HTML5-specific-->
 	<window if="html5" resizable="true" />
 
 	<!--Desktop-specific-->
-	<window if="desktop" orientation="landscape" fullscreen="false" resizable="true" vsync="false"/>
+	<window if="desktop" orientation="landscape" fullscreen="false" resizable="false" vsync="false"/>
 
 	<!--Mobile-specific-->
 	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" resizable="false"/>
