@@ -93,7 +93,7 @@ class GalleryMainMenuState extends SuffState {
 			loadPage();
 		else {
 			envelopes.forEachAlive(function(member:GalleryEnvelope) {
-				member.intendedPos.x = FlxMath.signOf(delta) == -1 ? -member.width - 100 : FlxG.width + 100;
+				member.intendedPos.x = FlxMath.signOf(delta) == 1 ? -member.width - 100 : FlxG.width + 100;
 			});
 			new FlxTimer().start(0.25, function(_) loadPage());
 		}

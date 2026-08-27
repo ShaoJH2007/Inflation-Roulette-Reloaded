@@ -436,8 +436,6 @@
 	// Context: There are different versions of Goobers, one being Slime Goobers, and one labelled "???".
 	// The way I interpret this is like, them having races or something
 	"galleryMainMenu.envelope.goober.description": "Vistos per primera vegada al joc original, els Goobers entren en acció amb una nova capa de pintura! S'han convertit en el personatge de referència que apareix en innombrables remakes i fanarts.\n\nQuant a per què i com es van unir al joc, ningú ho sap! Actors? Ostatges? Venuts? Hi ha moltes teories! No se sap gaire sobre seva biologia, però s'ha confirmat que s'han classificat en diverses races, que van des dels Goobers compostos completament de llim fins a R»EDA©±AT§²½",
-	// Context: Literally no lore implication. He's just here for the sake of being here lol
-	"galleryMainMenu.envelope.asimo.description": "Aprofitant seus poders elèctrics, Asimo es espanta per Inflation Roulette dient que \"s'ho està passant bé\".\n\nNo sabem com ha arribat aquí, i no tenim cap connexió amb ell, a part que és un llop, és el tester del Gerent per a seu estúpid mod Friday Night Funkin', i és el guanyador d'un sorteig d'art per afegir-lo al joc com a personatge per al complement d'exemple.\n\nAsimo és un personatge convidat propietat de WolfKylis.",
 	// Context: You can say the reason they're here is nepotism? They're just a partner with the Manager's lab-grown assistant
 	// that agrees to join that's it.
 	// "galleryMainMenu.envelope.shib.description": "Cognom Nou; prenom Shiba. Procedent d'un planeta misteriós, aquesta criatura felina està a punt de fer explotar algú. El seu nom xinès es pot interpretar com a \"Zero Deu Vuit\", derivat del lloc nuclear on van aterrar a Pequín.\n\nVan passar els primers anys de la seva vida buscant per diferents llocs on viure, i finalment es van establir a garatge del Gerent. L'home els va adoptar com a ajudants secundaris i aviat es va enamorar de l'ajudant principal (crescuda a laboratori per cert, ecs). Sense raó aparent més enllà de presumir davant de seu xicot, es van unir al joc per mostrar seves habilitats ocultes.\n\nShib és un personatge propietat de NicklySuffer, creat abans del desenvolupament de Inflation Roulette.",
@@ -597,5 +595,7 @@
 	
 	"character.asimo.name": "Asimo Dracomaw",
 	"character.asimo.name.short": "Asimo",
-	"character.asimo.description": "Aquest llop només vol divertir-se una mica. Seva experiència en ocultisme elèctric li permet sobrecarregar armes."
+	"character.asimo.description": "Aquest llop només vol divertir-se una mica. Seva experiència en ocultisme elèctric li permet sobrecarregar armes.",
+	// Context: Literally no lore implication. He's just here for the sake of being here lol
+	// "galleryMainMenu.envelope.asimo.description": "Aprofitant seus poders elèctrics, Asimo es espanta per Inflation Roulette dient que \"s'ho està passant bé\".\n\nNo sabem com ha arribat aquí, i no tenim cap connexió amb ell, a part que és un llop, és el tester del Gerent per a seu estúpid mod Friday Night Funkin', i és el guanyador d'un sorteig d'art per afegir-lo al joc com a personatge per al complement d'exemple.\n\nAsimo és un personatge convidat propietat de WolfKylis."
 }

@@ -431,8 +431,6 @@
 	// Context:Existen diferentes versiones de Goobers, una de ellas llamada Slime Goobers y otra etiquetada como "???".
 	// The way I interpret this is like, them having races or something
 	"galleryMainMenu.envelope.goober.description": "Vistos por primera vez en el juego original, ¡los Goobers entran en acción con una nueva capa de pintura! Se han convertido en los personajes predilectos para aparecer en incontables remakes y fanarts por igual.\n\nEn cuanto a por qué y cómo se unieron al juego, ¡nadie lo sabe! ¿Actores? ¿Rehenes? ¿Vendidos? ¡Existen muchísimas teorías! No se sabe mucho sobre su biología, pero se ha confirmado que han sido clasificados en varias razas, que van desde Goobers compuestos completamente de slime hasta R»EDA©±ED§²½",
-	// Context: Literally no lore implication. He's just here for the sake of being here lol
-	"galleryMainMenu.envelope.asimo.description": "Aprovechando sus poderes eléctricos, Asimo llega electrizando a Inflation Roulette afirmando que viene “a divertirse un poco”.\n\nNo sabemos cómo llegó aquí, y definitivamente no tenemos ninguna relación con él, aparte de que es un lobo, es el tester del Manager para su estúpido mod de Friday Night Funkin’, y fue el ganador de un sorteo de arte para ser añadido al juego como personaje del Example Addon.\n\nAsimo es un personaje invitado propiedad de WolfKylis.",
 	// Context: You can say the reason they're here is nepotism? They're just a partner with the Manager's lab-grown assistant
 	// that agrees to join that's it.
 	// "galleryMainMenu.envelope.shib.description": "Apellido: Nou; nombre: Shiba. Proveniente de un planeta misterioso, esta criatura con apariencia felina está lista para volarle la cabeza a alguien. Su nombre en chino puede interpretarse como “Cero Diez Ocho”, derivado del sitio nuclear en el que aterrizó en Pekín.\n\nTras pasar los primeros años de su vida vagando de un lugar a otro en busca de dónde vivir, terminó encontrándose dentro del garaje del Manager. El hombre lo adoptó como su asistente secundario, y poco después terminó enamorándose del asistente principal (creado en laboratorio, por cierto… qué asco). Sin ninguna razón aparente más allá de presumir frente a su novio, se unió al juego para demostrar sus habilidades ocultas.\n\nShib es un personaje propiedad de NicklySuffer, creado antes del desarrollo de Inflation Roulette Reloaded.",
@@ -587,5 +585,6 @@
 	
 	"character.asimo.name": "Asimo Dracomaw",
 	"character.asimo.name.short": "Asimo",
-	"character.asimo.description": "Este lobo solo quiere divertirse. Su experiencia en lo oculto eléctrico le permite sobrecargar armas."
+	"character.asimo.description": "Este lobo solo quiere divertirse. Su experiencia en lo oculto eléctrico le permite sobrecargar armas.",
+	// "galleryMainMenu.envelope.asimo.description": "Aprovechando sus poderes eléctricos, Asimo llega electrizando a Inflation Roulette afirmando que viene “a divertirse un poco”.\n\nNo sabemos cómo llegó aquí, y definitivamente no tenemos ninguna relación con él, aparte de que es un lobo, es el tester del Manager para su estúpido mod de Friday Night Funkin’, y fue el ganador de un sorteo de arte para ser añadido al juego como personaje del Example Addon.\n\nAsimo es un personaje invitado propiedad de WolfKylis."
 }

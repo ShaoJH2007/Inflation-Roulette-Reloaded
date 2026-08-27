@@ -376,7 +376,7 @@ class MainMenuState extends SuffState {
 	var dongsPerSecond:Float = 0;
 	var elapsedTime:Float = 0;
 
-	override function update(elapsed:Float) {
+	public override function update(elapsed:Float) {
 		super.update(elapsed);
 		elapsedTime += elapsed;
 
