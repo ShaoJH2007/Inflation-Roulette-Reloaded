@@ -92,7 +92,7 @@ class CharacterSimple extends FlxSprite {
 		trace(animSoundPaths);
 	}
 
-	override function update(elapsed:Float) {
+	public override function update(elapsed:Float) {
 		super.update(elapsed);
 		if (currentPressure <= maxPressure || !disableBellySounds) {
 			if (Preferences.data.enableBellyGurgles) {

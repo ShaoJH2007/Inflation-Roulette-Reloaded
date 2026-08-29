@@ -194,7 +194,7 @@ Along with a ranking system, a results screen is added to display the player's p
 ##### Stages!
 Updated stages, as well as adding new ones!
 ##### New Characters!
-Introducing Shibanou and Chester! Two new characters for our Character Roster!
+Introducing Shib and Chester! Two new characters for our Character Roster!
 #### Minor Features
 - Russian translation by ZoiDBoT!
 - Skill level for CPU characters!

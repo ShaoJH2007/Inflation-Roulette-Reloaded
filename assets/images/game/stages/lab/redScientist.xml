@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="redScientist.png">
-	<!-- Created with Adobe Animate version 23.0.0.407 -->
+	<!-- Created with Adobe Animate version 24.0.12.3 -->
 	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="idle0000" x="0" y="0" width="260" height="260"/>
 	<SubTexture name="idle0001" x="0" y="0" width="260" height="260"/>
@@ -177,30 +177,54 @@
 	<SubTexture name="pop0021" x="0" y="520" width="260" height="260"/>
 	<SubTexture name="pop0022" x="0" y="520" width="260" height="260"/>
 	<SubTexture name="pop0023" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0024" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0025" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0026" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0027" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0028" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0029" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0030" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0031" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0032" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0033" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0034" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0035" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0036" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0037" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0038" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0039" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0040" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0041" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0042" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0043" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0044" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0045" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0046" x="0" y="520" width="260" height="260"/>
-	<SubTexture name="pop0047" x="0" y="520" width="260" height="260"/>
+	<SubTexture name="pop0024" x="0" y="0" width="260" height="260"/>
+	<SubTexture name="pop0025" x="0" y="0" width="260" height="260"/>
+	<SubTexture name="pop0026" x="0" y="0" width="260" height="260"/>
+	<SubTexture name="pop0027" x="0" y="0" width="260" height="260"/>
+	<SubTexture name="pop0028" x="0" y="0" width="260" height="260"/>
+	<SubTexture name="pop0029" x="0" y="0" width="260" height="260"/>
+	<SubTexture name="pop0030" x="0" y="0" width="260" height="260"/>
+	<SubTexture name="pop0031" x="0" y="0" width="260" height="260"/>
+	<SubTexture name="pop0032" x="0" y="0" width="260" height="260"/>
+	<SubTexture name="pop0033" x="0" y="0" width="260" height="260"/>
+	<SubTexture name="pop0034" x="520" y="0" width="260" height="260"/>
+	<SubTexture name="pop0035" x="520" y="0" width="260" height="260"/>
+	<SubTexture name="pop0036" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0037" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0038" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0039" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0040" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0041" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0042" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0043" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0044" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0045" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0046" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0047" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0048" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0049" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0050" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0051" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0052" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0053" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0054" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0055" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0056" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0057" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0058" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0059" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0060" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0061" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0062" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0063" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0064" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0065" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0066" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0067" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0068" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0069" x="520" y="260" width="260" height="260"/>
+	<SubTexture name="pop0070" x="520" y="0" width="260" height="260"/>
+	<SubTexture name="pop0071" x="520" y="0" width="260" height="260"/>
 	<SubTexture name="shootLive0000" x="260" y="520" width="260" height="260"/>
 	<SubTexture name="shootLive0001" x="260" y="520" width="260" height="260"/>
 	<SubTexture name="shootLive0002" x="260" y="520" width="260" height="260"/>

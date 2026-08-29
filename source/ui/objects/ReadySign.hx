@@ -1,13 +1,13 @@
 package ui.objects;
 
-import flixel.addons.display.FlxRuntimeShader;
+import shaders.OutlineShader;
 
 class ReadySign extends SuffButton {
 	var sign:FlxSprite;
 	var chainLeft:FlxSprite;
 	var chainRight:FlxSprite;
 	
-	static var outlineShader:FlxRuntimeShader;
+	static var outlineShader:OutlineShader;
 
 	var currentFrame:Float = 0;
 	var frameDirection:Float = 0;
@@ -44,10 +44,8 @@ class ReadySign extends SuffButton {
 	
 	static function initShader() {
 		if (!Preferences.data.enableGLSL || outlineShader != null) return;
-		outlineShader = Paths.getShader('outline');
-		outlineShader.data.uColor.value = [1.0, 1.0, 1.0, 1.0];
-		outlineShader.data.uThickness.value = [3.0];
-		outlineShader.data.uEnabled.value = [false];
+		outlineShader = new OutlineShader(0xFFFFFFFF, 3);
+		outlineShader.enabled = false;
 	}
 	
 	function animate(frameDecimal:Float) {
@@ -100,7 +98,7 @@ class ReadySign extends SuffButton {
 	override function update(elapsed:Float) {
 		super.update(elapsed);
 
-		outlineShader.data.uEnabled.value = [!disabled && hovered];
+		outlineShader.enabled = (!disabled && hovered);
 
 		currentFrame = FlxMath.bound(currentFrame + elapsed * frameRate * frameDirection, firstFrame, lastFrame);
 		animate(currentFrame);

@@ -5,6 +5,7 @@ import ui.objects.GalleryArtwork;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import backend.typedefs.GalleryArtworkMetadata;
 import tjson.TJSON as Json;
+import shaders.CheckerboardShader;
 
 class GalleryArtworkSubState extends SuffSubState {
 	var allowInput:Bool = false;
@@ -88,7 +89,8 @@ class GalleryArtworkSubState extends SuffSubState {
 		for (artwork in artworkGroup) {
 			if (artwork?.image?.shader == null)
 				continue;
-			artwork.image.shader.data.iTime.value[0] += elapsed;
+			var checkerboardShader:CheckerboardShader = cast artwork.image.shader;
+			checkerboardShader.update(elapsed);
 		}
 
 		if (!allowInput) return;
@@ -114,12 +116,11 @@ class GalleryArtworkSubState extends SuffSubState {
 			var dimensions = [artworkGroup.members[curSelected].width, artworkGroup.members[curSelected].height];
 			var contentWarningImage = Paths.getImage('ui/menus/extras/gallery/images/contentWarning');
 			if (Preferences.data.enableGLSL) {
-				var shader = Paths.getShader('checkerboard');
+				var shader = new CheckerboardShader();
+				shader.gridTexture = contentWarningImage.bitmap;
+				shader.parentSize = [artworkGroup.members[curSelected].image.width, artworkGroup.members[curSelected].image.height];
+				shader.useAlpha = false;
 				artworkGroup.members[curSelected].image.shader = shader;
-				shader.data.iTime.value = [0];
-				shader.data.uTexSize.value = [dimensions[0], dimensions[1]];
-				shader.data.uGrid.input = contentWarningImage.bitmap;
-				shader.data.uGridSize.value = [contentWarningImage.width, contentWarningImage.height];
 			} else {
 				artworkGroup.members[curSelected].image.loadGraphic(contentWarningImage);
 				artworkGroup.members[curSelected].image.setGraphicSize(dimensions[0], dimensions[1]);

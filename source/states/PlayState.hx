@@ -26,7 +26,7 @@ import objects.particles.Stain;
 import objects.NPC;
 import objects.particles.DenialShield;
 import openfl.filters.ShaderFilter;
-
+import shaders.GaussianBlurShader;
 
 class PlayState extends SuffState {
 	public var characterGroup:FlxTypedContainer<Character> = new FlxTypedContainer<Character>();
@@ -243,8 +243,7 @@ class PlayState extends SuffState {
 			});
 			cobalt.color = 0xFF808080;
 			if (Preferences.data.enableGLSL) {
-				var gaussianBlur = Paths.getShader('gaussianBlur');
-				gaussianBlur.data.uSize.value = [16];
+				var gaussianBlur = new GaussianBlurShader(16);
 				cobalt.shader = gaussianBlur;
 				cobalt.scale.set(1.1, 1.1);
 				cobalt.antialiasing = !Preferences.data.enableForcedAliasing;
@@ -918,14 +917,14 @@ class PlayState extends SuffState {
 				Achievements.advanceProgress('liveShots', [1]);
 			SuffState.playSound(Paths.getSound('game/inflate'));
 			getPlayer(playerIndex).currentPressure += 1;
-			getPlayer(playerIndex).discolorationStrength += 1 / getPlayer(playerIndex).maxPressure * 0.75;
+			getPlayer(playerIndex).discolorationIntensity += 1 / getPlayer(playerIndex).maxPressure * 0.75;
 			getPlayer(playerIndex).currentConfidence += getPlayer(playerIndex).confidenceChangeOnLiveShot;
 			var hoseboundIndices = getPlayer(playerIndex).hoseboundIndices;
 			for (index in hoseboundIndices) {
 				if (getPlayer(index).isEliminated())
 					continue;
 				getPlayer(index).currentPressure += 1;
-				getPlayer(index).discolorationStrength += 1 / getPlayer(index).maxPressure * 0.75;
+				getPlayer(index).discolorationIntensity += 1 / getPlayer(index).maxPressure * 0.75;
 				// getPlayer(index).currentConfidence += getPlayer(index).confidenceChangeOnLiveShot;
 				// Disabled for balancing reasons
 				if (getPlayer(index).isEliminated())
@@ -1596,9 +1595,9 @@ class PlayState extends SuffState {
 			char.cpuKnowsCylinderContents = false;
 			char.cpuSabotageVictim = false;
 			char.cpuSkillMemories = [];
-			char.discolorationStrength = 0;
+			char.discolorationIntensity = 0;
 			if (char.discoloration != null)
-				char.discoloration.strength = 0;
+				char.discoloration.intensity = 0;
 			char.playAnim('idle' + char.currentPressure);
 		}
 
@@ -1717,7 +1716,7 @@ class PlayState extends SuffState {
 					}
 				}
 			}
-			CursorHandler.setCursorStyle((switchCursor ? 'rub' : 'default'));
+			CursorHandler.currentCursorStyle = (switchCursor ? 'rub' : 'default');
 		}
 	}
 }

@@ -62,10 +62,10 @@ class DiscolorationTestState extends SuffState {
 
 		if (Controls.justPressed('left') || Controls.justPressed('right')) {
 			if (Controls.justPressed('left'))
-				for (char in characterGroup) char.discolorationStrength -= 0.1;
+				for (char in characterGroup) char.discolorationIntensity -= 0.1;
 			else if (Controls.justPressed('right'))
-				for (char in characterGroup) char.discolorationStrength += 0.1;
-			for (char in characterGroup) char.discoloration.strength = char.discolorationStrength;
+				for (char in characterGroup) char.discolorationIntensity += 0.1;
+			for (char in characterGroup) char.discoloration.intensity = char.discolorationIntensity;
 		}
 
 		if (Controls.justPressed('up') || Controls.justPressed('down')) {

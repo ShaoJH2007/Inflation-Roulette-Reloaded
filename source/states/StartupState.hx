@@ -1,6 +1,8 @@
 package states;
 import ui.objects.SuffVideoSprite;
 import backend.Gameplay;
+import shaders.MeltShader;
+import shaders.BlackToAlphaShader;
 
 class StartupState extends SuffState {
 	var allowToSkip:Bool = false;
@@ -9,6 +11,9 @@ class StartupState extends SuffState {
 	var video:SuffVideoSprite;
 	static final videoSkipTime:Int = 6913;
 	var noSkipTimer:FlxTimer;
+	
+	var meltShader:MeltShader;
+	var blackToAlphaShader:BlackToAlphaShader;
 
 	public override function create() {
 		super.create();
@@ -37,8 +42,8 @@ class StartupState extends SuffState {
 		});
 
 		if (Preferences.data.enableGLSL) {
-			bg.shader = Paths.getShader('wiggle');
-			bg.shader.data.iTime.value = [0];
+			meltShader = new MeltShader();
+			bg.shader = meltShader;
 			add(bg);
 			add(video);
 		} else {
@@ -57,8 +62,10 @@ class StartupState extends SuffState {
 			});
 			bg.velocity.x = (FlxG.width - bg.width) / 5.5;
 			video.start();
-			if (Preferences.data.enableGLSL)
-				video.shader = Paths.getShader('blackToAlpha');
+			if (Preferences.data.enableGLSL) {
+				blackToAlphaShader = new BlackToAlphaShader();
+				video.shader = blackToAlphaShader;
+			}
 			allowToSkip = true;
 			noSkipTimer = new FlxTimer().start(videoSkipTime * 0.001, function(_ ) allowToSkip = false);
 		} else {
@@ -81,10 +88,10 @@ class StartupState extends SuffState {
 
 	public override function update(elapsed:Float) {
 		super.update(elapsed);
-
-		if (bg != null && bg?.shader?.data?.iTime != null)
-			bg.shader.data.iTime.value[0] += elapsed;
-
+		
+		if (bg != null && meltShader != null)
+			meltShader.update(elapsed);
+		
 		if (!video.isPlaying) return;
 		if (Controls.justPressed('exit') || FlxG.mouse.justPressed) {
 			skipIntro();

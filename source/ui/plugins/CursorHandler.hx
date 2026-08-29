@@ -26,10 +26,7 @@ class CursorHandler extends FlxBasic {
 	public static var currentCursorStyle:String = 'default';
 	static var curSpriteContainerImage:String = '';
 
-	public static final cursorStylePriority:Array<String> = ['rub', 'default'];
 	public static function setCursorStyle(value:String) {
-		if (value == currentCursorStyle)
-			return;
 		currentCursorStyle = value;
 	}
 
@@ -37,6 +34,7 @@ class CursorHandler extends FlxBasic {
 		var imageName = tag + (pressed ? 'Held' : '');
 		if (curSpriteContainerImage == imageName)
 			return;
+		timeSinceCursorChange = 0;
 		curSpriteContainerImage = imageName;
 		FlxG.mouse.load(Paths.getImage('ui/plugins/cursor/$imageName').bitmap, 1, -7, -6);
 	}
@@ -45,8 +43,9 @@ class CursorHandler extends FlxBasic {
 		if (instance == null || !cursorVisible)
 			return;
 		timeSinceCursorChange += elapsed;
-		if (timeSinceCursorChange > 5)
+		if (timeSinceCursorChange > 5) {
 			setCursorStyle('default');
+		}
 		if (Preferences.data.useBuiltInCursor)
             changeCursorImage(currentCursorStyle, FlxG.mouse.pressed);
 		if (Preferences.data.playCursorSounds) {

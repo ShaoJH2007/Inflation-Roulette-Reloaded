@@ -11,12 +11,14 @@
 		},
 		{
 			"id": "whiteboard",
+			"hideInDecreaseDetail": true,
 			"graphic": "whiteboard",
 			"position": ["c+350", "c-240"],
 			"scrollFactor": [0.3, 0.4]
 		},
 		{
 			"id": "whiteboardDrawing",
+			"hideInDecreaseDetail": true,
 			"graphic": "whiteboardDrawing",
 			"position": ["c+350", "c-240"],
 			"scale": [2, 2],
@@ -108,12 +110,14 @@
 		},
 		{
 			"id": "backProps",
+			"hideInDecreaseDetail": true,
 			"graphic": "backProps",
 			"position": ["c", "c-100"],
 			"scrollFactor": [0.35, 0.45]
 		},
 		{
 			"id": "greenScientist",
+			"hideInDecreaseDetail": true,
 			"graphic": "greenScientist",
 			"animations": [
 				{
