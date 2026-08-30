@@ -1,48 +1,73 @@
 package shaders;
 
 import openfl.display.BitmapData;
-import flixel.addons.display.FlxRuntimeShader;
+import flixel.system.FlxAssets.FlxShader;
 
-class DiscolorationMaskedShader extends FlxRuntimeShader {
+class DiscolorationMaskedShader extends FlxShader {
+	@:glFragmentSource('
+	#pragma header
+	uniform vec3 uTintColor;
+	uniform float uIntensity;
+	uniform bool uUseMask;
+	// x = left, y = top, z = right, w = bottom
+	uniform vec4 uFrameBounds;
+	uniform sampler2D uMaskTexture;
+	
+	void main() {
+		vec2 uv = openfl_TextureCoordv;
+		vec4 color = flixel_texture2D(bitmap, uv);
+	
+		// Skip math entirely if base pixel is already transparent
+		if (color.a == 0.0) {
+			gl_FragColor = vec4(0.0);
+			return;
+		}
+	
+		if (uUseMask) {
+			vec2 localCoord = (uv - uFrameBounds.xy) / (uFrameBounds.zw - uFrameBounds.xy);
+			vec4 maskColor = flixel_texture2D(uMaskTexture, uFrameBounds.xy + localCoord * (uFrameBounds.zw - uFrameBounds.xy));
+			color.rgb = mix(color.rgb, uTintColor.rgb * maskColor.rgb, uIntensity * maskColor.a);
+		} else {
+			color.r *= pow(uTintColor.r, uIntensity);
+			color.g *= pow(uTintColor.g, uIntensity);
+			color.b *= pow(uTintColor.b, uIntensity);
+		}
+	
+		gl_FragColor = color;
+	}
+	')
 	public var maskBitmaps:Array<BitmapData> = [];
-	public var color(default, set):Array<Float> = [0, 0, 0];
-	public var strength(default, set):Float = 0;
+	public var color(default, set):FlxColor = 0xFF000000;
+	public var intensity(default, set):Float = 0;
 	public var useMask(default, set):Bool = false;
 
-	private function set_color(value:Array<Float>):Array<Float> {
+	function set_color(value:FlxColor) {
 		color = value;
-		data.tintColor.value = [value[0] / 255, value[1] / 255, value[2] / 255];
+		this.data.uTintColor.value = [value.redFloat, value.greenFloat, value.blueFloat];
 		return value;
-	}
-	private function get_color():Array<Float> {
-		return data.tintColor.value;
 	}
 	
-	private function set_strength(value:Float):Float {
-		this.strength = FlxMath.bound(value, 0, 1);
-		data.intensity.value = [this.strength];
+	function set_intensity(value:Float) {
+		this.intensity = FlxMath.bound(value, 0, 1);
+		this.data.uIntensity.value = [this.intensity];
 		return value;
 	}
-	private function get_strength():Float {
-		return data.intensity.value[0];
-	}
 
-	public function new(color:Array<Float>) {
-		super(Paths.getShader('discoloration').glFragmentSource);
-		this.data.maskIndex.value = [0];
+	public function new(color:FlxColor) {
+		super();
+		this.color = color;
+		this.intensity = 0;
 		this.useMask = false;
-		this.data.frameBounds.value = [
+		this.data.uFrameBounds.value = [
 			0,
 			0,
 			640,
 			640
 		];
-		this.color = color;
-		this.strength = 0;
 	}
 
-	public function set_useMask(value:Bool):Bool {
-		useMask = value;
+	public function set_useMask(value:Bool) {
+		this.useMask = value;
 		this.data.uUseMask.value = [value];
 		return value;
 	}
@@ -53,17 +78,15 @@ class DiscolorationMaskedShader extends FlxRuntimeShader {
 	}
 
 	public function setMask(index:Int = 0):Void {
-		this.data.maskTexture.input = maskBitmaps[index];
+		this.data.uMaskTexture.input = maskBitmaps[index];
 	}
 
 	public function setFrameBounds(x:Float, y:Float, width:Float, height:Float):Void {
-		this.data.frameBounds.value = [
+		this.data.uFrameBounds.value = [
 			x,
 			y,
 			width,
 			height
 		];
 	}
-
-	public function update(elapsed:Float) {}
 }

@@ -146,6 +146,7 @@ class GalleryMainMenuState extends SuffState {
 	}
 
 	function confirmSelection() {
+		if (!allowInput) return;
 		allowInput = false;
 		FlxTween.tween(leftButton, {alpha: 0}, 0.25);
 		FlxTween.tween(rightButton, {alpha: 0}, 0.25);

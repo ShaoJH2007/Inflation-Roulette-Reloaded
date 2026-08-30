@@ -6,6 +6,7 @@ import flixel.addons.ui.FlxUIState;
 import flixel.FlxState;
 import openfl.media.Sound;
 import openfl.filters.ShaderFilter;
+import shaders.GrayscaleShader;
 
 class SuffState extends FlxUIState {
 	public static var currentMusicName:String = '';
@@ -104,7 +105,7 @@ class SuffState extends FlxUIState {
 		if (enable) {
 			if (!Preferences.data.enableGLSL) return;
 			for (i in 0...FlxG.cameras.list.length - 1) {
-				FlxG.cameras.list[i].filters = [new ShaderFilter(Paths.getShader('grayscale'))];
+				FlxG.cameras.list[i].filters = [new ShaderFilter(new GrayscaleShader())];
 			}
 		} else {
 			for (i in 0...FlxG.cameras.list.length - 1) {

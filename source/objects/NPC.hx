@@ -1,17 +1,11 @@
 package objects;
 
-import backend.Gameplay;
+import backend.enums.NPCAction;
 import backend.typedefs.NPCData;
 
 import tjson.TJSON as Json;
 import backend.typedefs.AnimationData;
 import states.PlayState;
-
-enum NPCAction {
-	IDLE;
-	WALK;
-	TAUNT;
-}
 
 class NPC extends FlxSprite {
 	// Metadata //

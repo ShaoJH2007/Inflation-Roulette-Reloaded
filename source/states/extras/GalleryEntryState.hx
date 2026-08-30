@@ -32,7 +32,7 @@ class GalleryEntryState extends SuffState {
 
 	var clickRate:Float = 0;
 
-	override function create() {
+	public override function create() {
 		for (art in envelopeData.artwork) {
 			Paths.getImage('ui/menus/extras/gallery/images/${envelopeData.id}/$art');
 		}
@@ -203,7 +203,7 @@ class GalleryEntryState extends SuffState {
 
 	final PAUSE_PUNCTUATION:String = ',.?!:;~';
 
-	override function update(elapsed:Float) {
+	public override function update(elapsed:Float) {
 		super.update(elapsed);
 
 		if (!allowInput)

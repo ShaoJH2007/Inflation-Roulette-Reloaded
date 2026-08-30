@@ -1,9 +1,6 @@
 package ui.objects;
 
-enum SuffSliderScaling {
-	LINEAR;
-	LOGARITHMIC;
-}
+import backend.enums.SuffSliderScaling;
 
 class SuffSlider extends FlxSpriteGroup {
 	public var currentValue:Float;

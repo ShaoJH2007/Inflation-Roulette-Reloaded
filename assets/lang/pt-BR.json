@@ -241,7 +241,11 @@
 	"option.enableOralLeaking.description": "Jogadores liberam fluídos pela boca quando inflados por certos meios.",
 	"option.enableNavelLeaking.name": "Vazamento (Umbigo)",
 	"option.enableNavelLeaking.description": "Jogadores liberam fluídos pelo umbigo quando inflados por certos meios.",
-	"option.resolution.scale.fullscreen": "Tela Cheia",
+	"option.resolution.name": "Resolução",
+	"option.resolution.description": "A resolução da jan.",
+	"option.resolution.scale": "(%1% Escala)",
+	"option.resolution.scale.default": "(Padrão)",
+	"option.resolution.scale.fullscreen": "(Tela Cheia)",
 	"option.hideHUD.name": "Esconder HUD",
 	"option.hideHUD.description": "Esconde a HUD do jogo durante a jogatina. Útil para capturar filmagens do jogo.",
 	"option.hideTooltip.name": "Esconder Dicas",
@@ -360,7 +364,7 @@
 	// Shib: Character created by NicklySuffer. Non-binary, and designed to look like one of those simplistic white cat anons.
 	// Screams "city boy" vibes.
 	// Skills: Sabotage, Amnesia
-	"character.shib.name": "Shibanou",
+	"character.shib.name": "Shiba Nou",
 	"character.shib.name.short": "Shib",
 	"character.shib.description": "Extraterrestre, astute e adora chá de limão. Pode lançar um feitiço de perda de memória temporária.",
 	// Chester: Character created by NicklySuffer. Works in a coffee shop, and also looks like one of those simplistic white cat anons,
@@ -383,6 +387,13 @@
 	"character.jacob.name": "Jacob Goatington",
 	"character.jacob.name.short": "Jacob",
 	"character.jacob.description": "Uma raposa tímida enganada a jogar. Apesar disso, ele pode rapidamente evitar confrontos.",
+	// Drey: Character created by NicklySuffer. A cat girl with a monitor for her head.
+	// Mischievous and hectic, able to bend atoms to her will even.
+	// Designed as a chaotic character.
+	// Skills: Unload, Hosebound
+	"character.drey.name": "Drey Scarlet",
+	"character.drey.name.short": "Drey",
+	"character.drey.description": "Astuta e altamente imprevisível. Compartilha dano com outros.",
 	// Option to choose a random character.
 	"character.random.name": "Aleatório",
 	"character.random.name.short": "Aleatório",
@@ -537,10 +548,11 @@
 	// Context: There are different versions of Goobers, one being Slime Goobers, and one labelled "???".
 	// The way I interpret this is like, them having races or something
 	"galleryMainMenu.envelope.goober.description": "Vistos pela primeira vez no jogo original, os Goobers entram em ação com uma nova cara! Eles se tornaram o personagem certeiro para aparecer em incontáveis remakes e fanarts.\n\nSobre como e porquê eles se uniram ao jogo, ninguém sabe! Atores? Reféns? Vendidos? Há muitas teorias por aí! Não se sabe muito sobre sua biologia, mas foi confirmado que são classificados em diversas raças, variando de Goobers compostos inteiramente de slime até C»0NF!D&NC§AL²½",
-	// "galleryMainMenu.envelope.shib.description": "Sobrenome Nou; primeiro nome Shiba. Vindo de um planeta misterioso, essa criatura parecida com um gato se une à competição! Seu nome em Chinês pode ser interpretado como \"Zero Dez Oito\", derivado da instalação nuclear em que pousou em Pequim.\n\nPassando seus primeiros anos de vida buscando por lugares para viver, eventualmente se encontrou dentro da garagem do Gerente. Foi adotade por ele como sue assistente secundárie e em breve se encontraria apaixonade pelo assistente primário (criado em laboratório por sinal, eca). Sem nenhuma razão aparente além de se mostrar na frente de seu namorado, Shib se juntou ao jogo para mostrar suas habilidades secretas.\n\nShib é ume personagem não-binárie pertencente a NicklySuffer, criade antes do desenvolvimento de Inflation Roulette Reloaded.",
+	 "galleryMainMenu.envelope.shib.description": "Sobrenome Nou; primeiro nome Shiba. Vindo de um planeta misterioso, essa criatura parecida com um gato se une à competição! Seu nome em Chinês pode ser interpretado como \"Zero Dez Oito\", derivado da instalação nuclear em que pousou em Pequim.\n\nPassando seus primeiros anos de vida buscando por lugares para viver, eventualmente se esbarrou com um engenheiro chinês. Foi adotade por ele como sue assistente secundárie e em breve se encontraria apaixonade pelo assistente primário (criado em laboratório por sinal, eca). Agora que seu namorado conseguiu um trabalho do Gerente como cameraman, elu se juntou ao jogo para mostrar suas habilidades secretas.\n\nShib é ume personagem não-binárie pertencente a NicklySuffer, criade antes do desenvolvimento de Inflation Roulette Reloaded.",
 	"galleryMainMenu.envelope.chester.description": "Como o barista chefe de um café, ele foi forçado a jogar este jogo como um representante da empresa. Com seus resultados acadêmicos pobres e personalidade nem um pouco carismática, o seu sonho de prosperidade e riqueza está agora bem ao seu alcance.\n\nSeu trabalho diário envolve preparar bebidas com açúcar em excesso para clientes tarados. Alguns dizem que as bebidas possuem um efeito \"expansivo\" , o que chamou a atenção de vários agentes de segurança alimentar. No entanto, devido a palhaçada capitalista, avisos do departamento alimentar não levaram a lugar nenhum.\n\nChester é um personagem pertencente a NicklySuffer, criado antes do desenvolvimento de Inflation Roulette Reloaded.",
 	"galleryMainMenu.envelope.synda.description": "Procurando por uma melhora na qualidade de vida, Synda se mete na competição pronta pra estourar alguém! Seus colegas sempre a descrevem como uma pessoa arrogante e irracional de se lidar - não que ela se importe com isso, de qualquer forma. \n\n Como uma [CONFIDENCIAL], ela passa a maior parte do seu tempo como uma guarda de segurança de alto calibre em um laboratório, até que um acidente horrível resultou na perda de seu olho esquerdo e apêndices das costas. Procurando por uma substituição, ela descobriu um procedimento experimental que concederia a ela tentáculos cibernéticos, o problema é que cada par é caro pra diacho, então agora uma fortuna foi prometida a ela pelo Gerente, se ela estiver disposta a sacrificar o seu abdômen inferior inteiro para isso...\n\nSynda é uma personagem de autoria de NicklySuffer, criada antes do desenvolvimento de Inflation Roulette Reloaded.",
 	"galleryMainMenu.envelope.jacob.description": "Jacob se une à competição! Não se sabe muito sobre o Jacob, se você acha que ele pode ser só mais um no grupo, bem, tem razão, isso porque ele realmente é só mais um.\n\nHá não muito tempo, ele e seu amado parceiro se depararam com um pôster oferecendo um papel no que parecia ser um game show. Com sua precária interpretação de texto, ele inscreveu APENAS o seu namorado para o jogo, sem nem saber sobre o que ele é, onde ele se passa ou o quão esquisito é. Agora preso aqui no meio de algum lugar, ele é forçado a jogar este jogo excruciante enquanto o contrato durar...\n\nJacob é um personagem pertencente a um amigo.",
+	"galleryMainMenu.envelope.drey.description": "Caminhando com orgulho, Drey cai pra dentro da ação! Acreditando ser a personagem principal de um show de TV imaginário, seu excesso de confiança faz com que Fortuna se dobre para sua vontade de vez em quando. Após ter seu corpo inteiro explodido por uma mina, ela se tornou uma espécie de ciborgue após cirurgia. Com excessão de seu cérebro meio bobinho, seu corpo é composto inteiramente de plático de alta qualidade e circuitos arrumadinhos. No entanto, devido à ausência de uma boca de verdade, ela tem que receber nutrientes de forma intravenosa.\n\nProcurando por algúem para fazer um upgrade na sua cabeça, ela se deparou com O Gerente, prometendo a ela um procedimento. Ela recebeu um estoma no seu pescoço para comida entrar em seu esôfago, mas agora ela quer mais upgrades para seu corpo. Então ela entrou pro elenco, jogando cada jogo de Inflation Roulette de novo, e de novo, e de novo...\n\nDrey é uma personagem pertencente a NicklySuffer, criada antes do desenvolvimento de Inflation Roulette Reloaded.",
 	"galleryMainMenu.envelope.dev": "Arte dos Desenvolvedores",
 	"galleryMainMenu.envelope.dev.description": "Uma coleção de artes conceituais, rascunhos, e recursos não utilizados feitos pelos desenvolvedores e outros artistas.\n\nangry           bird",
 	"galleryMainMenu.envelope.community": "Arte da Comunidade",
@@ -783,7 +795,7 @@
 	"gamemode.fiftyFifty.description": "Seja o que deus quiser. Jogatina rápida e arriscada.",
 
 	// Context: Literally no lore implication. He's just here for the sake of being here lol
-	// "galleryMainMenu.envelope.asimo.description": "Se aproveitando de seus poderes elétricos, Asimo se descarga para dentro de Inflation Roulette querendo \"se divertir\".\n\nNão temos ideia de como ele chegou aqui, e nós com certeza temos 0 conexões com ele, além de sabermos que ele é um lobo, é o testador da porcaria do mod de Friday Night Funkin' do Gerente, e ele é o vencedor de um torneio de arte para ser adicionado como o personagem da Adição de Exemplo.\n\nAsimo é um personagem convidado pertencente a WolfKylis.",
+	"galleryMainMenu.envelope.asimo.description": "Se aproveitando de seus poderes elétricos, Asimo se descarga para dentro de Inflation Roulette querendo \"se divertir\".\n\nNão temos ideia de como ele chegou aqui, e nós com certeza temos 0 conexões com ele, além de sabermos que ele é um lobo, é o testador da porcaria do mod de Friday Night Funkin' de um engenheiro chinês aleatório, e ele é o vencedor de um torneio de arte para ser adicionado como o personagem da Adição de Exemplo.\n\nAsimo é um personagem convidado pertencente a WolfKylis.",
 	"character.asimo.name": "Asimo Dracomaw",
 	"character.asimo.name.short": "Asimo",
 	"character.asimo.description": "Esse lobo só quer se divertir. Sua experiência com o oculto elétrico o permite sobrecarregar armas."

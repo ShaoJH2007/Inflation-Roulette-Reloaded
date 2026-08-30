@@ -233,7 +233,7 @@ class Character extends FlxSprite {
 
 		if (Preferences.data.enableDiscoloration && Preferences.data.enableGLSL && Gameplay.currentFiller.tintColor != null) {
 			var leColor = Gameplay.currentFiller.tintColor;
-			discoloration = new DiscolorationMaskedShader([leColor.red, leColor.green, leColor.blue]);
+			discoloration = new DiscolorationMaskedShader(leColor);
 			this.shader = discoloration;
 			trace('Discoloration shader created for $id with color $leColor');
 		}
@@ -333,10 +333,10 @@ class Character extends FlxSprite {
 		updateRubHitbox();
 	}
 
-	public var discolorationStrength(default, set):Float = 0;
+	public var discolorationIntensity(default, set):Float = 0;
 
-	function set_discolorationStrength(value:Float):Float {
-		return discolorationStrength = FlxMath.bound(value, 0, 1);
+	function set_discolorationIntensity(value:Float):Float {
+		return discolorationIntensity = FlxMath.bound(value, 0, 1);
 	}
 
 	function set_currentPressure(value:Int):Int {
@@ -348,10 +348,10 @@ class Character extends FlxSprite {
 	public override function update(elapsed:Float) {
 		if (discoloration != null) {
 			if (currentPressure > 0 && currentPressure <= maxPressure) {
-				// trace(discoloration.strength);
-				discolorationStrength += 0.01 * elapsed * getPressurePercentage();
-				discolorationStrength = FlxMath.bound(discolorationStrength, 0, 1);
-				discoloration.strength = FlxMath.lerp(discoloration.strength, discolorationStrength, elapsed / 4);
+				// trace(discoloration.intensity);
+				discolorationIntensity += 0.01 * elapsed * getPressurePercentage();
+				discolorationIntensity = FlxMath.bound(discolorationIntensity, 0, 1);
+				discoloration.intensity = FlxMath.lerp(discoloration.intensity, discolorationIntensity, elapsed / 4);
 			}
 		}
 
@@ -558,19 +558,19 @@ class Character extends FlxSprite {
 		if (rubHitbox == null || this.offset == null)
 			return;
 		var rubHitboxData:CharacterBoxData = rubHitboxes[Std.int(FlxMath.bound(currentPressure, 0, maxPressure + 1))];
-		rubHitbox.x = rubHitboxData.position[0];
 		var flippedOffsets:Bool = false;
 		if (this.flipX)
 			flippedOffsets = !flippedOffsets;
 		if (this?.animation?.curAnim?.flipX ?? false)
 			flippedOffsets = !flippedOffsets;
-		if (flippedOffsets)
-			rubHitbox.x = this.width - rubHitbox.width - rubHitbox.x;
-		rubHitbox.x += this.x - this.offset.x;
-		rubHitbox.y = this.y - this.offset.y + rubHitboxData.position[1];
 		rubHitbox.makeGraphic(rubHitboxData.size[0], rubHitboxData.size[1], 0x00000000);
 		FlxSpriteUtil.drawEllipse(rubHitbox, 0, 0, rubHitboxData.size[0], rubHitboxData.size[1], 0xFFFFFFFF);
 		rubHitbox.updateHitbox();
+		if (flippedOffsets)
+			rubHitbox.x = this.x - this.offset.x + this.width - rubHitbox.width - rubHitboxData.position[0];
+		else
+			rubHitbox.x = this.x - this.offset.x + rubHitboxData.position[0];
+		rubHitbox.y = this.y - this.offset.y + rubHitboxData.position[1];
 		rubHitbox.alpha = 1 / 255;
 	}
 
@@ -661,8 +661,8 @@ class Character extends FlxSprite {
 				}
 			});
 		}
-		
-		// trace(id, usedAnimName);
+
+		updateRubHitbox();
 	}
 	
 	public function getParticleOffset(position:String = 'overhead'):FlxPoint {

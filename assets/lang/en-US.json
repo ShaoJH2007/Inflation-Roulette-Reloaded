@@ -365,7 +365,7 @@
 	// Shib: Character created by NicklySuffer. Non-binary, and designed to look like one of those simplistic white cat anons.
 	// Screams "city boy" vibes.
 	// Skills: Sabotage, Amnesia
-	"character.shib.name": "Shibanou",
+	"character.shib.name": "Shiba Nou",
 	"character.shib.name.short": "Shib",
 	"character.shib.description": "Extraterrestrial, cunning and loves lemon tea. Can cast temporary memory loss.",
 	// Chester: Character created by NicklySuffer. Works in a coffee shop, and also looks like one of those simplistic white cat anons,
@@ -392,7 +392,7 @@
 	// Mischievous and hectic, able to bend atoms to her will even.
 	// Designed as a chaotic character.
 	// Skills: Unload, Hosebound
-	"character.drey.name": "Drey Amalanst",
+	"character.drey.name": "Drey Scarlet",
 	"character.drey.name.short": "Drey",
 	"character.drey.description": "Mischievous and highly unpredictable. Shares damage with others.",
 	// Option to choose a random character.
@@ -416,7 +416,7 @@
 	// You do not have to transliterate Paprika.
 	"stage.beach.name": "Paprika Beachside",
 	"stage.beach.description": "A popular beachside resort. Known for being a honeymoon destination and its nightclubs.",
-	// Paprika Beachside: Independent laboratory, this time they're testing the Pump Gun.
+	// Orchid Labs: Independent laboratory, this time they're testing the Pump Gun.
 	// They are doing... product testing. Certainly, no test subjects were harmed.
 	"stage.lab.name": "Orchid Labs",
 	"stage.lab.description": "An obscure independent laboratory. Infamous for testing products from shady clients.",

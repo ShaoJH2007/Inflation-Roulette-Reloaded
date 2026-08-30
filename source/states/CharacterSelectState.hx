@@ -17,18 +17,11 @@ import ui.objects.ReadySign;
 import ui.objects.SuffBoolean;
 import ui.objects.SuffSlider;
 import ui.objects.SuffIconButton;
-import backend.Gameplay;
+import backend.enums.CharacterSelectStatus;
 import shaders.DissolveShader;
 import ui.objects.StageCard;
 import ui.objects.FillerCard;
 import backend.Filler;
-
-enum CharacterSelectStatus {
-	CHARACTER_SELECT;
-	FILLER_SELECT;
-	STAGE_SELECT;
-	PLAYER_SETTINGS;
-}
 
 class CharacterSelectState extends SuffState {
 	var curPlayer:Int = 0;

@@ -392,7 +392,7 @@
 	// Mischievous and hectic, able to bend atoms to her will even.
 	// Designed as a chaotic character.
 	// Skills: Unload, Hosebound
-	"character.drey.name": "德雷・阿玛兰",
+	"character.drey.name": "德雷・史嘉莉",
 	"character.drey.name.short": "德雷",
 	"character.drey.description": "调皮且极难预测。能与他人共同承担伤害。",
     // Option to choose a random character.
@@ -416,7 +416,7 @@
     // You do not have to transliterate Paprika.
     "stage.beach.name": "红椒海滩俱乐部",
     "stage.beach.description": "一家海滨度假村。以其夜总会和蜜月胜地而闻名。",
-    // Paprika Beachside: Independent laboratory, this time they're testing the Pump Gun.
+    // Orchid Labs: Independent laboratory, this time they're testing the Pump Gun.
     // They are doing... product testing. Certainly, no test subjects were harmed.
     "stage.lab.name": "紫甄实验室",
     "stage.lab.description": "名不见经传的独立实验室，因检测来自可疑客户的产品而臭名昭著。",
