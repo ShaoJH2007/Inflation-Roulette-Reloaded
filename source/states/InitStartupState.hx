@@ -1,6 +1,5 @@
 package states;
 
-import states.WarningState;
 #if _ALLOW_EASTER_EGGS
 import states.easterEggStartups.*;
 #end
@@ -40,6 +39,8 @@ class InitStartupState extends SuffState {
 					SuffState.switchState(new ImHighOnCrackStartupState());
 				case 'snakemold':
 					SuffState.switchState(new SnakeMoldStartupState());
+				case 'princesspower':
+					SuffState.switchState(new PrincessPowerStartupState());
 				case 'roomoneohone':
 					SuffState.switchState(new RoomOneOhOneStartupState());
 				case 'ibeesbees':

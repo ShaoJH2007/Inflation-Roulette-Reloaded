@@ -125,13 +125,11 @@ class RoomOneOhOneStartupState extends SuffState {
 	}
 
 	var tick:Float = 0;
-	var elapsedTime:Float = 0;
 
 	public override function update(elapsed:Float) {
 		super.update(elapsed);
-		elapsedTime += elapsed;
 
-		soulCenter.y = (FlxG.height - soulCenter.height) / 2 + Math.sin(elapsedTime * 2) * 8;
+		soulCenter.y = (FlxG.height - soulCenter.height) / 2 + Math.sin(this.elapsedTime * 2) * 8;
 		if (souls.alive) {
 			for (soul in souls) {
 				soul.x = soulCenter.x + Math.sin(tick - soul.ID / souls.members.length * Math.PI * 2) * soulCirclingRadius;

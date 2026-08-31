@@ -11,6 +11,7 @@ import shaders.GrayscaleShader;
 class SuffState extends FlxUIState {
 	public static var currentMusicName:String = '';
 	public static var currentMusicBPM:Float = 0;
+	public var elapsedTime:Float = 0;
 
 	public override function create() {
 		var skip:Bool = FlxTransitionableState.skipNextTransOut;
@@ -69,7 +70,7 @@ class SuffState extends FlxUIState {
 	}
 
 	public override function update(elapsed:Float) {
-
+		elapsedTime += elapsed;
 		super.update(elapsed);
 	}
 

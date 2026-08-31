@@ -292,7 +292,6 @@ class LanguageSelectState extends SuffState {
 	}
 
 	public override function update(elapsed:Float) {
-		elapsedTime += elapsed;
 		if (tick < 0) {
 			tick += elapsed;
 			ajuniga.x = originalAjunigaPosition.x + Math.cos(tick * 2) * radius;
@@ -301,11 +300,11 @@ class LanguageSelectState extends SuffState {
 			ajuniga.angle = tick * Constants.TO_DEGREES;
 		} else {
 			transition();
-			ajuniga.angle = Math.sin(elapsedTime) * 2;
+			ajuniga.angle = Math.sin(this.elapsedTime) * 2;
 		}
 
-		bgOverlay.scale.x = bgOverlayScale.x + Math.pow(Math.sin(elapsedTime / Math.PI), 2) * 2;
-		bgOverlay.scale.y = bgOverlayScale.y + Math.pow(Math.sin(elapsedTime / Math.PI * 0.75), 2) * 1.5;
+		bgOverlay.scale.x = bgOverlayScale.x + Math.pow(Math.sin(this.elapsedTime / Math.PI), 2) * 2;
+		bgOverlay.scale.y = bgOverlayScale.y + Math.pow(Math.sin(this.elapsedTime / Math.PI * 0.75), 2) * 1.5;
 
 		var btn = languageButtons.members[curSelecting];
 		var btnSelected = languageButtons.members[curSelected];
@@ -327,8 +326,6 @@ class LanguageSelectState extends SuffState {
 			transition();
 		}
 	}
-
-	var elapsedTime:Float = 0;
 
 	function exitMenu() {
 		if (exiting)

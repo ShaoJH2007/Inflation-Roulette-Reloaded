@@ -1053,18 +1053,22 @@ class PlayState extends SuffState {
 	}
 
 	function eliminatePlayer(playerIndex:Int, turnChangeAfterwards:Int = 0, canEndGame:Bool = true) {
-		getPlayer(playerIndex).currentPressure = getPlayer(playerIndex).maxPressure + 1;
-		getPlayer(playerIndex).hoseboundIndices = [];
+		var character = getPlayer(playerIndex);
+		character.currentPressure = getPlayer(playerIndex).maxPressure + 1;
+		if (character?.discoloration != null)
+			character.discolorationIntensity = 1;
+		character.hoseboundIndices = [];
 		isEnding = evaluateEnding(); // Check if remaining players are eliminated
 		playGunContactSound();
 		pumpGun.visible = true;
-		if (currentSessionEnablePopping && !getPlayer(playerIndex).disablePopping) { // Pop player instead
-			getPlayer(playerIndex).playAnim('popped', false);
+		if (currentSessionEnablePopping && !character.disablePopping) { // Pop player instead
+			character.playAnim('popped', false);
+			if (character?.discoloration != null)
+				character.discoloration.intensity = 1;
 			stage.dynamicPlayAnim('pop');
-			var character = getPlayer(playerIndex);
 			particleGroup.add(new Bloosh(character.x, character.y - character.height / 2));
 			if (!Preferences.data.decreaseDetail) {
-				particleGroup.add(new ScrapEmitter(character.x, character.y - character.width / 2, character.id, stage.data.characterY, character.maxPressure));
+				particleGroup.add(new ScrapEmitter(character.x, character.y - character.width / 2, character.id, stage.data.characterY, character.maxPressure, character?.discoloration?.color ?? 0xFFFFFFFF));
 
 				if (Gameplay.currentFiller.particleType == Liquid) {
 					if (!Preferences.data.decreaseDetail) {
@@ -1091,15 +1095,15 @@ class PlayState extends SuffState {
 				}
 			}
 			SuffState.playSound(Gameplay.currentFiller.getBurstSound());
-			getPlayer(playerIndex).disableBellySounds = true;
+			character.disableBellySounds = true;
 			screenShake(0.03, 0.5);
 			screenFlash();
-			getPlayer(playerIndex).acceleration.y = 4800 * getPlayer(playerIndex).poppingGravityMultiplier;
-			getPlayer(playerIndex).velocity.x += 320 * (playerIndex >= characterGroup.members.length / 2 ? 1 : -1) * getPlayer(playerIndex)
+			character.acceleration.y = 4800 * character.poppingGravityMultiplier;
+			character.velocity.x += 320 * (playerIndex >= characterGroup.members.length / 2 ? 1 : -1) * getPlayer(playerIndex)
 			.poppingVelocityMultiplier[0] / Gameplay.currentFiller.gravityMultiplier;
-			getPlayer(playerIndex).velocity.y = -1200 * getPlayer(playerIndex).poppingVelocityMultiplier[1];
+			character.velocity.y = -1200 * character.poppingVelocityMultiplier[1];
 		} else {
-			getPlayer(playerIndex).playAnim('idle');
+			character.playAnim('idle');
 			stage.dynamicPlayAnim('overinflate');
 		}
 
@@ -1113,7 +1117,7 @@ class PlayState extends SuffState {
 
 		if (!isEnding) {
 			FlxG.sound.music.resume();
-			doTween('aTweenButItsATimerLol', FlxTween.tween(camGame, {alpha: 1}, ((currentSessionEnablePopping && !getPlayer(playerIndex).disablePopping) ? 2.5 : 1), {
+			doTween('aTweenButItsATimerLol', FlxTween.tween(camGame, {alpha: 1}, ((currentSessionEnablePopping && !character.disablePopping) ? 2.5 : 1), {
 				onUpdate: function(_:FlxTween) {
 					focusCameraOnPlayer(playerIndex);
 				}, onComplete: function(_:FlxTween) {

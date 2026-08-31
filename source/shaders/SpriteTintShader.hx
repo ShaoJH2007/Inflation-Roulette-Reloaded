@@ -26,9 +26,9 @@ class SpriteTintShader extends FlxShader {
 		gl_FragColor = vec4(mix(texColor.rgb, mix(vec3(0, 0, 0), uColor, texColor.a), uIntensity), texColor.a);
 	}
 	')
-	public function new() {
+	public function new(color:FlxColor = 0xFFFFFFFF, intensity:Float = 1.0) {
 		super();
-		this.color = 0xFFFFFFFF;
-		this.intensity = 1.0;
+		this.color = color;
+		this.intensity = intensity;
 	}
 }

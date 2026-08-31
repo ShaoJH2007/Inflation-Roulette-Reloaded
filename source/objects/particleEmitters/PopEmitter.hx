@@ -19,7 +19,7 @@ class PopEmitter extends FlxObject {
 		this.destroy();
 	}
 
-	override function update(elapsed:Float) {
+	public override function update(elapsed:Float) {
 		super.update(elapsed);
 	}
 }

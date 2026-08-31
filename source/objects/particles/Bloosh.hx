@@ -1,5 +1,7 @@
 package objects.particles;
 
+import shaders.DiscolorationMaskedShader;
+
 class Bloosh extends FlxSprite {
 	// Balt is bloosh!
 	// - Ari

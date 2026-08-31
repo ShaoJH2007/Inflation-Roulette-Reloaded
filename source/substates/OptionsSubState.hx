@@ -7,6 +7,7 @@ import states.PlayState;
 import ui.objects.SuffScrollBar;
 import substates.ScreenSafeAreaSubState;
 import backend.Preferences;
+import backend.enums.SuffSliderScaling;
 
 class OptionsSubState extends SuffSubState {
 	public static var notInGame:Bool = true;

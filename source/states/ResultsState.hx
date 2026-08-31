@@ -525,15 +525,12 @@ class ResultsState extends SuffState {
 	public static var allowSkip:Bool = true;
 	var isLeaving:Bool = false;
 
-	var elapsedTime:Float = 0;
-
 	public override function update(elapsed:Float) {
-		elapsedTime += elapsed;
 		for (num => txt in resultsTitleGroup.members) {
-			txt.y = barUp.y + (barUp.height - txt.height) / 2 + 5 - Math.pow(Math.sin(num / resultsTitleGroup.members.length * 180 * Constants.TO_RADIANS - elapsedTime * 4), 2) * 7;
+			txt.y = barUp.y + (barUp.height - txt.height) / 2 + 5 - Math.pow(Math.sin(num / resultsTitleGroup.members.length * 180 * Constants.TO_RADIANS - this.elapsedTime * 4), 2) * 7;
 		}
 		for (num => txt in resultsDescGroup.members) {
-			txt.y = barDown.y + (barDown.height - txt.height) / 2 + 5 - Math.pow(Math.sin(num / resultsDescGroup.members.length * 360 * Constants.TO_RADIANS + elapsedTime * 4), 2) * 7;
+			txt.y = barDown.y + (barDown.height - txt.height) / 2 + 5 - Math.pow(Math.sin(num / resultsDescGroup.members.length * 360 * Constants.TO_RADIANS + this.elapsedTime * 4), 2) * 7;
 			txt.x += txt.velocity.x * elapsed;
 			if (txt.x <= -80)
 				txt.x = FlxG.width;

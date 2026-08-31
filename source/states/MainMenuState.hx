@@ -374,11 +374,9 @@ class MainMenuState extends SuffState {
 
 	var dongTextTick:Float = 6;
 	var dongsPerSecond:Float = 0;
-	var elapsedTime:Float = 0;
 
 	public override function update(elapsed:Float) {
 		super.update(elapsed);
-		elapsedTime += elapsed;
 
 		dongTextTick += elapsed;
 		if (dongTextTick >= 2 && dongTextTick <= (2 + elapsed)) {
@@ -391,13 +389,13 @@ class MainMenuState extends SuffState {
 		splashText.offset.x = -Math.pow(Math.max(0, dongsPerSecond - 5) * 6, 2);
 		dongCommentText.alpha = FlxMath.bound(splashText.offset.x / -2000, 0, 1);
 
-		logo.angle = splashText.angle = Math.sin(elapsedTime * Constants.TO_RADIANS * 45 / 2) * 2;
+		logo.angle = splashText.angle = Math.sin(this.elapsedTime * Constants.TO_RADIANS * 45 / 2) * 2;
 		displayedLogoScale = FlxMath.lerp(displayedLogoScale, GameLogo.logoScale, elapsed * 10);
-		var leScale = displayedLogoScale - Math.pow(Math.sin(elapsedTime * Constants.TO_RADIANS * 45 / 4), 2) * 0.05;
+		var leScale = displayedLogoScale - Math.pow(Math.sin(this.elapsedTime * Constants.TO_RADIANS * 45 / 4), 2) * 0.05;
 		logo.scale.set(leScale, leScale);
 
 		splashText.x = logo.x + (logo.width - splashText.width) / 2;
-		var splashTextScale = 1 + Math.abs(Math.sin(elapsedTime * Constants.TO_RADIANS * 360)) * 0.05;
+		var splashTextScale = 1 + Math.abs(Math.sin(this.elapsedTime * Constants.TO_RADIANS * 360)) * 0.05;
 		splashText.scale.set(splashTextScale, splashTextScale);
 		if (finishedAnimation) {
 			if (FlxG.mouse.overlaps(logo) && FlxG.mouse.justPressed) {
