@@ -6,6 +6,7 @@ import shaders.SpriteTintShader;
 import shaders.GaussianBlurShader;
 import openfl.filters.ShaderFilter;
 import shaders.BloomShader;
+import flixel.addons.effects.FlxTrail;
 
 class PrincessPowerStartupState extends SuffState {
 	var allowToSkip:Bool = false;
@@ -15,24 +16,38 @@ class PrincessPowerStartupState extends SuffState {
 	var pole:FlxSprite;
 	var ajuniga:FlxSprite;
 	var glitter:FlxBackdrop;
+	var bodyDressedShadow:FlxTrail;
 	var dressWidthQuant:Int = 8;
 	var dressWidths:Array<Int> = [0, 8, 8, 24, 24, 40, 104, 160, 168, 168, 168, 136, 136, 160, 184, 224, 240, 248, 264, 272, 280, 304, 320, 328, 400, 592, 592, 592, 592, 576, 536, 528, 528, 360, 352, 344, 336, 328, 320, 320, 328, 336, 352, 336, 336, 344, 312, 304, 304, 304, 304, 304, 288, 272, 264, 256, 256, 256, 272, 272, 272, 272, 272, 272, 272, 272, 272, 280, 280, 280, 280, 280, 280, 272, 240, 216, 208, 208, 208, 232, 224, 208, 200, 120, 0];
 	// i give up bro (i made this in python instead)
 
+	var camGame:FlxCamera;
+	var camHUD:FlxCamera;
+
 	public override function create() {
+		camGame = new FlxCamera(0, 0, FlxG.width, FlxG.height);
+		camHUD = new FlxCamera(0, 0, FlxG.width, FlxG.height);
+		camGame.bgColor = 0xFF000000;
+		camHUD.bgColor.alpha = 0;
+
+		FlxG.cameras.reset(camGame);
+		FlxG.cameras.add(camHUD, false);
+
+		FlxG.cameras.setDefaultDrawTarget(camGame, true);
+		
 		super.create();
 
 		WindowUtil.setTitle('A DRESS MOST EXQUISITE YOUR HIGHNESS');
 		if (Preferences.data.enableGLSL) {
-			this.camera.filters = [];
+			camGame.filters = [];
 			var bloomShader:BloomShader = new BloomShader(1.0, 4.0, 0.0);
 			bloomShader.direction = [1.0, 0.25];
 			if (!Preferences.data.decreaseDetail) {
 				var blurShader:GaussianBlurShader = new GaussianBlurShader(4);
 				blurShader.direction = [1.0, 0.25];
-				this.camera.filters.push(new ShaderFilter(blurShader));
+				camGame.filters.push(new ShaderFilter(blurShader));
 			}
-			this.camera.filters.push(new ShaderFilter(bloomShader));
+			camGame.filters.push(new ShaderFilter(bloomShader));
 		}
 
 		glitter = new FlxBackdrop(Paths.getImage('ui/menus/easterEggStartups/princesspower/glitter'), Y);
@@ -61,15 +76,28 @@ class PrincessPowerStartupState extends SuffState {
 		ajuniga.origin.y = ajuniga.height * 0.475;
 		ajuniga.y += 40;
 		ajuniga.scale.set(0, 0);
+		ajuniga.camera = camHUD;
 
 		glitter.antialiasing = ajuniga.antialiasing = body.antialiasing = bodyDressed.antialiasing = head.antialiasing = pole.antialiasing = !Preferences.data.enableForcedAliasing;
+
+		bodyDressedShadow = new FlxTrail(body, null, 10, 2, 0.325, 0.05);
+		bodyDressedShadow.color = 0xFF00C060;
 		
 		add(glitter);
-		add(ajuniga);
+		add(bodyDressedShadow);
 		add(body);
 		add(bodyDressed);
 		add(head);
 		add(pole);
+
+		var leftBar = new FlxSprite().makeGraphic(Std.int((FlxG.width - FlxG.width * 3 / 4) / 2), FlxG.height, 0xFF000000);
+		leftBar.camera = camHUD;
+		add(leftBar);
+		var rightBar = new FlxSprite().makeGraphic(Std.int((FlxG.width - FlxG.width * 3 / 4) / 2), FlxG.height, 0xFF000000);
+		rightBar.x = FlxG.width - rightBar.width;
+		rightBar.camera = camHUD;
+		add(rightBar);
+		add(ajuniga);
 
 		FlxG.camera.flash(0xFFFFFFFF, 0.25);
 		glitter.alpha = 1;
@@ -127,32 +155,7 @@ class PrincessPowerStartupState extends SuffState {
 		head.offset.y = bodyDressed.offset.y = pole.offset.y = body.offset.y;
 		super.update(elapsed);
 		
-		if (spawnShadowTick > -1) {
-			spawnShadowTick -= elapsed;
-			if (spawnShadowTick <= 0) {
-				var shadow:FlxSprite;
-				if (tfFinished)
-					shadow = bodyDressed.clone();
-				else
-					shadow = body.clone();
-				shadow.clipRect = null;
-				shadow.x = body.x;
-				shadow.y = body.y;
-				shadow.offset.copyFrom(body.offset);
-				shadow.origin.copyFrom(body.origin);
-				shadow.scale.copyFrom(body.scale);
-				shadow.color = 0xFF000000;
-				shadow.alpha = 0.5;
-				shadow.blend = OVERLAY;
-				FlxTween.tween(shadow, {alpha: 0}, 0.25, {
-					onComplete: function(_) {
-						shadow.destroy();
-					}
-				});
-				members.insert(members.indexOf(body) - 1, shadow);
-				spawnShadowTick = 1 / 30;
-			}
-		}
+		
 		if (startTf) {
 			bodyDressed.clipRect.height += elapsed * body.height / (60 / 170 * 16);
 			spawnSparkleTick -= elapsed;
@@ -171,6 +174,11 @@ class PrincessPowerStartupState extends SuffState {
 				spawnSparkleTick = 0.1;
 			}
 			if (bodyDressed.clipRect.height >= body.height) {
+				remove(bodyDressedShadow);
+				bodyDressedShadow.destroy();
+				bodyDressedShadow = new FlxTrail(bodyDressed, null, 10, 3, 0.325, 0.05);
+				bodyDressedShadow.color = 0xFF00C060;
+				members.insert(members.indexOf(bodyDressed) - 1, bodyDressedShadow);
 				bodyDressed.clipRect.height = bodyDressed.height;
 				allowToSkip = false;
 				startTf = false;
