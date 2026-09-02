@@ -158,6 +158,7 @@ class GalleryEntryState extends SuffState {
 	}
 
 	function toggleCharacter() {
+		characterButton.disabled = true;
 		showingCharacter = !showingCharacter;
 		if (showingCharacter) {
 			FlxTween.cancelTweensOf(render);
@@ -171,7 +172,10 @@ class GalleryEntryState extends SuffState {
 					characterHitbox.visible = character.getPressurePercentage() <= 1;
 					character.disableBellySounds = character.getPressurePercentage() > 1;
 					FlxTween.tween(character, {x: FlxG.width * 0.75}, 0.25, {
-						ease: FlxEase.quintOut
+						ease: FlxEase.quintOut,
+						onComplete: function(_) {
+							characterButton.disabled = false;
+						}
 					});
 				}
 			});
@@ -184,7 +188,10 @@ class GalleryEntryState extends SuffState {
 				ease: FlxEase.quintOut,
 				onComplete: function(_) {
 					FlxTween.tween(render, {x: FlxG.width / 2 + (FlxG.width / 2 - render.width) / 2}, 0.25, {
-						ease: FlxEase.quintOut
+						ease: FlxEase.quintOut,
+						onComplete: function(_) {
+							characterButton.disabled = false;
+						}
 					});
 				}
 			});
