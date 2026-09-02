@@ -262,8 +262,8 @@
     "option.enableForcedAliasing.description": "即使人物启用抗锯齿功能，也会停用它所有图案的抗锯齿效果。会导致某些图形出现锯齿状边缘。",
     "option.enableGLSL.name": "GLSL着色器",
     "option.enableGLSL.description": "为部分菜单元素启用GLSL着色器。停用此功能可减轻低端GPU的负载。",
-    "option.alwaysPlayMainMenuAnims.name": "生动主菜单",
-    "option.alwaysPlayMainMenuAnims.description": "常在主菜单中播放启动动画。",
+    "option.alwaysPlayMenuAnims.name": "生动菜单",
+    "option.alwaysPlayMenuAnims.description": "常在菜单中播放启动动画（如果适用）。",
     "option.showMusicToast.name": "音乐提示通知",
     "option.showMusicToast.description": "播放背景音乐时，会显示音乐名称及其作者的通知。",
     "option.enableLetterbox.name": "黑边",
@@ -406,7 +406,7 @@
     // Manager's Lounge: The context is that four people, either motivated by a better life or forced by their higher-ups, are
     // offered a place as a game participant to satisfy the manager's desires.
     "stage.reloaded.name": "休息室",
-    "stage.reloaded.description": "这场景⋯是色情片的拍摄现场吧？恭喜你，答对了，摄像机还正转着呢。",
+    "stage.reloaded.description": "这场景⋯是色情片的拍摄现场吧？答对了，摄像机还正转着呢。",
     // Shitfucks Café: Named Shitfucks. The exact coffee shop that Chester works at.
     // Sells coffee that inflates people, and agreed to host horrible shit like this. Disgusting.
     // Again, transliterate Shitfucks.
@@ -768,16 +768,16 @@
         "正在载入",
         "请稍等一下",
         "请耐心等待",
-        "设置中",
-        "正在摆放家具",
-        "正在补充弹药",
-        "正在包扎伤口",
-        "正在招募玩家",
-        "正在给玩家放气",
-        "正在准备茶点",
-        "正在为茶点下药"
+        "设置中"
     ],
     "loading.messagesRare": [
+		"正在摆放家具",
+		"正在补充弹药",
+		"正在包扎伤口",
+		"正在招募玩家",
+		"正在给玩家放气",
+		"正在准备茶点",
+		"正在为茶点下药",
         "正在卸载并重新载入所有东西",
         "正在报警",
         "正在启动地狱机器",

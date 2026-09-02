@@ -51,6 +51,8 @@ class PrincessPowerStartupState extends SuffState {
 		}
 
 		glitter = new FlxBackdrop(Paths.getImage('ui/menus/easterEggStartups/princesspower/glitter'), Y);
+		glitter.scale.set(1.1, 1.1);
+		glitter.updateHitbox();
 		glitter.screenCenter(X);
 		glitter.alpha = 0;
 		glitter.velocity.y = FlxG.height * 2;
@@ -80,7 +82,7 @@ class PrincessPowerStartupState extends SuffState {
 
 		glitter.antialiasing = ajuniga.antialiasing = body.antialiasing = bodyDressed.antialiasing = head.antialiasing = pole.antialiasing = !Preferences.data.enableForcedAliasing;
 
-		bodyDressedShadow = new FlxTrail(body, null, 10, 2, 0.325, 0.05);
+		bodyDressedShadow = new FlxTrail(body, null, 15, 4, 0.3, 0.02);
 		bodyDressedShadow.color = 0xFF00C060;
 		
 		add(glitter);
@@ -176,7 +178,7 @@ class PrincessPowerStartupState extends SuffState {
 			if (bodyDressed.clipRect.height >= body.height) {
 				remove(bodyDressedShadow);
 				bodyDressedShadow.destroy();
-				bodyDressedShadow = new FlxTrail(bodyDressed, null, 10, 3, 0.325, 0.05);
+				bodyDressedShadow = new FlxTrail(bodyDressed, null, 15, 4, 0.3, 0.02);
 				bodyDressedShadow.color = 0xFF00C060;
 				members.insert(members.indexOf(bodyDressed) - 1, bodyDressedShadow);
 				bodyDressed.clipRect.height = bodyDressed.height;

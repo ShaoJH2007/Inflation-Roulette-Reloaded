@@ -237,8 +237,8 @@
 	"option.enableForcedAliasing.description": "即使人物啟用抗鋸齒功能，也會停用它所有圖案的抗鋸齒效果。會導致某些圖形出現鋸齒狀邊緣。",
 	"option.enableGLSL.name": "GLSL著色器",
 	"option.enableGLSL.description": "啟用高品質GLSL著色器。停用此選項將保留必要、低消耗的著色器，從而為低階GPU減輕負載。",
-	"option.alwaysPlayMainMenuAnims.name": "生動主選單",
-	"option.alwaysPlayMainMenuAnims.description": "常在主選單中播放啟動動畫。",
+	"option.alwaysPlayMenuAnims.name": "生動選單",
+	"option.alwaysPlayMenuAnims.description": "常在選單中播放啟動動畫（如果適用）。",
 	"option.showMusicToast.name": "音樂提示通知",
 	"option.showMusicToast.description": "播放背景音樂時，會顯示音樂名稱及其作者的通知。",
 	"option.enableLetterbox.name": "黑邊",
@@ -664,16 +664,16 @@
 		"正在載上",
 		"請稍等一下",
 		"請耐心等待",
-		"設定中",
+		"設定中"
+	],
+	"loading.messagesRare": [
 		"正在擺放家具",
 		"正在補充彈藥",
 		"正在包紮傷口",
 		"正在招募玩家",
 		"正在給玩家放氣",
 		"正在準備茶點",
-		"正在為茶點下藥"
-	],
-	"loading.messagesRare": [
+		"正在為茶點下藥",
 		"正在卸載並重新載入所有東西",
 		"正在報警",
 		"正在啟動地獄機器",

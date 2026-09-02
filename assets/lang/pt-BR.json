@@ -261,8 +261,8 @@
 	"option.enableForcedAliasing.description": "Desativa antiserrilhamento de todas as sprites mesmo com ele ligado. Pode deixar alguns gráficos pixelados.",
 	"option.enableGLSL.name": "Shaders GLSL",
 	"option.enableGLSL.description": "Ativa GLSL shaders de alta qualidade. Desativar essa opção mantém apenas shaders essenciais de baixa intensidade ativados, o que pode reduzir a carga em GPUs mais fracas.",
-	"option.alwaysPlayMainMenuAnims.name": "Animações no Menu Principal",
-	"option.alwaysPlayMainMenuAnims.description": "Sempre reproduzir animações de inicialização no Menu Principal.",
+	"option.alwaysPlayMenuAnims.name": "Animações do Menu",
+	"option.alwaysPlayMenuAnims.description": "Sempre executar animações de inicialização em todos os menus (se aplicaveis).",
 	"option.showMusicToast.name": "Notificação Visual da Música",
 	"option.showMusicToast.description": "Uma notificação contendo o nome and e autor da música tocando no plano de fundo será exibida sempre que uma faixa começar a tocar.",
 	"option.enableLetterbox.name": "Letterboxing",
@@ -767,16 +767,16 @@
 		"Carregando",
 		"Por favor aguarde",
 		"Por favor, seja paciente",
-		"Preparando coisas",
+		"Preparando coisas"
+	],
+	"loading.messagesRare": [
 		"Posicionando mobília",
 		"Recarregando balas",
 		"Dando curativos em abdômens",
 		"Recrutando participantes",
 		"Desinflando participantes",
 		"Preparando refrescos",
-		"Batizando refrescos"
-	],
-	"loading.messagesRare": [
+		"Batizando refrescos",
 		"Descarregando e recarregando tudo",
 		"Chamando a polícia",
 		"Acionando a máquina infernal",

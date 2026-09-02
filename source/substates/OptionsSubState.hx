@@ -205,9 +205,9 @@ class OptionsSubState extends SuffSubState {
 			Preferences.data.hideTooltip = value;
 		}, Preferences.data.hideTooltip);
 
-		createBooleanOption('alwaysPlayMainMenuAnims', function(value:Bool) {
-			Preferences.data.alwaysPlayMainMenuAnims = value;
-		}, Preferences.data.alwaysPlayMainMenuAnims);
+		createBooleanOption('alwaysPlayMenuAnims', function(value:Bool) {
+			Preferences.data.alwaysPlayMenuAnims = value;
+		}, Preferences.data.alwaysPlayMenuAnims);
 
 		/*
 		createBooleanOption('showMusicToast',

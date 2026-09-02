@@ -9,7 +9,7 @@ import openfl.filters.ShaderFilter;
 import shaders.GrayscaleShader;
 
 class SuffState extends FlxUIState {
-	public static var currentMusicName:String = '';
+	public static var currentMusicId:String = '';
 	public static var currentMusicBPM:Float = 0;
 	public var elapsedTime:Float = 0;
 
@@ -27,17 +27,17 @@ class SuffState extends FlxUIState {
 	public static function playMusic(tag:String, volume:Float = 1, forceRestart:Bool = false) {
 		var usedTag:String = tag;
 		if (usedTag == '' || usedTag == 'null') {
-			currentMusicName = 'null';
+			currentMusicId = 'null';
 			return;
 		}
-		if (!forceRestart && currentMusicName == usedTag)
+		if (!forceRestart && currentMusicId == usedTag)
 			return;
 		//trace(Paths.getMusicPath(usedTag));
 		if (!Paths.fileExists(Paths.getMusicPath(usedTag))) {
 			trace('Music [$usedTag] cannot be found. Skipping');
 			return;
 		}
-		currentMusicName = usedTag;
+		currentMusicId = usedTag;
 		FlxG.sound.playMusic(Paths.getMusic(usedTag), volume * Preferences.data.musicVolume);
 		var metadata:MusicMetadata = Paths.getMusicMetadata(usedTag);
 		/*

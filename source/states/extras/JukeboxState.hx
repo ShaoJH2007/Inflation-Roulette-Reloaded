@@ -55,7 +55,7 @@ class JukeboxState extends SuffState {
 			bar.x = (FlxG.width - bar.width) / 2;
 			barGroup.add(bar);
 		}
-		curPage = list.indexOf(SuffState.currentMusicName);
+		curPage = list.indexOf(SuffState.currentMusicId);
 		maxPage = list.length - 1;
 		changePage();
 		bg.color = FlxColor.fromString(barGroup.members[curPage].album.color);

@@ -262,8 +262,8 @@
 	"option.enableForcedAliasing.description": "Disables antialiasing from all sprites even when enabled. May make some graphics look jagged.",
 	"option.enableGLSL.name": "GLSL Shaders",
 	"option.enableGLSL.description": "Enables high-quality GLSL shaders. Disabling this keeps essential, low-intensive shaders which can reduce load on low-end GPUs.",
-	"option.alwaysPlayMainMenuAnims.name": "Main Menu Animations",
-	"option.alwaysPlayMainMenuAnims.description": "Always play startup animations in the Main Menu.",
+	"option.alwaysPlayMenuAnims.name": "Menu Animations",
+	"option.alwaysPlayMenuAnims.description": "Always play startup animations in all menus (if applicable).",
 	"option.showMusicToast.name": "Music Toast",
 	"option.showMusicToast.description": "A notification containing the current background music name and its author will be shown whenever a music track is played.",
 	"option.enableLetterbox.name": "Letterboxing",
@@ -768,16 +768,16 @@
 		"Loading",
 		"Please wait",
 		"Please be patient",
-		"Setting things up",
+		"Setting things up"
+	],
+	"loading.messagesRare": [
 		"Placing furniture",
 		"Refilling bullets",
 		"Patching abdomens",
 		"Recruiting participants",
 		"Deflating participants",
 		"Preparing refreshments",
-		"Spiking refreshments"
-	],
-	"loading.messagesRare": [
+		"Spiking refreshments",
 		"Unloading then reloading everything",
 		"Calling the police",
 		"Running the hell machine",

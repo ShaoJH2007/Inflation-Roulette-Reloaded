@@ -28,7 +28,9 @@ class Liquid extends FlxSprite {
 				this.origin.x = this.width / 2;
 				this.origin.y = this.height * 0.25;
 				FlxTween.tween(this.scale, {x: 0, y: 0}, 2, {
-					onComplete: function(_) this.destroy(),
+					onComplete: function(_) {
+						this.destroy();
+					},
 					startDelay: FlxG.random.float(2, 5)
 				});
 

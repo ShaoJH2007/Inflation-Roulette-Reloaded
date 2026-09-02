@@ -395,7 +395,7 @@ class Character extends FlxSprite {
 						liquid.velocity.set(liquidVelocity.x, liquidVelocity.y);
 						liquid.color = Gameplay.currentFiller.liquidColor;
 						if (PlayState?.instance != null) {
-							FlxG.state.insert(PlayState.instance.members.indexOf(PlayState.instance.characterGroup) + 1, liquid);
+							FlxG.state.insert(PlayState.instance.members.indexOf(this) + 1, liquid);
 						} else {
 							FlxG.state.add(liquid);
 						}
@@ -420,7 +420,7 @@ class Character extends FlxSprite {
 							liquid.velocity.set(liquidVelocity.x, liquidVelocity.y);
 							liquid.color = Gameplay.currentFiller.gasColor;
 							if (PlayState?.instance != null) {
-								FlxG.state.insert(PlayState.instance.members.indexOf(PlayState.instance.characterGroup) + 1, liquid);
+								FlxG.state.insert(PlayState.instance.members.indexOf(this) + 1, liquid);
 							} else {
 								FlxG.state.add(liquid);
 							}
@@ -446,7 +446,7 @@ class Character extends FlxSprite {
 							liquid.velocity.set(liquidVelocity.x, liquidVelocity.y);
 							liquid.color = Gameplay.currentFiller.liquidColor;
 							if (PlayState?.instance != null) {
-								FlxG.state.insert(PlayState.instance.members.indexOf(PlayState.instance.characterGroup) + 1, liquid);
+								FlxG.state.insert(PlayState.instance.members.indexOf(this) + 1, liquid);
 							} else {
 								FlxG.state.add(liquid);
 							}

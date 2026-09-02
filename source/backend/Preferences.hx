@@ -13,7 +13,7 @@ class SaveVariables {
 	public var enableDebugKeybinds:Bool = false;
 	public var enablePhotosensitiveMode:Bool = false;
 	public var enableForcedAliasing:Bool = false;
-	public var alwaysPlayMainMenuAnims:Bool = false;
+	public var alwaysPlayMenuAnims:Bool = false;
 	public var cameraSpeed:Float = 0.75;
 	public var cameraEffectIntensity:Float = 1;
 	public var screenSafeArea:Float = 0;

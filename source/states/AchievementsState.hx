@@ -179,7 +179,7 @@ class AchievementsState extends SuffState {
 
 		SuffState.playMusic('achievements');
 
-		if (!initialized || Preferences.data.alwaysPlayMainMenuAnims) {
+		if (!initialized || Preferences.data.alwaysPlayMenuAnims) {
 			var black = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0xFF000000);
 			black.scrollFactor.set();
 			add(black);

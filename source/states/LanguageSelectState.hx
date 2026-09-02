@@ -211,7 +211,7 @@ class LanguageSelectState extends SuffState {
 		githubButton.visible = false;
 		add(githubButton);
 
-		if ((!initialized || Preferences.data.alwaysPlayMainMenuAnims) && !atWarningState) {
+		if ((!initialized || Preferences.data.alwaysPlayMenuAnims) && !atWarningState) {
 			initialized = true;
 
 			SuffState.playMusic('null');

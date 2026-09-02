@@ -25,6 +25,7 @@ import backend.VersionUtil;
 import states.debug.ReadySignTestState;
 import backend.ScoringUtil;
 import backend.ScoringUtil.ScoringUtil.judgeGame;
+import ui.SuffState;
 
 class MainMenuState extends SuffState {
 	public static var initialized:Bool = false;
@@ -73,7 +74,7 @@ class MainMenuState extends SuffState {
 
 		WindowUtil.setTitle(Language.getPhrase('mainMenu.windowDisplay'));
 
-		if (FlxG.sound.music == null || SuffState.currentMusicName == 'null') { // idk lmao
+		if (FlxG.sound.music == null || SuffState.currentMusicId == 'null') { // idk lmao
 			SuffState.playMusic('mainMenu');
 		}
 
@@ -182,7 +183,7 @@ class MainMenuState extends SuffState {
 			}
 		}
 
-		if (!initialized || Preferences.data.alwaysPlayMainMenuAnims)
+		if (!initialized || Preferences.data.alwaysPlayMenuAnims)
 			runFirstStartupTweens();
 		if (!initialized) {
 			persistentDraw = true;
@@ -395,7 +396,7 @@ class MainMenuState extends SuffState {
 		logo.scale.set(leScale, leScale);
 
 		splashText.x = logo.x + (logo.width - splashText.width) / 2;
-		var splashTextScale = 1 + Math.abs(Math.sin(this.elapsedTime * Constants.TO_RADIANS * 360)) * 0.05;
+		var splashTextScale = 1 + Math.abs(Math.sin((FlxG.sound.music.time - FlxG.sound.music.loopTime) * 0.001 / (60 / SuffState.currentMusicBPM) * Constants.TO_RADIANS * 180)) * 0.05;
 		splashText.scale.set(splashTextScale, splashTextScale);
 		if (finishedAnimation) {
 			if (FlxG.mouse.overlaps(logo) && FlxG.mouse.justPressed) {

@@ -66,6 +66,11 @@ class CreditsState extends SuffState {
 			'default'
 		],
 		[
+			'Ponderz!',
+			'',
+			'default'
+		],
+		[
 			'Target',
 			'',
 			'default'
