@@ -24,8 +24,10 @@ class Sparkle extends FlxSprite {
 		animation.onFinish.add(function(_) {
 			if (finishCallback != null)
 				finishCallback(this);
-			else
+			else {
+				FlxG.state.remove(this);
 				this.destroy();
+			}
 		});
 	}
 

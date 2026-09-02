@@ -25,7 +25,7 @@ class ConfettiEmitter extends FlxTypedEmitter<Confetti> {
 		start(true, !Preferences.data.decreaseDetail ? 0.1 : 0.05, 0);
 	}
 
-	override function update(elapsed:Float) {
+	public override function update(elapsed:Float) {
 		super.update(elapsed);
 	}
 }

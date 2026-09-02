@@ -16,6 +16,7 @@ class Bloosh extends FlxSprite {
 		this.alpha = 0.75;
 		animation.play('idle', true);
 		animation.onFinish.add(function(_) {
+			FlxG.state.remove(this);
 			this.destroy();
 		});
 	}

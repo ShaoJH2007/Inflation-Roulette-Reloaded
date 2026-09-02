@@ -29,6 +29,7 @@ class Liquid extends FlxSprite {
 				this.origin.y = this.height * 0.25;
 				FlxTween.tween(this.scale, {x: 0, y: 0}, 2, {
 					onComplete: function(_) {
+						FlxG.state.remove(this);
 						this.destroy();
 					},
 					startDelay: FlxG.random.float(2, 5)

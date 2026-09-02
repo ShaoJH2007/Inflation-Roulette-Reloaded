@@ -23,13 +23,14 @@ class PlayerIndicator extends FlxSpriteGroup {
 		offset.y += height;
 
 		FlxTween.tween(this, {alpha: 0}, 1, {startDelay: 3, onComplete: function(_) {
+			FlxG.state.remove(this);
 			this.destroy();
 		}});
 	}
 	
 	var tick:Float = 0;
 
-	override function update(elapsed:Float) {
+	public override function update(elapsed:Float) {
 		super.update(elapsed);
 
 		tick += elapsed;

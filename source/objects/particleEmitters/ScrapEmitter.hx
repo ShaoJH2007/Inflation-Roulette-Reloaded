@@ -25,10 +25,11 @@ class ScrapEmitter extends FlxObject {
 			else
 				FlxG.state.add(scrap);
 		}
+		FlxG.state.remove(this);
 		destroy();
 	}
 
-	override function update(elapsed:Float) {
+	public override function update(elapsed:Float) {
 		super.update(elapsed);
 	}
 }

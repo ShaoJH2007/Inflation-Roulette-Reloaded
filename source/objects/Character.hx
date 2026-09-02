@@ -387,7 +387,7 @@ class Character extends FlxSprite {
 					navelLeakTimer -= elapsed;
 					if (navelLeakTimer < 0) {
 						var intensity = Math.min(1, (currentPressure - navelLeakThreshold + 1) / (maxPressure - navelLeakThreshold + 1));
-						navelLeakTimer = 0.1 / intensity;
+						navelLeakTimer = 0.2 / intensity;
 
 						var liquidVelocity = getParticleVelocity(64 * intensity, 0, 64);
 						var position = getParticleOffset('navel').add(x, y);

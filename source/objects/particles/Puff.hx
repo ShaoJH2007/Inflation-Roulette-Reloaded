@@ -38,6 +38,7 @@ class Puff extends FlxSprite {
 			targetScale -= elapsed / 2;
 		}
 		if (this != null && (scale.x <= 0 || scale.y <= 0)) {
+			FlxG.state.remove(this);
 			this.destroy();
 			return;
 		}

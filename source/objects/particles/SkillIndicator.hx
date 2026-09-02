@@ -14,11 +14,13 @@ class SkillIndicator extends FlxSprite {
 		FlxTween.tween(this, {y: originalY - 60}, 0.5, {ease: FlxEase.expoOut, onComplete: function(_) {
 			if (!Preferences.data.enablePhotosensitiveMode) {
 				FlxFlicker.flicker(this, 0.5, 1 / 30, function(_) {
+					FlxG.state.remove(this);
 					this.destroy();
 				});
 			} else {
 				FlxTween.tween(this, {alpha: 0}, 0.5, {
 					onComplete: function(_) {
+						FlxG.state.remove(this);
 						this.destroy();
 					}
 				});
@@ -26,7 +28,7 @@ class SkillIndicator extends FlxSprite {
 		}});
 	}
 
-	override function update(elapsed:Float) {
+	public override function update(elapsed:Float) {
 		super.update(elapsed);
 	}
 }

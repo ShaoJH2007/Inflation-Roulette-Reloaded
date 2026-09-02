@@ -17,7 +17,7 @@ class SparkleEmitter extends FlxTypedSpriteContainer<Sparkle> {
 		this.spawnHeight = height;
 	}
 
-	override function update(elapsed:Float) {
+	public override function update(elapsed:Float) {
 		super.update(elapsed);
 
 		if (parent != null) {
