@@ -158,12 +158,12 @@ class LanguageSelectState extends SuffState {
 		if (languageButtons.height <= FlxG.height - 64 - ScreenSafeArea.Y * 2)
 			languageButtons.screenCenter(Y);
 		else {
-			languageButtons.y = 32;
+			languageButtons.y = 32 + ScreenSafeArea.Y;
 			scrollBar = new SuffScrollBar(languageOverlay.x + languageOverlay.width, 0, function(percent:Float) {
 				languageButtons.y = FlxMath.lerp(32 + ScreenSafeArea.Y, FlxG.height - languageButtons.height - 32 - ScreenSafeArea.Y, percent);
-			}, 16, languageButtons.height);
+			}, 16, languageButtons.height + (32 + ScreenSafeArea.Y) * 2);
 			scrollBar.visible = false;
-			scrollBar.color = textColor;
+			scrollBar.color = FlxColor.interpolate(textColor, leBGColor, 0.25);
 			add(scrollBar);
 		}
 		add(languageButtons);
